@@ -9,7 +9,7 @@ and other reduced-redundancy feature sets.
 
 ## Installation
 
-*Note here on CRAN…*
+*Coming to CRAN soon… Stay posted\!*
 
 You can also install `catchEmAll` from GitHub using the following:
 
@@ -36,16 +36,15 @@ the features exist within the larger \>7,700 set that exists in `hctsa`.
 There are three core functions in `catchEmAll` so far (where `ts` is a
 numerical time-series input vector):
 
-1.  `catch22_all(ts)`
+1.  `catch22_all()`
 2.  `catchaMouse16_all()`
-3.  `catch_all_unique()`
+3.  `catch_all()`
 
 The first two functions (`catch22_all()` and `catchaMouse16_all()`)
 automatically calculates individual summary statistics for each of the
-time-series features included in their respective sets. However, there
-are some overlapping features, so the third function
-`catch_all_unique()` fits all the features included in both sets but
-only fits the duplicate features once.
+time-series features included in their respective sets. If you want to
+run all feature calculations in both sets at once, you can use the third
+function `catch_all_unique()` to achieve this.
 
 ### Individual feature calculations
 

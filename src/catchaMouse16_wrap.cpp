@@ -109,150 +109,228 @@ NumericVector R_wrapper_int(NumericVector x, int (*f) (const double*, const int)
 //----------------------- Feature functions -------------------------------
 //-------------------------------------------------------------------------
 
-/*
- double CO_Embed2_Basic_tau_incircle_1_C(double * in, int n)
- {
- return CO_Embed2_Basic_tau_incircle(in, n, 1, -1);
- }
- // [[Rcpp::export]]
- NumericVector CO_Embed2_Basic_tau_incircle_1(NumericVector x) {
-
- return R_wrapper(x, &CO_Embed2_Basic_tau_incircle_1_C, 0);
-
- };
- */
-
-
+//' @param data a numerical time-series input vector
+//' @return scalar value that denotes the calculated time-series statistic
+//' @author Imran Alam
+//' @examples
+//' timeseries <- 1 + 0.5 * 1:100 + arima.sim(list(ma = 0.5), n = 100)
+//' outs <- SY_DriftingMean50_min(timeseries)
+//' @export
+//'
 // [[Rcpp::export]]
-NumericVector DN_HistogramMode_5(NumericVector x)
+NumericVector SY_DriftingMean50_min(NumericVector x)
 {
-  return R_wrapper_double(x, &DN_HistogramMode_5, 1);
+  return R_wrapper_double(x, &SY_DriftingMean50_min, 1);
 }
 
+//' @param data a numerical time-series input vector
+//' @return scalar value that denotes the calculated time-series statistic
+//' @author Imran Alam
+//' @examples
+//' timeseries <- 1 + 0.5 * 1:100 + arima.sim(list(ma = 0.5), n = 100)
+//' outs <- DN_RemovePoints_absclose_05_ac2rat(timeseries)
+//' @export
+//'
 // [[Rcpp::export]]
-NumericVector DN_HistogramMode_10(NumericVector x)
+NumericVector DN_RemovePoints_absclose_05_ac2rat(NumericVector x)
 {
-  return R_wrapper_double(x, &DN_HistogramMode_10, 1);
+  return R_wrapper_double(x, &DN_RemovePoints_absclose_05_ac2rat, 1);
 }
 
+//' @param data a numerical time-series input vector
+//' @return scalar value that denotes the calculated time-series statistic
+//' @author Imran Alam
+//' @examples
+//' timeseries <- 1 + 0.5 * 1:100 + arima.sim(list(ma = 0.5), n = 100)
+//' outs <- AC_nl_036(timeseries)
+//' @export
+//'
 // [[Rcpp::export]]
-NumericVector CO_f1ecac(NumericVector x)
+NumericVector AC_nl_036(NumericVector x)
 {
-  return R_wrapper_int(x, &CO_f1ecac, 1);
+  return R_wrapper_int(x, &AC_nl_036, 1);
 }
 
+//' @param data a numerical time-series input vector
+//' @return scalar value that denotes the calculated time-series statistic
+//' @author Imran Alam
+//' @examples
+//' timeseries <- 1 + 0.5 * 1:100 + arima.sim(list(ma = 0.5), n = 100)
+//' outs <- AC_nl_112(timeseries)
+//' @export
+//'
 // [[Rcpp::export]]
-NumericVector CO_FirstMin_ac(NumericVector x)
+NumericVector AC_nl_112(NumericVector x)
 {
-  return R_wrapper_int(x, &CO_FirstMin_ac, 1);
+  return R_wrapper_int(x, &AC_nl_112, 1);
 }
 
+//' @param data a numerical time-series input vector
+//' @return scalar value that denotes the calculated time-series statistic
+//' @author Imran Alam
+//' @examples
+//' timeseries <- 1 + 0.5 * 1:100 + arima.sim(list(ma = 0.5), n = 100)
+//' outs <- ST_LocalExtrema_n100_diffmaxabsmin(timeseries)
+//' @export
+//'
 // [[Rcpp::export]]
-NumericVector CO_HistogramAMI_even_2_5(NumericVector x)
+NumericVector ST_LocalExtrema_n100_diffmaxabsmin(NumericVector x)
 {
-  return R_wrapper_double(x, &CO_HistogramAMI_even_2_5, 1);
+  return R_wrapper_double(x, &ST_LocalExtrema_n100_diffmaxabsmin, 1);
 }
 
+//' @param data a numerical time-series input vector
+//' @return scalar value that denotes the calculated time-series statistic
+//' @author Imran Alam
+//' @examples
+//' timeseries <- 1 + 0.5 * 1:100 + arima.sim(list(ma = 0.5), n = 100)
+//' outs <- CO_TranslateShape_circle_35_pts_statav4_m(timeseries)
+//' @export
+//'
 // [[Rcpp::export]]
-NumericVector CO_trev_1_num(NumericVector x)
+NumericVector CO_TranslateShape_circle_35_pts_statav4_m(NumericVector x)
 {
-  return R_wrapper_double(x, &CO_trev_1_num, 1);
+  return R_wrapper_double(x, &CO_TranslateShape_circle_35_pts_statav4_m, 1);
 }
 
+//' @param data a numerical time-series input vector
+//' @return scalar value that denotes the calculated time-series statistic
+//' @author Imran Alam
+//' @examples
+//' timeseries <- 1 + 0.5 * 1:100 + arima.sim(list(ma = 0.5), n = 100)
+//' outs <- CO_TranslateShape_circle_35_pts_std(timeseries)
+//' @export
+//'
 // [[Rcpp::export]]
-NumericVector MD_hrv_classic_pnn40(NumericVector x)
+NumericVector CO_TranslateShape_circle_35_pts_std(NumericVector x)
 {
-  return R_wrapper_double(x, &MD_hrv_classic_pnn40, 1);
+  return R_wrapper_double(x, &CO_TranslateShape_circle_35_pts_std, 1);
 }
 
+//' @param data a numerical time-series input vector
+//' @return scalar value that denotes the calculated time-series statistic
+//' @author Imran Alam
+//' @examples
+//' timeseries <- 1 + 0.5 * 1:100 + arima.sim(list(ma = 0.5), n = 100)
+//' outs <- SC_FluctAnal_2_dfa_50_2_logi_r2_se2(timeseries)
+//' @export
+//'
 // [[Rcpp::export]]
-NumericVector SB_BinaryStats_mean_longstretch1(NumericVector x)
+NumericVector SC_FluctAnal_2_dfa_50_2_logi_r2_se2(NumericVector x)
 {
-  return R_wrapper_double(x, &SB_BinaryStats_mean_longstretch1, 1);
+  return R_wrapper_double(x, &SC_FluctAnal_2_dfa_50_2_logi_r2_se2, 1);
 }
 
+//' @param data a numerical time-series input vector
+//' @return scalar value that denotes the calculated time-series statistic
+//' @author Imran Alam
+//' @examples
+//' timeseries <- 1 + 0.5 * 1:100 + arima.sim(list(ma = 0.5), n = 100)
+//' outs <- IN_AutoMutualInfoStats_diff_20_gaussian_ami8(timeseries)
+//' @export
+//'
 // [[Rcpp::export]]
-NumericVector SB_TransitionMatrix_3ac_sumdiagcov(NumericVector x)
+NumericVector IN_AutoMutualInfoStats_diff_20_gaussian_ami8(NumericVector x)
 {
-  return R_wrapper_double(x, &SB_TransitionMatrix_3ac_sumdiagcov, 1);
+  return R_wrapper_double(x, &IN_AutoMutualInfoStats_diff_20_gaussian_ami8, 1);
 }
 
+//' @param data a numerical time-series input vector
+//' @return scalar value that denotes the calculated time-series statistic
+//' @author Imran Alam
+//' @examples
+//' timeseries <- 1 + 0.5 * 1:100 + arima.sim(list(ma = 0.5), n = 100)
+//' outs <- PH_Walker_momentum_5_w_momentumzcross(timeseries)
+//' @export
+//'
 // [[Rcpp::export]]
-NumericVector PD_PeriodicityWang_th0_01(NumericVector x)
+NumericVector PH_Walker_momentum_5_w_momentumzcross(NumericVector x)
 {
-  return R_wrapper_int(x, &PD_PeriodicityWang_th0_01, 1);
+  return R_wrapper_int(x, &PH_Walker_momentum_5_w_momentumzcross, 1);
 }
 
+//' @param data a numerical time-series input vector
+//' @return scalar value that denotes the calculated time-series statistic
+//' @author Imran Alam
+//' @examples
+//' timeseries <- 1 + 0.5 * 1:100 + arima.sim(list(ma = 0.5), n = 100)
+//' outs <- PH_Walker_biasprop_05_01_sw_meanabsdiff(timeseries)
+//' @export
+//'
 // [[Rcpp::export]]
-NumericVector CO_Embed2_Dist_tau_d_expfit_meandiff(NumericVector x)
+NumericVector PH_Walker_biasprop_05_01_sw_meanabsdiff(NumericVector x)
 {
-  return R_wrapper_double(x, &CO_Embed2_Dist_tau_d_expfit_meandiff, 1);
+  return R_wrapper_double(x, &PH_Walker_biasprop_05_01_sw_meanabsdiff, 1);
 }
 
+//' @param data a numerical time-series input vector
+//' @return scalar value that denotes the calculated time-series statistic
+//' @author Imran Alam
+//' @examples
+//' timeseries <- 1 + 0.5 * 1:100 + arima.sim(list(ma = 0.5), n = 100)
+//' outs <- FC_LoopLocalSimple_mean_stderr_chn(timeseries)
+//' @export
+//'
 // [[Rcpp::export]]
-NumericVector IN_AutoMutualInfoStats_40_gaussian_fmmi(NumericVector x)
+NumericVector FC_LoopLocalSimple_mean_stderr_chn(NumericVector x)
 {
-  return R_wrapper_double(x, &IN_AutoMutualInfoStats_40_gaussian_fmmi, 1);
+  return R_wrapper_double(x, &FC_LoopLocalSimple_mean_stderr_chn, 1);
 }
 
+//' @param data a numerical time-series input vector
+//' @return scalar value that denotes the calculated time-series statistic
+//' @author Imran Alam
+//' @examples
+//' timeseries <- 1 + 0.5 * 1:100 + arima.sim(list(ma = 0.5), n = 100)
+//' outs <- CO_HistogramAMI_even_10_3(timeseries)
+//' @export
+//'
 // [[Rcpp::export]]
-NumericVector FC_LocalSimple_mean1_tauresrat(NumericVector x)
+NumericVector CO_HistogramAMI_even_10_3(NumericVector x)
 {
-  return R_wrapper_double(x, &FC_LocalSimple_mean1_tauresrat, 1);
+  return R_wrapper_double(x, &CO_HistogramAMI_even_10_3, 1);
 }
 
+//' @param data a numerical time-series input vector
+//' @return scalar value that denotes the calculated time-series statistic
+//' @author Imran Alam
+//' @examples
+//' timeseries <- 1 + 0.5 * 1:100 + arima.sim(list(ma = 0.5), n = 100)
+//' outs <- CO_HistogramAMI_even_2_3(timeseries)
+//' @export
+//'
 // [[Rcpp::export]]
-NumericVector DN_OutlierInclude_p_001_mdrmd(NumericVector x)
+NumericVector CO_HistogramAMI_even_2_3(NumericVector x)
 {
-  return R_wrapper_double(x, &DN_OutlierInclude_p_001_mdrmd, 1);
+  return R_wrapper_double(x, &CO_HistogramAMI_even_2_3, 1);
 }
 
+//' @param data a numerical time-series input vector
+//' @return scalar value that denotes the calculated time-series statistic
+//' @author Imran Alam
+//' @examples
+//' timeseries <- 1 + 0.5 * 1:100 + arima.sim(list(ma = 0.5), n = 100)
+//' outs <- AC_nl_035(timeseries)
+//' @export
+//'
 // [[Rcpp::export]]
-NumericVector DN_OutlierInclude_n_001_mdrmd(NumericVector x)
+NumericVector AC_nl_035(NumericVector x)
 {
-  return R_wrapper_double(x, &DN_OutlierInclude_n_001_mdrmd, 1);
+  return R_wrapper_double(x, &AC_nl_035, 1);
 }
 
+//' @param data a numerical time-series input vector
+//' @return scalar value that denotes the calculated time-series statistic
+//' @author Imran Alam
+//' @examples
+//' timeseries <- 1 + 0.5 * 1:100 + arima.sim(list(ma = 0.5), n = 100)
+//' outs <- CO_AddNoise_1_even_10_ami_at_10(timeseries)
+//' @export
+//'
 // [[Rcpp::export]]
-NumericVector SP_Summaries_welch_rect_area_5_1(NumericVector x)
+NumericVector CO_AddNoise_1_even_10_ami_at_10(NumericVector x)
 {
-  return R_wrapper_double(x, &SP_Summaries_welch_rect_area_5_1, 1);
-}
-
-// [[Rcpp::export]]
-NumericVector SB_BinaryStats_diff_longstretch0(NumericVector x)
-{
-  return R_wrapper_double(x, &SB_BinaryStats_diff_longstretch0, 1);
-}
-
-// [[Rcpp::export]]
-NumericVector SB_MotifThree_quantile_hh(NumericVector x)
-{
-  return R_wrapper_double(x, &SB_MotifThree_quantile_hh, 1);
-}
-
-// [[Rcpp::export]]
-NumericVector SC_FluctAnal_2_rsrangefit_50_1_logi_prop_r1(NumericVector x)
-{
-  return R_wrapper_double(x, &SC_FluctAnal_2_rsrangefit_50_1_logi_prop_r1, 1);
-}
-
-// [[Rcpp::export]]
-NumericVector SC_FluctAnal_2_dfa_50_1_2_logi_prop_r1(NumericVector x)
-{
-  return R_wrapper_double(x, &SC_FluctAnal_2_dfa_50_1_2_logi_prop_r1, 1);
-}
-
-// [[Rcpp::export]]
-NumericVector SP_Summaries_welch_rect_centroid(NumericVector x)
-{
-  return R_wrapper_double(x, &SP_Summaries_welch_rect_centroid, 1);
-}
-
-// [[Rcpp::export]]
-NumericVector FC_LocalSimple_mean3_stderr(NumericVector x)
-{
-  return R_wrapper_double(x, &FC_LocalSimple_mean3_stderr, 1);
+  return R_wrapper_double(x, &CO_AddNoise_1_even_10_ami_at_10, 1);
 }
 
 

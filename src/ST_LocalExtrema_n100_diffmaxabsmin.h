@@ -1,5 +1,5 @@
-#ifndef ST_LOCALEXTREMA_H
-#define ST_LOCALEXTREMA_H
+#ifndef ST_LOCALEXTREMA_H_N100
+#define ST_LOCALEXTREMA_H_N100
 
 #include <stdio.h>
 #include <math.h>

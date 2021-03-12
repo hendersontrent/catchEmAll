@@ -1,7 +1,7 @@
-#include "ST_LocalExtrema.h"
+#include "ST_LocalExtrema_n100_diffmaxabsmin.h"
 
 double ST_LocalExtrema_n100_diffmaxabsmin(const double y[], const int size) {
-    
+
     int num_windows = 100;
     int wl = floor(size/num_windows);
     if (wl > size  || wl <= 1) {
@@ -44,6 +44,6 @@ double ST_LocalExtrema_n100_diffmaxabsmin(const double y[], const int size) {
     diffmaxabsmin = diffmaxabsmin/num_windows;
 
     free(y_buff);
-    
+
     return diffmaxabsmin;
 }

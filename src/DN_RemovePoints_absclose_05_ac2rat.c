@@ -4,7 +4,7 @@
 
 #include "stats.h"
 #include "CO_AutoCorr.h"
-#include "DN_RemovePoints.h"
+#include "DN_RemovePoints_absclose_05_ac2rat.h"
 #include "helper_functions.h"
 
 
@@ -24,7 +24,7 @@ int compare_array(const void * a, const void * b) {
 
 // Comparator for integer type, to sort in ascending order
 int compare_int(const void * a, const void * b) {
-    return ( *(const int*)a - *(const int*)b ); 
+    return ( *(const int*)a - *(const int*)b );
 }
 
 // Stores absolute value of y elements in struct array
@@ -45,7 +45,7 @@ double* SUB_acf(const double y[], const int size, double acf[], int lag) {
 }
 
 double DN_RemovePoints_absclose_05_ac2rat(const double y[], const int size) {
-    
+
     // NaN check
     int i;
     for (i = 0; i < size; i++)
@@ -55,15 +55,15 @@ double DN_RemovePoints_absclose_05_ac2rat(const double y[], const int size) {
     // Sort the array with absolute values
     struct array *abs_y = (struct array*) malloc(size * sizeof(struct array));
     abs_array(y, size, abs_y);
-    
+
     qsort(abs_y, size, sizeof(struct array), compare_array);
 
     // get sorted indices and keep first 50% of array
     int keep_size = round(size*0.5);
     int *sorted_ind = (int *) malloc(keep_size * sizeof(int));
-    
+
     for (i = 0; i < keep_size; i++)
-        sorted_ind[i] = abs_y[i].ind;  
+        sorted_ind[i] = abs_y[i].ind;
 
     // sort the indices
     qsort(sorted_ind, keep_size, sizeof(int), compare_int);
@@ -71,7 +71,7 @@ double DN_RemovePoints_absclose_05_ac2rat(const double y[], const int size) {
     double *yTransform = (double *) malloc(keep_size * sizeof(double));
     for (i = 0; i < keep_size; i++)
         yTransform[i] = y[sorted_ind[i]];
-    
+
     int tau[1] = {2};
     double acf_y = *CO_AutoCorr(y, size, tau, 1);
     double acf_yTransform = *CO_AutoCorr(yTransform, keep_size, tau, 1);
@@ -79,7 +79,7 @@ double DN_RemovePoints_absclose_05_ac2rat(const double y[], const int size) {
 
     free(abs_y);
     free(sorted_ind);
-    free(yTransform);    
+    free(yTransform);
 
     return ac2rat;
 }

@@ -4,7 +4,7 @@
 #include <gsl/gsl_randist.h>
 #include <sys/time.h>
 
-#include "CO_AddNoise.h"
+#include "CO_AddNoise_1_even_10_ami_at_10.h"
 #include "helper_functions.h"
 #include "histcounts.h"
 #include "stats.h"
@@ -74,7 +74,7 @@ double CO_AddNoise_1_even_10_ami_at_10(const double y[], const int size) {
     //unsigned long seed = iter;//tv.tv_sec + tv.tv_usec;
     long seed = 0;
     gsl_rng_set(rr, seed);
-    
+
     // twister random generator
     //printf("noise is:\n");
     for (i = 0; i < size; i++)
@@ -83,7 +83,7 @@ double CO_AddNoise_1_even_10_ami_at_10(const double y[], const int size) {
     int numRepeats = 50;
     double *noiseRange = (double*) malloc(numRepeats * sizeof(double));
     linspace(0, 3, numRepeats, noiseRange);
-    
+
 
     double *amis = (double*) malloc(numRepeats * sizeof(double));
     memset(amis, 0, numRepeats * sizeof(double));
@@ -98,7 +98,7 @@ double CO_AddNoise_1_even_10_ami_at_10(const double y[], const int size) {
             return NAN;
         }
     }
-    
+
     double out = 0;
     for (i = 0; i < numRepeats; i++) {
         if (noiseRange[i] >= 1) { // noiseLevel = 1

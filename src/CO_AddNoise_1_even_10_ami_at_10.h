@@ -1,5 +1,5 @@
-#ifndef CO_ADDNOISE_H
-#define CO_ADDNOISE_H
+#ifndef CO_ADDNOISE_1_EVEN_10
+#define CO_ADDNOISE_1_EVEN_10
 
 #define PI 3.141592654
 

@@ -22,19 +22,16 @@
 
 #include "SY_DriftingMean50_min.h"
 #include "DN_RemovePoints_absclose_05_ac2rat.h"
-#include "AC_nl_036.h"
-#include "AC_nl_112.h"
+//#include "AC_nl_036.h"
+//#include "AC_nl_112.h"
 #include "ST_LocalExtrema_n100_diffmaxabsmin.h"
-#include "CO_TranslateShape_circle_35_pts_statav4_m.h"
-#include "CO_TranslateShape_circle_35_pts_std.h"
+#include "CO_TranslateShape.h"
 #include "SC_FluctAnal_2_dfa_50_2_logi_r2_se2.h"
 #include "IN_AutoMutualInfoStats_diff_20_gaussian_ami8.h"
-#include "PH_Walker_momentum_5_w_momentumzcross.h"
-#include "PH_Walker_biasprop_05_01_sw_meanabsdiff.h"
+#include "PH_Walker.h"
 #include "FC_LoopLocalSimple_mean_stderr_chn.h"
-#include "CO_HistogramAMI_even_10_3.h"
-#include "CO_HistogramAMI_even_2_3.h"
-#include "AC_nl_035.h"
+#include "CO_HistogramAMI.h"
+//#include "AC_nl_035.h"
 #include "CO_AddNoise_1_even_10_ami_at_10.h"
 
 #include "stats.h"
@@ -228,15 +225,15 @@ void run_features(double y[], int size, FILE * outfile)
     timeTaken = (double)(clock()-begin)*1000/CLOCKS_PER_SEC;
     fprintf(outfile, "%.14f, %s, %f\n", result, "DN_RemovePoints_absclose_05_ac2rat", timeTaken);
 
-    begin = clock();
-    result = AC_nl_036(y_zscored, size);
-    timeTaken = (double)(clock()-begin)*1000/CLOCKS_PER_SEC;
-    fprintf(outfile, "%.14f, %s, %f\n", result, "AC_nl_036", timeTaken);
+    //begin = clock();
+    //result = AC_nl_036(y_zscored, size);
+    //timeTaken = (double)(clock()-begin)*1000/CLOCKS_PER_SEC;
+    //fprintf(outfile, "%.14f, %s, %f\n", result, "AC_nl_036", timeTaken);
 
-    begin = clock();
-    result = AC_nl_112(y_zscored, size);
-    timeTaken = (double)(clock()-begin)*1000/CLOCKS_PER_SEC;
-    fprintf(outfile, "%.14f, %s, %f\n", result, "AC_nl_112", timeTaken);
+    //begin = clock();
+    //result = AC_nl_112(y_zscored, size);
+    //timeTaken = (double)(clock()-begin)*1000/CLOCKS_PER_SEC;
+    //fprintf(outfile, "%.14f, %s, %f\n", result, "AC_nl_112", timeTaken);
 
     begin = clock();
     result = ST_LocalExtrema_n100_diffmaxabsmin(y_zscored, size);
@@ -288,10 +285,10 @@ void run_features(double y[], int size, FILE * outfile)
     timeTaken = (double)(clock()-begin)*1000/CLOCKS_PER_SEC;
     fprintf(outfile, "%.14f, %s, %f\n", result, "CO_HistogramAMI_even_2_3", timeTaken);
 
-    begin = clock();
-    result = AC_nl_035(y_zscored, size);
-    timeTaken = (double)(clock()-begin)*1000/CLOCKS_PER_SEC;
-    fprintf(outfile, "%.14f, %s, %f\n", result, "AC_nl_035", timeTaken);
+    //begin = clock();
+    //result = AC_nl_035(y_zscored, size);
+    //timeTaken = (double)(clock()-begin)*1000/CLOCKS_PER_SEC;
+    //fprintf(outfile, "%.14f, %s, %f\n", result, "AC_nl_035", timeTaken);
 
     begin = clock();
     result = CO_AddNoise_1_even_10_ami_at_10(y_zscored, size);

@@ -12,8 +12,8 @@ catchaMouse16_all <- function(data){
 
   names <- c('SY_DriftingMean50_min',
              'DN_RemovePoints_absclose_05_ac2rat',
-             'AC_nl_036',
-             'AC_nl_112',
+             #'AC_nl_036',
+             #'AC_nl_112',
              'ST_LocalExtrema_n100_diffmaxabsmin',
              'CO_TranslateShape_circle_35_pts_statav4_m',
              'CO_TranslateShape_circle_35_pts_std',
@@ -24,7 +24,7 @@ catchaMouse16_all <- function(data){
              'FC_LoopLocalSimple_mean_stderr_chn',
              'CO_HistogramAMI_even_10_3',
              'CO_HistogramAMI_even_2_3',
-             'AC_nl_035',
+             #'AC_nl_035',
              'CO_AddNoise_1_even_10_ami_at_10');
 
   values = c();

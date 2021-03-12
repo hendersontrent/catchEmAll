@@ -1,4 +1,4 @@
-#include "FC_LoopLocalSimple.h"
+#include "FC_LoopLocalSimple_mean_stderr_chn.h"
 //#include "CO_AutoCorr.h"
 //#include "SY_SlidingWindow.h"
 #include "stats.h"
@@ -6,6 +6,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
+#include <limits.h>
 
 double FC_LocalSimple(const double y[], const int size, int trainLength) {
 
@@ -51,7 +52,7 @@ double FC_LoopLocalSimple_mean_stderr_chn(const double y[], const int size) {
     for (i = 0; i < size; i++)
         if (isnan(y[i]))
             return NAN;
-    
+
     int trainLengthRange = 10;
     double *stats_st = (double*) malloc(trainLengthRange * sizeof(double)); // 10 x 5 matrix
     double mi = INT_MAX, ma = -INT_MAX;
@@ -65,7 +66,7 @@ double FC_LoopLocalSimple_mean_stderr_chn(const double y[], const int size) {
     double *st_diff = (double*) malloc((trainLengthRange - 1) * sizeof(double));
     diff(stats_st, trainLengthRange, st_diff);
     double stderr_chn = mean(st_diff, trainLengthRange - 1)/ range;
-    
+
     free(stats_st);
     free(st_diff);
 

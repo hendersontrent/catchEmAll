@@ -1,4 +1,4 @@
-#include "SY_DriftingMean.h"
+#include "SY_DriftingMean50_min.h"
 
 double SY_DriftingMean50_min(const double y[], const int size) { // let size = 200
 
@@ -7,7 +7,7 @@ double SY_DriftingMean50_min(const double y[], const int size) { // let size = 2
     for (i = 0; i < size; i++)
         if (isnan(y[i]))
             return NAN;
-        
+
     int l = 50; // Divide the time series into 50-sample segments
     int numFits = floor(size/l); // = 4
 
@@ -32,6 +32,6 @@ double SY_DriftingMean50_min(const double y[], const int size) { // let size = 2
     free(zm);
     free(zv);
     free(z);
-    
-    return out;   
+
+    return out;
 }

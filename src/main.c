@@ -458,10 +458,10 @@ int main2(int argc, char * argv[])
     printf("SY_DriftingMean50_min: %1.f\n", result);
     result = DN_RemovePoints_absclose_05_ac2rat(y, size);
     printf("DN_RemovePoints_absclose_05_ac2rat: %1.f\n", result);
-    result = AC_nl_036(y, size);
-    printf("AC_nl_036: %1.f\n", result);
-    result = AC_nl_112(y, size);
-    printf("AC_nl_112: %1.f\n", result);
+    //result = AC_nl_036(y, size);
+    //printf("AC_nl_036: %1.f\n", result);
+    //result = AC_nl_112(y, size);
+    //printf("AC_nl_112: %1.f\n", result);
     result = ST_LocalExtrema_n100_diffmaxabsmin(y, size);
     printf("ST_LocalExtrema_n100_diffmaxabsmin: %1.f\n", result);
     result = CO_TranslateShape_circle_35_pts_statav4_m(y, size);
@@ -482,8 +482,8 @@ int main2(int argc, char * argv[])
     printf("CO_HistogramAMI_even_10_3: %1.f\n", result);
     result = CO_HistogramAMI_even_2_3(y, size);
     printf("CO_HistogramAMI_even_2_3: %1.f\n", result);
-    result = AC_nl_035(y, size);
-    printf("AC_nl_035: %1.f\n", result);
+    //result = AC_nl_035(y, size);
+    //printf("AC_nl_035: %1.f\n", result);
     result = CO_AddNoise_1_even_10_ami_at_10(y, size);
     printf("CO_AddNoise_1_even_10_ami_at_10: %1.f\n", result);
 

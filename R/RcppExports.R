@@ -3,36 +3,6 @@
 
 #' @param x a numerical time-series input vector
 #' @return scalar value that denotes the calculated time-series statistic
-#' @author Imran Alam
-#' @export
-#' @examples
-#' timeseries <- 1 + 0.5 * 1:100 + arima.sim(list(ma = 0.5), n = 100)
-#' outs <- AC_nl_036(x)
-#'
-NULL
-
-#' @param x a numerical time-series input vector
-#' @return scalar value that denotes the calculated time-series statistic
-#' @author Imran Alam
-#' @export
-#' @examples
-#' timeseries <- 1 + 0.5 * 1:100 + arima.sim(list(ma = 0.5), n = 100)
-#' outs <- AC_nl_112(x)
-#'
-NULL
-
-#' @param x a numerical time-series input vector
-#' @return scalar value that denotes the calculated time-series statistic
-#' @author Imran Alam
-#' @export
-#' @examples
-#' timeseries <- 1 + 0.5 * 1:100 + arima.sim(list(ma = 0.5), n = 100)
-#' outs <- AC_nl_035(x)
-#'
-NULL
-
-#' @param x a numerical time-series input vector
-#' @return scalar value that denotes the calculated time-series statistic
 #' @author Carl H. Lubba
 #' @export
 #' @examples

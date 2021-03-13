@@ -1,4 +1,6 @@
+// [[Rcpp::depends(RcppGSL)]]
 #include <Rcpp.h>
+#include <RcppGSL.h>
 
 // include functions
 extern "C" {
@@ -22,10 +24,6 @@ extern "C" {
 #include "histcounts.h"
 #include "splinefit.h"
 #include "stats.h"
-
-
-// catchaMouse16
-
 #include "SY_DriftingMean50_min.h"
 #include "DN_RemovePoints_absclose_05_ac2rat.h"
 //#include "AC_nl_036.h"
@@ -478,33 +476,13 @@ NumericVector DN_RemovePoints_absclose_05_ac2rat(NumericVector x)
   return R_wrapper_double(x, &DN_RemovePoints_absclose_05_ac2rat, 1);
 }
 
-//' @param x a numerical time-series input vector
-//' @return scalar value that denotes the calculated time-series statistic
-//' @author Imran Alam
-//' @export
-//' @examples
-//' timeseries <- 1 + 0.5 * 1:100 + arima.sim(list(ma = 0.5), n = 100)
-//' outs <- AC_nl_036(x)
-//'
-//
-//NumericVector AC_nl_036(NumericVector x)
-//{
-//  return R_wrapper_int(x, &AC_nl_036, 1);
-//}
 
-//' @param x a numerical time-series input vector
-//' @return scalar value that denotes the calculated time-series statistic
-//' @author Imran Alam
-//' @export
-//' @examples
-//' timeseries <- 1 + 0.5 * 1:100 + arima.sim(list(ma = 0.5), n = 100)
-//' outs <- AC_nl_112(x)
-//'
-//
-//NumericVector AC_nl_112(NumericVector x)
-//{
-//  return R_wrapper_int(x, &AC_nl_112, 1);
-//}
+
+// NOTE: AC_nl_036 TO GO HERE ONCE C CODE IS FOUND
+
+// NOTE: AC_nl_112 TO GO HERE ONCE C CODE IS FOUND
+
+
 
 //' @param x a numerical time-series input vector
 //' @return scalar value that denotes the calculated time-series statistic
@@ -646,19 +624,11 @@ NumericVector CO_HistogramAMI_even_2_3(NumericVector x)
   return R_wrapper_double(x, &CO_HistogramAMI_even_2_3, 1);
 }
 
-//' @param x a numerical time-series input vector
-//' @return scalar value that denotes the calculated time-series statistic
-//' @author Imran Alam
-//' @export
-//' @examples
-//' timeseries <- 1 + 0.5 * 1:100 + arima.sim(list(ma = 0.5), n = 100)
-//' outs <- AC_nl_035(x)
-//'
-//
-//NumericVector AC_nl_035(NumericVector x)
-//{
-//  return R_wrapper_double(x, &AC_nl_035, 1);
-//}
+
+
+// NOTE: AC_nl_035 TO GO HERE ONCE C CODE IS FOUND
+
+
 
 //' @param x a numerical time-series input vector
 //' @return scalar value that denotes the calculated time-series statistic

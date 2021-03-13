@@ -1,0 +1,12 @@
+CXX = g++
+CXXSTD = -std=c++11
+CXXFLAGS = -fsanitize=undefined,address -fno-omit-frame-pointer
+
+CXX98 = g++
+CXX98STD = -std=c++98
+
+CXX11 = g++
+CXX11STD = -std=c++11
+
+CXX14 = g++
+CXX14STD = -std=c++14

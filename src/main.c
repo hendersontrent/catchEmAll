@@ -18,29 +18,13 @@
 #include "SB_TransitionMatrix.h"
 #include "PD_PeriodicityWang.h"
 
-// Addition of catchaMouse16 headers by Trent Henderson, 11 March 2021
-
-#include "SY_DriftingMean50_min.h"
-#include "DN_RemovePoints_absclose_05_ac2rat.h"
-//#include "AC_nl_036.h"
-//#include "AC_nl_112.h"
-#include "ST_LocalExtrema_n100_diffmaxabsmin.h"
-#include "CO_TranslateShape.h"
-#include "SC_FluctAnal_2_dfa_50_2_logi_r2_se2.h"
-#include "IN_AutoMutualInfoStats_diff_20_gaussian_ami8.h"
-#include "PH_Walker.h"
-#include "FC_LoopLocalSimple_mean_stderr_chn.h"
-#include "CO_HistogramAMI.h"
-//#include "AC_nl_035.h"
-#include "CO_AddNoise_1_even_10_ami_at_10.h"
-
 #include "stats.h"
 
-// check if data qualifies to be caught22
+// check if data qualifies to be cought22
 int quality_check(const double y[], const int size)
 {
     int minSize = 40;
-
+    
     if(size < minSize)
     {
         return 1;
@@ -68,237 +52,153 @@ void run_features(double y[], int size, FILE * outfile)
         fprintf(stdout, "Time series quality test not passed (code %i).\n", quality);
         return;
     }
-
+    
     double * y_zscored = malloc(size * sizeof * y_zscored);
-
+    
     // variables to keep time
     clock_t begin;
     double timeTaken;
-
+    
     // output
     double result;
-
+    
     // z-score first for all.
     zscore_norm2(y, size, y_zscored);
-
+    
     // GOOD
     begin = clock();
     result = DN_HistogramMode_5(y_zscored, size);
     timeTaken = (double)(clock()-begin)*1000/CLOCKS_PER_SEC;
     fprintf(outfile, "%.14f, %s, %f\n", result, "DN_HistogramMode_5", timeTaken);
-
+    
     // GOOD
     begin = clock();
     result = DN_HistogramMode_10(y_zscored, size);
     timeTaken = (double)(clock()-begin)*1000/CLOCKS_PER_SEC;
     fprintf(outfile, "%.14f, %s, %f\n", result, "DN_HistogramMode_10", timeTaken);
-
+    
     //GOOD
     begin = clock();
     result = CO_Embed2_Dist_tau_d_expfit_meandiff(y_zscored, size);
     timeTaken = (double)(clock()-begin)*1000/CLOCKS_PER_SEC;
     fprintf(outfile, "%.14f, %s, %f\n", result, "CO_Embed2_Dist_tau_d_expfit_meandiff", timeTaken);
-
+    
     //GOOD (memory leak?)
     begin = clock();
     result = CO_f1ecac(y_zscored, size);
     timeTaken = (double)(clock()-begin)*1000/CLOCKS_PER_SEC;
     fprintf(outfile, "%.14f, %s, %f\n", result, "CO_f1ecac", timeTaken);
-
+    
     //GOOD
     begin = clock();
     result = CO_FirstMin_ac(y_zscored, size);
     timeTaken = (double)(clock()-begin)*1000/CLOCKS_PER_SEC;
     fprintf(outfile, "%.14f, %s, %f\n", result, "CO_FirstMin_ac", timeTaken);
-
+    
     // GOOD (memory leak?)
     begin = clock();
     result = CO_HistogramAMI_even_2_5(y_zscored, size);
     timeTaken = (double)(clock()-begin)*1000/CLOCKS_PER_SEC;
     fprintf(outfile, "%.14f, %s, %f\n", result, "CO_HistogramAMI_even_2_5", timeTaken);
-
+    
     // GOOD
     begin = clock();
     result = CO_trev_1_num(y_zscored, size);
     timeTaken = (double)(clock()-begin)*1000/CLOCKS_PER_SEC;
     fprintf(outfile, "%.14f, %s, %f\n", result, "CO_trev_1_num", timeTaken);
-
+    
     // GOOD
     begin = clock();
     result = DN_OutlierInclude_p_001_mdrmd(y_zscored, size);
     timeTaken = (double)(clock()-begin)*1000/CLOCKS_PER_SEC;
     fprintf(outfile, "%.14f, %s, %f\n", result, "DN_OutlierInclude_p_001_mdrmd", timeTaken);
-
+    
     // GOOD
     begin = clock();
     result = DN_OutlierInclude_n_001_mdrmd(y_zscored, size);
     timeTaken = (double)(clock()-begin)*1000/CLOCKS_PER_SEC;
     fprintf(outfile, "%.14f, %s, %f\n", result, "DN_OutlierInclude_n_001_mdrmd", timeTaken);
-
+    
     //GOOD
     begin = clock();
     result = FC_LocalSimple_mean1_tauresrat(y_zscored, size);
     timeTaken = (double)(clock()-begin)*1000/CLOCKS_PER_SEC;
     fprintf(outfile, "%.14f, %s, %f\n", result, "FC_LocalSimple_mean1_tauresrat", timeTaken);
-
+    
     //GOOD
     begin = clock();
     result = FC_LocalSimple_mean3_stderr(y_zscored, size);
     timeTaken = (double)(clock()-begin)*1000/CLOCKS_PER_SEC;
     fprintf(outfile, "%.14f, %s, %f\n", result, "FC_LocalSimple_mean3_stderr", timeTaken);
-
+    
     //GOOD (memory leak?)
     begin = clock();
     result = IN_AutoMutualInfoStats_40_gaussian_fmmi(y_zscored, size);
     timeTaken = (double)(clock()-begin)*1000/CLOCKS_PER_SEC;
     fprintf(outfile, "%.14f, %s, %f\n", result, "IN_AutoMutualInfoStats_40_gaussian_fmmi", timeTaken);
-
+    
     //GOOD
     begin = clock();
     result = MD_hrv_classic_pnn40(y_zscored, size);
     timeTaken = (double)(clock()-begin)*1000/CLOCKS_PER_SEC;
     fprintf(outfile, "%.14f, %s, %f\n", result, "MD_hrv_classic_pnn40", timeTaken);
-
+    
     //GOOD
     begin = clock();
     result = SB_BinaryStats_diff_longstretch0(y_zscored, size);
     timeTaken = (double)(clock()-begin)*1000/CLOCKS_PER_SEC;
     fprintf(outfile, "%.14f, %s, %f\n", result, "SB_BinaryStats_diff_longstretch0", timeTaken);
-
+    
     //GOOD
     begin = clock();
     result = SB_BinaryStats_mean_longstretch1(y_zscored, size);
     timeTaken = (double)(clock()-begin)*1000/CLOCKS_PER_SEC;
     fprintf(outfile, "%.14f, %s, %f\n", result, "SB_BinaryStats_mean_longstretch1", timeTaken);
-
+    
     //GOOD (memory leak?)
     begin = clock();
     result = SB_MotifThree_quantile_hh(y_zscored, size);
     timeTaken = (double)(clock()-begin)*1000/CLOCKS_PER_SEC;
     fprintf(outfile, "%.14f, %s, %f\n", result, "SB_MotifThree_quantile_hh", timeTaken);
-
+    
     //GOOD (memory leak?)
     begin = clock();
     result = SC_FluctAnal_2_rsrangefit_50_1_logi_prop_r1(y_zscored, size);
     timeTaken = (double)(clock()-begin)*1000/CLOCKS_PER_SEC;
     fprintf(outfile, "%.14f, %s, %f\n", result, "SC_FluctAnal_2_rsrangefit_50_1_logi_prop_r1", timeTaken);
-
+    
     //GOOD
     begin = clock();
     result = SC_FluctAnal_2_dfa_50_1_2_logi_prop_r1(y_zscored, size);
     timeTaken = (double)(clock()-begin)*1000/CLOCKS_PER_SEC;
     fprintf(outfile, "%.14f, %s, %f\n", result, "SC_FluctAnal_2_dfa_50_1_2_logi_prop_r1", timeTaken);
-
+    
     //GOOD
     begin = clock();
     result = SP_Summaries_welch_rect_area_5_1(y_zscored, size);
     timeTaken = (double)(clock()-begin)*1000/CLOCKS_PER_SEC;
     fprintf(outfile, "%.14f, %s, %f\n", result, "SP_Summaries_welch_rect_area_5_1", timeTaken);
-
+    
     //GOOD
     begin = clock();
     result = SP_Summaries_welch_rect_centroid(y_zscored, size);
     timeTaken = (double)(clock()-begin)*1000/CLOCKS_PER_SEC;
     fprintf(outfile, "%.14f, %s, %f\n", result, "SP_Summaries_welch_rect_centroid", timeTaken);
-
-    //OK, BUT filt in Butterworth sometimes diverges, now removed altogether, let's see results.
+    
+    //OK, BUT filt in Butterworth sometimes diverges, now removed alltogether, let's see results.
     begin = clock();
     result = SB_TransitionMatrix_3ac_sumdiagcov(y_zscored, size);
     timeTaken = (double)(clock()-begin)*1000/CLOCKS_PER_SEC;
     fprintf(outfile, "%.14f, %s, %f\n", result, "SB_TransitionMatrix_3ac_sumdiagcov", timeTaken);
-
+    
     // GOOD
     begin = clock();
     result = PD_PeriodicityWang_th0_01(y_zscored, size);
     timeTaken = (double)(clock()-begin)*1000/CLOCKS_PER_SEC;
     fprintf(outfile, "%.14f, %s, %f\n", result, "PD_PeriodicityWang_th0_01", timeTaken);
-
-    // catchaMouse16 additions by Trent Henderson, 11 March 2021
-
-    begin = clock();
-    result = SY_DriftingMean50_min(y_zscored, size);
-    timeTaken = (double)(clock()-begin)*1000/CLOCKS_PER_SEC;
-    fprintf(outfile, "%.14f, %s, %f\n", result, "SY_DriftingMean50_min", timeTaken);
-
-    begin = clock();
-    result = DN_RemovePoints_absclose_05_ac2rat(y_zscored, size);
-    timeTaken = (double)(clock()-begin)*1000/CLOCKS_PER_SEC;
-    fprintf(outfile, "%.14f, %s, %f\n", result, "DN_RemovePoints_absclose_05_ac2rat", timeTaken);
-
-    //begin = clock();
-    //result = AC_nl_036(y_zscored, size);
-    //timeTaken = (double)(clock()-begin)*1000/CLOCKS_PER_SEC;
-    //fprintf(outfile, "%.14f, %s, %f\n", result, "AC_nl_036", timeTaken);
-
-    //begin = clock();
-    //result = AC_nl_112(y_zscored, size);
-    //timeTaken = (double)(clock()-begin)*1000/CLOCKS_PER_SEC;
-    //fprintf(outfile, "%.14f, %s, %f\n", result, "AC_nl_112", timeTaken);
-
-    begin = clock();
-    result = ST_LocalExtrema_n100_diffmaxabsmin(y_zscored, size);
-    timeTaken = (double)(clock()-begin)*1000/CLOCKS_PER_SEC;
-    fprintf(outfile, "%.14f, %s, %f\n", result, "ST_LocalExtrema_n100_diffmaxabsmin", timeTaken);
-
-    begin = clock();
-    result = CO_TranslateShape_circle_35_pts_statav4_m(y_zscored, size);
-    timeTaken = (double)(clock()-begin)*1000/CLOCKS_PER_SEC;
-    fprintf(outfile, "%.14f, %s, %f\n", result, "CO_TranslateShape_circle_35_pts_statav4_m", timeTaken);
-
-    begin = clock();
-    result = CO_TranslateShape_circle_35_pts_std(y_zscored, size);
-    timeTaken = (double)(clock()-begin)*1000/CLOCKS_PER_SEC;
-    fprintf(outfile, "%.14f, %s, %f\n", result, "CO_TranslateShape_circle_35_pts_std", timeTaken);
-
-    begin = clock();
-    result = SC_FluctAnal_2_dfa_50_2_logi_r2_se2(y_zscored, size);
-    timeTaken = (double)(clock()-begin)*1000/CLOCKS_PER_SEC;
-    fprintf(outfile, "%.14f, %s, %f\n", result, "SC_FluctAnal_2_dfa_50_2_logi_r2_se2", timeTaken);
-
-    begin = clock();
-    result = IN_AutoMutualInfoStats_diff_20_gaussian_ami8(y_zscored, size);
-    timeTaken = (double)(clock()-begin)*1000/CLOCKS_PER_SEC;
-    fprintf(outfile, "%.14f, %s, %f\n", result, "IN_AutoMutualInfoStats_diff_20_gaussian_ami8", timeTaken);
-
-    begin = clock();
-    result = PH_Walker_momentum_5_w_momentumzcross(y_zscored, size);
-    timeTaken = (double)(clock()-begin)*1000/CLOCKS_PER_SEC;
-    fprintf(outfile, "%.14f, %s, %f\n", result, "PH_Walker_momentum_5_w_momentumzcross", timeTaken);
-
-    begin = clock();
-    result = PH_Walker_biasprop_05_01_sw_meanabsdiff(y_zscored, size);
-    timeTaken = (double)(clock()-begin)*1000/CLOCKS_PER_SEC;
-    fprintf(outfile, "%.14f, %s, %f\n", result, "PH_Walker_biasprop_05_01_sw_meanabsdiff", timeTaken);
-
-    begin = clock();
-    result = FC_LoopLocalSimple_mean_stderr_chn(y_zscored, size);
-    timeTaken = (double)(clock()-begin)*1000/CLOCKS_PER_SEC;
-    fprintf(outfile, "%.14f, %s, %f\n", result, "FC_LoopLocalSimple_mean_stderr_chn", timeTaken);
-
-    begin = clock();
-    result = CO_HistogramAMI_even_10_3(y_zscored, size);
-    timeTaken = (double)(clock()-begin)*1000/CLOCKS_PER_SEC;
-    fprintf(outfile, "%.14f, %s, %f\n", result, "CO_HistogramAMI_even_10_3", timeTaken);
-
-    begin = clock();
-    result = CO_HistogramAMI_even_2_3(y_zscored, size);
-    timeTaken = (double)(clock()-begin)*1000/CLOCKS_PER_SEC;
-    fprintf(outfile, "%.14f, %s, %f\n", result, "CO_HistogramAMI_even_2_3", timeTaken);
-
-    //begin = clock();
-    //result = AC_nl_035(y_zscored, size);
-    //timeTaken = (double)(clock()-begin)*1000/CLOCKS_PER_SEC;
-    //fprintf(outfile, "%.14f, %s, %f\n", result, "AC_nl_035", timeTaken);
-
-    begin = clock();
-    result = CO_AddNoise_1_even_10_ami_at_10(y_zscored, size);
-    timeTaken = (double)(clock()-begin)*1000/CLOCKS_PER_SEC;
-    fprintf(outfile, "%.14f, %s, %f\n", result, "CO_AddNoise_1_even_10_ami_at_10", timeTaken);
-
-    // Final print
-
+    
     fprintf(outfile, "\n");
-
+    
     free(y_zscored);
 }
 
@@ -322,8 +222,8 @@ int main(int argc, char * argv[])
     double value;
     // DIR *d;
     struct dirent *dir;
-
-
+    
+    
     switch (argc) {
         case 1:
             print_help(argv, "");
@@ -343,18 +243,18 @@ int main(int argc, char * argv[])
             }
             break;
     }
-
+    
     /*
     // debug: fix these.
     infile = fopen("/Users/carl/PycharmProjects/catch22/C/timeSeries/tsid0244.txt", "r");
     outfile = stdout;
      */
-
+    
     // fprintf(outfile, "%s", HEADER);
     array_size = 50;
     size = 0;
     y = malloc(array_size * sizeof *y);
-
+    
     while (fscanf(infile, "%lf", &value) != EOF) {
         if (size == array_size) {
             y = realloc(y, 2 * array_size * sizeof *y);
@@ -368,7 +268,7 @@ int main(int argc, char * argv[])
     run_features(y, size, outfile);
     fclose(outfile);
     free(y);
-
+    
     return 0;
 }
 
@@ -380,7 +280,7 @@ int main2(int argc, char * argv[])
     /*
     // generate some data
     const int size = 31; // 211;
-
+    
     double y[size];
     int i;
     double sinIn=0;
@@ -401,12 +301,12 @@ int main2(int argc, char * argv[])
     while (fscanf(infile, "%lf", &value) != EOF) {
         y[size++] = value;
     }
-
+    
     // first, z-score.
     zscore_norm(y, size);
-
+    
     double result;
-
+    
     result = DN_HistogramMode_5(y, size);
     printf("DN_HistogramMode_5: %1.3f\n", result);
     result = DN_HistogramMode_10(y, size);
@@ -451,42 +351,7 @@ int main2(int argc, char * argv[])
     printf("SB_TransitionMatrix_3ac_sumdiagcov: %1.5f\n", result);
     result = PD_PeriodicityWang_th0_01(y, size);
     printf("PD_PeriodicityWang_th0_01: %1.f\n", result);
-
-    // catchaMouse16 additions by Trent Henderson, 11 March 2021
-
-    result = SY_DriftingMean50_min(y, size);
-    printf("SY_DriftingMean50_min: %1.f\n", result);
-    result = DN_RemovePoints_absclose_05_ac2rat(y, size);
-    printf("DN_RemovePoints_absclose_05_ac2rat: %1.f\n", result);
-    //result = AC_nl_036(y, size);
-    //printf("AC_nl_036: %1.f\n", result);
-    //result = AC_nl_112(y, size);
-    //printf("AC_nl_112: %1.f\n", result);
-    result = ST_LocalExtrema_n100_diffmaxabsmin(y, size);
-    printf("ST_LocalExtrema_n100_diffmaxabsmin: %1.f\n", result);
-    result = CO_TranslateShape_circle_35_pts_statav4_m(y, size);
-    printf("CO_TranslateShape_circle_35_pts_statav4_m: %1.f\n", result);
-    result = CO_TranslateShape_circle_35_pts_std(y, size);
-    printf("CO_TranslateShape_circle_35_pts_std: %1.f\n", result);
-    result = SC_FluctAnal_2_dfa_50_2_logi_r2_se2(y, size);
-    printf("SC_FluctAnal_2_dfa_50_2_logi_r2_se2: %1.f\n", result);
-    result = IN_AutoMutualInfoStats_diff_20_gaussian_ami8(y, size);
-    printf("IN_AutoMutualInfoStats_diff_20_gaussian_ami8: %1.f\n", result);
-    result = PH_Walker_momentum_5_w_momentumzcross(y, size);
-    printf("PH_Walker_momentum_5_w_momentumzcross: %1.f\n", result);
-    result = PH_Walker_biasprop_05_01_sw_meanabsdiff(y, size);
-    printf("PH_Walker_biasprop_05_01_sw_meanabsdiff: %1.f\n", result);
-    result = FC_LoopLocalSimple_mean_stderr_chn(y, size);
-    printf("FC_LoopLocalSimple_mean_stderr_chn: %1.f\n", result);
-    result = CO_HistogramAMI_even_10_3(y, size);
-    printf("CO_HistogramAMI_even_10_3: %1.f\n", result);
-    result = CO_HistogramAMI_even_2_3(y, size);
-    printf("CO_HistogramAMI_even_2_3: %1.f\n", result);
-    //result = AC_nl_035(y, size);
-    //printf("AC_nl_035: %1.f\n", result);
-    result = CO_AddNoise_1_even_10_ami_at_10(y, size);
-    printf("CO_AddNoise_1_even_10_ami_at_10: %1.f\n", result);
-
-
+    
+    
   return 0;
 }

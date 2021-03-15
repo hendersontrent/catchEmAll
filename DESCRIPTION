@@ -17,6 +17,13 @@ BugReports: https://github.com/hendersontrent/catchEmAll/issues
 License: GPL (>= 2)
 Encoding: UTF-8
 LazyData: true
-Imports: Rcpp (>= 0.12.15)
-LinkingTo: Rcpp
+Depends: 
+    R (>= 3.5.0)
+Imports: 
+    Rcpp (>= 0.12.15),
+    RcppGSL
+LinkingTo: 
+    Rcpp,
+    RcppGSL
+SystemRequirements: GNU make
 RoxygenNote: 7.1.1

@@ -18,6 +18,7 @@ Automatically run every time-series feature calculation included in both catch22
 \examples{
 timeseries <- 1 + 0.5 * 1:100 + arima.sim(list(ma = 0.5), n = 100)
 outs <- catch_all(timeseries)
+
 }
 \author{
 Trent Henderson

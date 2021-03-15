@@ -2,10 +2,10 @@
 #' @param data a numerical time-series input vector
 #' @return object of class DataFrame that contains the summary statistics for each feature
 #' @author Trent Henderson
+#' @export
 #' @examples
 #' timeseries <- 1 + 0.5 * 1:100 + arima.sim(list(ma = 0.5), n = 100)
 #' outs <- catch_all(timeseries)
-#' @export
 #'
 
 catch_all <- function(data){
@@ -31,23 +31,7 @@ catch_all <- function(data){
              'SC_FluctAnal_2_rsrangefit_50_1_logi_prop_r1',
              'SC_FluctAnal_2_dfa_50_1_2_logi_prop_r1',
              'SP_Summaries_welch_rect_centroid',
-             'FC_LocalSimple_mean3_stderr',
-             'SY_DriftingMean50_min',
-             'DN_RemovePoints_absclose_05_ac2rat',
-             #'AC_nl_036',
-             #'AC_nl_112',
-             'ST_LocalExtrema_n100_diffmaxabsmin',
-             'CO_TranslateShape_circle_35_pts_statav4_m',
-             'CO_TranslateShape_circle_35_pts_std',
-             'SC_FluctAnal_2_dfa_50_2_logi_r2_se2',
-             'IN_AutoMutualInfoStats_diff_20_gaussian_ami8',
-             'PH_Walker_momentum_5_w_momentumzcross',
-             'PH_Walker_biasprop_05_01_sw_meanabsdiff',
-             'FC_LoopLocalSimple_mean_stderr_chn',
-             'CO_HistogramAMI_even_10_3',
-             'CO_HistogramAMI_even_2_3',
-             #'AC_nl_035',
-             'CO_AddNoise_1_even_10_ami_at_10');
+             'FC_LocalSimple_mean3_stderr');
 
   values = c();
 

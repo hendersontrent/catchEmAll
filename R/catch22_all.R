@@ -2,10 +2,10 @@
 #' @param data a numerical time-series input vector
 #' @return object of class DataFrame that contains the summary statistics for each feature
 #' @author Carl H. Lubba
+#' @export
 #' @examples
 #' timeseries <- 1 + 0.5 * 1:100 + arima.sim(list(ma = 0.5), n = 100)
 #' outs <- catch22_all(timeseries)
-#' @export
 #'
 
 catch22_all <- function(data){

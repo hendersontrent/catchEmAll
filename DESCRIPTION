@@ -8,11 +8,12 @@ Authors@R: c(
   person("Lubba", "Carl", email = "c.lubba15@imperial.ac.uk", role = "aut")
   )
 Maintainer: Trent Henderson <then6675@uni.sydney.edu.au>
-Description: Implementation of the CAnonical Time-series CHaracteristics (catch22) and
-    CAnonical Time-series Characteristics for Mouse fMRI in R. Calculates reduced-redundancy
-    time-series features on input data. Feature calculations are coded in C for computational
-    efficiency. Future reduced feature sets will likely also be added, and will be coded in
-    either C or C++ for this purpose.
+Description: Implementation of CAnonical Time-series CHaracteristics (catch22),
+    CAnonical Time-series Characteristics for Mouse fMRI (catchaMouse16), and other 
+    characteristics sets in R. Calculates reduced-redundancy time-series features statistics
+    on input vectors to enable pattern detection, classification, and regression 
+    applications in the computationally-efficient feature space compared to the
+    measurement space. Feature calculations are coded in C for computational efficiency.
 BugReports: https://github.com/hendersontrent/catchEmAll/issues
 License: GPL (>= 2)
 Encoding: UTF-8

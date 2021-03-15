@@ -15,7 +15,7 @@ comment = NA, fig.width = 12, fig.height = 8, cache = FALSE)
 
 *Coming to CRAN soon... Stay posted!*
 
-You can also install `catchEmAll` from GitHub using the following:
+You can also install the development version of `catchEmAll` from GitHub using the following:
 
 ```{r eval = FALSE}
 devtools::install_github("hendersontrent/catchEmAll")
@@ -30,10 +30,10 @@ The highly comparative time-series analysis approach to temporal data is one of 
 There are three core functions in `catchEmAll` so far (where `ts` is a numerical time-series input vector):
 
 1. `catch22_all()`
-2. `catchaMouse16_all()`
+2. `catchaMouse16_all()` (to be added soon...)
 3. `catch_all()`
 
-The first two functions (`catch22_all()` and `catchaMouse16_all()`) automatically calculates individual summary statistics for each of the time-series features included in their respective sets. If you want to run all feature calculations in both sets at once, you can use the third function `catch_all_unique()` to achieve this.
+The first two functions `catch22_all()` and `catchaMouse16_all()` automatically calculate individual summary statistics for each of the time-series features included in their respective sets. If you want to run all feature calculations in both sets at once, you can use the third function `catch_all()` to achieve this. When future reduced-redundancy feature sets are added, they will also get their own set-level call to calculate all at once, as well as being added to the general `catch_all()` function.
 
 ### Individual feature calculations
 

@@ -6,7 +6,7 @@
 #' @author Carl H. Lubba
 #' @export
 #' @examples
-#' timeseries <- 1 + 0.5 * 1:100 + arima.sim(list(ma = 0.5), n = 100)
+#' x <- 1 + 0.5 * 1:100 + arima.sim(list(ma = 0.5), n = 100)
 #' outs <- DN_HistogramMode_5(x)
 #'
 DN_HistogramMode_5 <- function(x) {
@@ -18,7 +18,7 @@ DN_HistogramMode_5 <- function(x) {
 #' @author Carl H. Lubba
 #' @export
 #' @examples
-#' timeseries <- 1 + 0.5 * 1:100 + arima.sim(list(ma = 0.5), n = 100)
+#' x <- 1 + 0.5 * 1:100 + arima.sim(list(ma = 0.5), n = 100)
 #' outs <- DN_HistogramMode_10(x)
 #'
 DN_HistogramMode_10 <- function(x) {
@@ -30,7 +30,7 @@ DN_HistogramMode_10 <- function(x) {
 #' @author Carl H. Lubba
 #' @export
 #' @examples
-#' timeseries <- 1 + 0.5 * 1:100 + arima.sim(list(ma = 0.5), n = 100)
+#' x <- 1 + 0.5 * 1:100 + arima.sim(list(ma = 0.5), n = 100)
 #' outs <- CO_f1ecac(x)
 #'
 CO_f1ecac <- function(x) {
@@ -42,7 +42,7 @@ CO_f1ecac <- function(x) {
 #' @author Carl H. Lubba
 #' @export
 #' @examples
-#' timeseries <- 1 + 0.5 * 1:100 + arima.sim(list(ma = 0.5), n = 100)
+#' x <- 1 + 0.5 * 1:100 + arima.sim(list(ma = 0.5), n = 100)
 #' outs <- CO_FirstMin_ac(x)
 #'
 CO_FirstMin_ac <- function(x) {
@@ -54,7 +54,7 @@ CO_FirstMin_ac <- function(x) {
 #' @author Carl H. Lubba
 #' @export
 #' @examples
-#' timeseries <- 1 + 0.5 * 1:100 + arima.sim(list(ma = 0.5), n = 100)
+#' x <- 1 + 0.5 * 1:100 + arima.sim(list(ma = 0.5), n = 100)
 #' outs <- CO_HistogramAMI_even_2_5(x)
 #'
 CO_HistogramAMI_even_2_5 <- function(x) {
@@ -66,7 +66,7 @@ CO_HistogramAMI_even_2_5 <- function(x) {
 #' @author Carl H. Lubba
 #' @export
 #' @examples
-#' timeseries <- 1 + 0.5 * 1:100 + arima.sim(list(ma = 0.5), n = 100)
+#' x <- 1 + 0.5 * 1:100 + arima.sim(list(ma = 0.5), n = 100)
 #' outs <- CO_trev_1_num(x)
 #'
 CO_trev_1_num <- function(x) {
@@ -78,7 +78,7 @@ CO_trev_1_num <- function(x) {
 #' @author Carl H. Lubba
 #' @export
 #' @examples
-#' timeseries <- 1 + 0.5 * 1:100 + arima.sim(list(ma = 0.5), n = 100)
+#' x <- 1 + 0.5 * 1:100 + arima.sim(list(ma = 0.5), n = 100)
 #' outs <- MD_hrv_classic_pnn40(x)
 #'
 MD_hrv_classic_pnn40 <- function(x) {
@@ -90,7 +90,7 @@ MD_hrv_classic_pnn40 <- function(x) {
 #' @author Carl H. Lubba
 #' @export
 #' @examples
-#' timeseries <- 1 + 0.5 * 1:100 + arima.sim(list(ma = 0.5), n = 100)
+#' x <- 1 + 0.5 * 1:100 + arima.sim(list(ma = 0.5), n = 100)
 #' outs <- SB_BinaryStats_mean_longstretch1(x)
 #'
 SB_BinaryStats_mean_longstretch1 <- function(x) {
@@ -102,7 +102,7 @@ SB_BinaryStats_mean_longstretch1 <- function(x) {
 #' @author Carl H. Lubba
 #' @export
 #' @examples
-#' timeseries <- 1 + 0.5 * 1:100 + arima.sim(list(ma = 0.5), n = 100)
+#' x <- 1 + 0.5 * 1:100 + arima.sim(list(ma = 0.5), n = 100)
 #' outs <- SB_TransitionMatrix_3ac_sumdiagcov(x)
 #'
 SB_TransitionMatrix_3ac_sumdiagcov <- function(x) {
@@ -114,7 +114,7 @@ SB_TransitionMatrix_3ac_sumdiagcov <- function(x) {
 #' @author Carl H. Lubba
 #' @export
 #' @examples
-#' timeseries <- 1 + 0.5 * 1:100 + arima.sim(list(ma = 0.5), n = 100)
+#' x <- 1 + 0.5 * 1:100 + arima.sim(list(ma = 0.5), n = 100)
 #' outs <- PD_PeriodicityWang_th0_01(x)
 #'
 PD_PeriodicityWang_th0_01 <- function(x) {
@@ -126,7 +126,7 @@ PD_PeriodicityWang_th0_01 <- function(x) {
 #' @author Carl H. Lubba
 #' @export
 #' @examples
-#' timeseries <- 1 + 0.5 * 1:100 + arima.sim(list(ma = 0.5), n = 100)
+#' x <- 1 + 0.5 * 1:100 + arima.sim(list(ma = 0.5), n = 100)
 #' outs <- CO_Embed2_Dist_tau_d_expfit_meandiff(x)
 #'
 CO_Embed2_Dist_tau_d_expfit_meandiff <- function(x) {
@@ -138,7 +138,7 @@ CO_Embed2_Dist_tau_d_expfit_meandiff <- function(x) {
 #' @author Carl H. Lubba
 #' @export
 #' @examples
-#' timeseries <- 1 + 0.5 * 1:100 + arima.sim(list(ma = 0.5), n = 100)
+#' x <- 1 + 0.5 * 1:100 + arima.sim(list(ma = 0.5), n = 100)
 #' outs <- IN_AutoMutualInfoStats_40_gaussian_fmmi(x)
 #'
 IN_AutoMutualInfoStats_40_gaussian_fmmi <- function(x) {
@@ -150,7 +150,7 @@ IN_AutoMutualInfoStats_40_gaussian_fmmi <- function(x) {
 #' @author Carl H. Lubba
 #' @export
 #' @examples
-#' timeseries <- 1 + 0.5 * 1:100 + arima.sim(list(ma = 0.5), n = 100)
+#' x <- 1 + 0.5 * 1:100 + arima.sim(list(ma = 0.5), n = 100)
 #' outs <- FC_LocalSimple_mean1_tauresrat(x)
 #'
 FC_LocalSimple_mean1_tauresrat <- function(x) {
@@ -162,7 +162,7 @@ FC_LocalSimple_mean1_tauresrat <- function(x) {
 #' @author Carl H. Lubba
 #' @export
 #' @examples
-#' timeseries <- 1 + 0.5 * 1:100 + arima.sim(list(ma = 0.5), n = 100)
+#' x <- 1 + 0.5 * 1:100 + arima.sim(list(ma = 0.5), n = 100)
 #' outs <- DN_OutlierInclude_p_001_mdrmd(x)
 #'
 DN_OutlierInclude_p_001_mdrmd <- function(x) {
@@ -174,7 +174,7 @@ DN_OutlierInclude_p_001_mdrmd <- function(x) {
 #' @author Carl H. Lubba
 #' @export
 #' @examples
-#' timeseries <- 1 + 0.5 * 1:100 + arima.sim(list(ma = 0.5), n = 100)
+#' x <- 1 + 0.5 * 1:100 + arima.sim(list(ma = 0.5), n = 100)
 #' outs <- DN_OutlierInclude_n_001_mdrmd(x)
 #'
 DN_OutlierInclude_n_001_mdrmd <- function(x) {
@@ -186,7 +186,7 @@ DN_OutlierInclude_n_001_mdrmd <- function(x) {
 #' @author Carl H. Lubba
 #' @export
 #' @examples
-#' timeseries <- 1 + 0.5 * 1:100 + arima.sim(list(ma = 0.5), n = 100)
+#' x <- 1 + 0.5 * 1:100 + arima.sim(list(ma = 0.5), n = 100)
 #' outs <- SP_Summaries_welch_rect_area_5_1(x)
 #'
 SP_Summaries_welch_rect_area_5_1 <- function(x) {
@@ -198,7 +198,7 @@ SP_Summaries_welch_rect_area_5_1 <- function(x) {
 #' @author Carl H. Lubba
 #' @export
 #' @examples
-#' timeseries <- 1 + 0.5 * 1:100 + arima.sim(list(ma = 0.5), n = 100)
+#' x <- 1 + 0.5 * 1:100 + arima.sim(list(ma = 0.5), n = 100)
 #' outs <- SB_BinaryStats_diff_longstretch0(x)
 #'
 SB_BinaryStats_diff_longstretch0 <- function(x) {
@@ -210,7 +210,7 @@ SB_BinaryStats_diff_longstretch0 <- function(x) {
 #' @author Carl H. Lubba
 #' @export
 #' @examples
-#' timeseries <- 1 + 0.5 * 1:100 + arima.sim(list(ma = 0.5), n = 100)
+#' x <- 1 + 0.5 * 1:100 + arima.sim(list(ma = 0.5), n = 100)
 #' outs <- SB_MotifThree_quantile_hh(x)
 #'
 SB_MotifThree_quantile_hh <- function(x) {
@@ -222,7 +222,7 @@ SB_MotifThree_quantile_hh <- function(x) {
 #' @author Carl H. Lubba
 #' @export
 #' @examples
-#' timeseries <- 1 + 0.5 * 1:100 + arima.sim(list(ma = 0.5), n = 100)
+#' x <- 1 + 0.5 * 1:100 + arima.sim(list(ma = 0.5), n = 100)
 #' outs <- SC_FluctAnal_2_rsrangefit_50_1_logi_prop_r1(x)
 #'
 SC_FluctAnal_2_rsrangefit_50_1_logi_prop_r1 <- function(x) {
@@ -234,7 +234,7 @@ SC_FluctAnal_2_rsrangefit_50_1_logi_prop_r1 <- function(x) {
 #' @author Carl H. Lubba
 #' @export
 #' @examples
-#' timeseries <- 1 + 0.5 * 1:100 + arima.sim(list(ma = 0.5), n = 100)
+#' x <- 1 + 0.5 * 1:100 + arima.sim(list(ma = 0.5), n = 100)
 #' outs <- SC_FluctAnal_2_dfa_50_1_2_logi_prop_r1(x)
 #'
 SC_FluctAnal_2_dfa_50_1_2_logi_prop_r1 <- function(x) {
@@ -246,7 +246,7 @@ SC_FluctAnal_2_dfa_50_1_2_logi_prop_r1 <- function(x) {
 #' @author Carl H. Lubba
 #' @export
 #' @examples
-#' timeseries <- 1 + 0.5 * 1:100 + arima.sim(list(ma = 0.5), n = 100)
+#' x <- 1 + 0.5 * 1:100 + arima.sim(list(ma = 0.5), n = 100)
 #' outs <- SP_Summaries_welch_rect_centroid(x)
 #'
 SP_Summaries_welch_rect_centroid <- function(x) {
@@ -258,10 +258,190 @@ SP_Summaries_welch_rect_centroid <- function(x) {
 #' @author Carl H. Lubba
 #' @export
 #' @examples
-#' timeseries <- 1 + 0.5 * 1:100 + arima.sim(list(ma = 0.5), n = 100)
+#' x <- 1 + 0.5 * 1:100 + arima.sim(list(ma = 0.5), n = 100)
 #' outs <- FC_LocalSimple_mean3_stderr(x)
 #'
 FC_LocalSimple_mean3_stderr <- function(x) {
     .Call('_catchEmAll_FC_LocalSimple_mean3_stderr', PACKAGE = 'catchEmAll', x)
+}
+
+#' @param x a numerical time-series input vector
+#' @return scalar value that denotes the calculated time-series statistic
+#' @author Imran Alam
+#' @export
+#' @examples
+#' x <- 1 + 0.5 * 1:100 + arima.sim(list(ma = 0.5), n = 100)
+#' outs <- SY_DriftingMean50_min(x)
+#'
+SY_DriftingMean50_min <- function(x) {
+    .Call('_catchEmAll_SY_DriftingMean50_min', PACKAGE = 'catchEmAll', x)
+}
+
+#' @param x a numerical time-series input vector
+#' @return scalar value that denotes the calculated time-series statistic
+#' @author Imran Alam
+#' @export
+#' @examples
+#' x <- 1 + 0.5 * 1:100 + arima.sim(list(ma = 0.5), n = 100)
+#' outs <- CO_AddNoise_1_even_10_ami_at_10(x)
+#'
+CO_AddNoise_1_even_10_ami_at_10 <- function(x) {
+    .Call('_catchEmAll_CO_AddNoise_1_even_10_ami_at_10', PACKAGE = 'catchEmAll', x)
+}
+
+#' @param x a numerical time-series input vector
+#' @return scalar value that denotes the calculated time-series statistic
+#' @author Imran Alam
+#' @export
+#' @examples
+#' x <- 1 + 0.5 * 1:100 + arima.sim(list(ma = 0.5), n = 100)
+#' outs <- AC_nl_036(x)
+#'
+AC_nl_036 <- function(x) {
+    .Call('_catchEmAll_AC_nl_036', PACKAGE = 'catchEmAll', x)
+}
+
+#' @param x a numerical time-series input vector
+#' @return scalar value that denotes the calculated time-series statistic
+#' @author Imran Alam
+#' @export
+#' @examples
+#' x <- 1 + 0.5 * 1:100 + arima.sim(list(ma = 0.5), n = 100)
+#' outs <- AC_nl_035(x)
+#'
+AC_nl_035 <- function(x) {
+    .Call('_catchEmAll_AC_nl_035', PACKAGE = 'catchEmAll', x)
+}
+
+#' @param x a numerical time-series input vector
+#' @return scalar value that denotes the calculated time-series statistic
+#' @author Imran Alam
+#' @export
+#' @examples
+#' x <- 1 + 0.5 * 1:100 + arima.sim(list(ma = 0.5), n = 100)
+#' outs <- AC_nl_112(x)
+#'
+AC_nl_112 <- function(x) {
+    .Call('_catchEmAll_AC_nl_112', PACKAGE = 'catchEmAll', x)
+}
+
+#' @param x a numerical time-series input vector
+#' @return scalar value that denotes the calculated time-series statistic
+#' @author Imran Alam
+#' @export
+#' @examples
+#' x <- 1 + 0.5 * 1:100 + arima.sim(list(ma = 0.5), n = 100)
+#' outs <- IN_AutoMutualInfoStats_diff_20_gaussian_ami8(x)
+#'
+IN_AutoMutualInfoStats_diff_20_gaussian_ami8 <- function(x) {
+    .Call('_catchEmAll_IN_AutoMutualInfoStats_diff_20_gaussian_ami8', PACKAGE = 'catchEmAll', x)
+}
+
+#' @param x a numerical time-series input vector
+#' @return scalar value that denotes the calculated time-series statistic
+#' @author Imran Alam
+#' @export
+#' @examples
+#' x <- 1 + 0.5 * 1:100 + arima.sim(list(ma = 0.5), n = 100)
+#' outs <- CO_HistogramAMI_even_10_3(x)
+#'
+CO_HistogramAMI_even_10_3 <- function(x) {
+    .Call('_catchEmAll_CO_HistogramAMI_even_10_3', PACKAGE = 'catchEmAll', x)
+}
+
+#' @param x a numerical time-series input vector
+#' @return scalar value that denotes the calculated time-series statistic
+#' @author Imran Alam
+#' @export
+#' @examples
+#' x <- 1 + 0.5 * 1:100 + arima.sim(list(ma = 0.5), n = 100)
+#' outs <- CO_HistogramAMI_even_2_3(x)
+#'
+CO_HistogramAMI_even_2_3 <- function(x) {
+    .Call('_catchEmAll_CO_HistogramAMI_even_2_3', PACKAGE = 'catchEmAll', x)
+}
+
+#' @param x a numerical time-series input vector
+#' @return scalar value that denotes the calculated time-series statistic
+#' @author Imran Alam
+#' @export
+#' @examples
+#' x <- 1 + 0.5 * 1:100 + arima.sim(list(ma = 0.5), n = 100)
+#' outs <- CO_TranslateShape_circle_35_pts_statav4_m(x)
+#'
+CO_TranslateShape_circle_35_pts_statav4_m <- function(x) {
+    .Call('_catchEmAll_CO_TranslateShape_circle_35_pts_statav4_m', PACKAGE = 'catchEmAll', x)
+}
+
+#' @param x a numerical time-series input vector
+#' @return scalar value that denotes the calculated time-series statistic
+#' @author Imran Alam
+#' @export
+#' @examples
+#' x <- 1 + 0.5 * 1:100 + arima.sim(list(ma = 0.5), n = 100)
+#' outs <- CO_TranslateShape_circle_35_pts_std(x)
+#'
+CO_TranslateShape_circle_35_pts_std <- function(x) {
+    .Call('_catchEmAll_CO_TranslateShape_circle_35_pts_std', PACKAGE = 'catchEmAll', x)
+}
+
+#' @param x a numerical time-series input vector
+#' @return scalar value that denotes the calculated time-series statistic
+#' @author Imran Alam
+#' @export
+#' @examples
+#' x <- 1 + 0.5 * 1:100 + arima.sim(list(ma = 0.5), n = 100)
+#' outs <- DN_RemovePoints_absclose_05_ac2rat(x)
+#'
+DN_RemovePoints_absclose_05_ac2rat <- function(x) {
+    .Call('_catchEmAll_DN_RemovePoints_absclose_05_ac2rat', PACKAGE = 'catchEmAll', x)
+}
+
+#' @param x a numerical time-series input vector
+#' @return scalar value that denotes the calculated time-series statistic
+#' @author Imran Alam
+#' @export
+#' @examples
+#' x <- 1 + 0.5 * 1:100 + arima.sim(list(ma = 0.5), n = 100)
+#' outs <- FC_LoopLocalSimple_mean_stderr_chn(x)
+#'
+FC_LoopLocalSimple_mean_stderr_chn <- function(x) {
+    .Call('_catchEmAll_FC_LoopLocalSimple_mean_stderr_chn', PACKAGE = 'catchEmAll', x)
+}
+
+#' @param x a numerical time-series input vector
+#' @return scalar value that denotes the calculated time-series statistic
+#' @author Imran Alam
+#' @export
+#' @examples
+#' x <- 1 + 0.5 * 1:100 + arima.sim(list(ma = 0.5), n = 100)
+#' outs <- PH_Walker_momentum_5_w_momentumzcross(x)
+#'
+PH_Walker_momentum_5_w_momentumzcross <- function(x) {
+    .Call('_catchEmAll_PH_Walker_momentum_5_w_momentumzcross', PACKAGE = 'catchEmAll', x)
+}
+
+#' @param x a numerical time-series input vector
+#' @return scalar value that denotes the calculated time-series statistic
+#' @author Imran Alam
+#' @export
+#' @examples
+#' x <- 1 + 0.5 * 1:100 + arima.sim(list(ma = 0.5), n = 100)
+#' outs <- PH_Walker_biasprop_05_01_sw_meanabsdiff(x)
+#'
+PH_Walker_biasprop_05_01_sw_meanabsdiff <- function(x) {
+    .Call('_catchEmAll_PH_Walker_biasprop_05_01_sw_meanabsdiff', PACKAGE = 'catchEmAll', x)
+}
+
+#' @param x a numerical time-series input vector
+#' @return scalar value that denotes the calculated time-series statistic
+#' @author Imran Alam
+#' @export
+#' @examples
+#' x <- 1 + 0.5 * 1:100 + arima.sim(list(ma = 0.5), n = 100)
+#' outs <- ST_LocalExtrema_n100_diffmaxabsmin(x)
+#'
+ST_LocalExtrema_n100_diffmaxabsmin <- function(x) {
+    .Call('_catchEmAll_ST_LocalExtrema_n100_diffmaxabsmin', PACKAGE = 'catchEmAll', x)
 }
 

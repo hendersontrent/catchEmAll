@@ -12,5 +12,7 @@ extern double FC_LocalSimple_mean_tauresrat(const double y[], const int size, co
 extern double FC_LocalSimple_mean1_tauresrat(const double y[], const int size);
 extern double FC_LocalSimple_mean_stderr(const double y[], const int size, const int train_length);
 extern double FC_LocalSimple_mean3_stderr(const double y[], const int size);
+extern double FC_LocalSimple_cam(const double y[], const int size, int trainLength);
+extern double FC_LoopLocalSimple_mean_stderr_chn(const double y[], const int size);
 
 #endif

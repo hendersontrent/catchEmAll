@@ -4,8 +4,8 @@
 #' @author Trent Henderson
 #' @export
 #' @examples
-#' timeseries <- 1 + 0.5 * 1:100 + arima.sim(list(ma = 0.5), n = 100)
-#' outs <- catch_all(timeseries)
+#' data <- 1 + 0.5 * 1:100 + arima.sim(list(ma = 0.5), n = 100)
+#' outs <- catch_all(data)
 #'
 
 catch_all <- function(data){
@@ -31,7 +31,23 @@ catch_all <- function(data){
              'SC_FluctAnal_2_rsrangefit_50_1_logi_prop_r1',
              'SC_FluctAnal_2_dfa_50_1_2_logi_prop_r1',
              'SP_Summaries_welch_rect_centroid',
-             'FC_LocalSimple_mean3_stderr');
+             'FC_LocalSimple_mean3_stderr',
+             'SY_SlidingWindow',
+             'SY_DriftingMean50_min',
+             'CO_AddNoise_1_even_10_ami_at_10',
+             'AC_nl_036',
+             'AC_nl_035',
+             'AC_nl_112',
+             'IN_AutoMutualInfoStats_diff_20_gaussian_ami8',
+             'CO_HistogramAMI_even_10_3',
+             'CO_HistogramAMI_even_2_3',
+             'CO_TranslateShape_circle_35_pts_statav4_m',
+             'CO_TranslateShape_circle_35_pts_std',
+             'DN_RemovePoints_absclose_05_ac2rat',
+             'FC_LoopLocalSimple_mean_stderr_chn',
+             'PH_Walker_momentum_5_w_momentumzcross',
+             'PH_Walker_biasprop_05_01_sw_meanabsdiff',
+             'ST_LocalExtrema_n100_diffmaxabsmin');
 
   values = c();
 

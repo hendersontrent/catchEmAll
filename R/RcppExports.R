@@ -265,3 +265,195 @@ FC_LocalSimple_mean3_stderr <- function(x) {
     .Call('_catchEmAll_FC_LocalSimple_mean3_stderr', PACKAGE = 'catchEmAll', x)
 }
 
+#' @param x a numerical time-series input vector
+#' @return scalar value that denotes the calculated time-series statistic
+#' @author Imran Alam
+#' @export
+#' @examples
+#' timeseries <- 1 + 0.5 * 1:100 + arima.sim(list(ma = 0.5), n = 100)
+#' outs <- SY_SlidingWindow(x)
+#'
+SY_SlidingWindow <- function(x) {
+    .Call('_catchEmAll_SY_SlidingWindow', PACKAGE = 'catchEmAll', x)
+}
+
+#' @param x a numerical time-series input vector
+#' @return scalar value that denotes the calculated time-series statistic
+#' @author Imran Alam
+#' @export
+#' @examples
+#' timeseries <- 1 + 0.5 * 1:100 + arima.sim(list(ma = 0.5), n = 100)
+#' outs <- SY_DriftingMean50_min(x)
+#'
+SY_DriftingMean50_min <- function(x) {
+    .Call('_catchEmAll_SY_DriftingMean50_min', PACKAGE = 'catchEmAll', x)
+}
+
+#' @param x a numerical time-series input vector
+#' @return scalar value that denotes the calculated time-series statistic
+#' @author Imran Alam
+#' @export
+#' @examples
+#' timeseries <- 1 + 0.5 * 1:100 + arima.sim(list(ma = 0.5), n = 100)
+#' outs <- CO_AddNoise_1_even_10_ami_at_10(x)
+#'
+CO_AddNoise_1_even_10_ami_at_10 <- function(x) {
+    .Call('_catchEmAll_CO_AddNoise_1_even_10_ami_at_10', PACKAGE = 'catchEmAll', x)
+}
+
+#' @param x a numerical time-series input vector
+#' @return scalar value that denotes the calculated time-series statistic
+#' @author Imran Alam
+#' @export
+#' @examples
+#' timeseries <- 1 + 0.5 * 1:100 + arima.sim(list(ma = 0.5), n = 100)
+#' outs <- AC_nl_036(x)
+#'
+AC_nl_036 <- function(x) {
+    .Call('_catchEmAll_AC_nl_036', PACKAGE = 'catchEmAll', x)
+}
+
+#' @param x a numerical time-series input vector
+#' @return scalar value that denotes the calculated time-series statistic
+#' @author Imran Alam
+#' @export
+#' @examples
+#' timeseries <- 1 + 0.5 * 1:100 + arima.sim(list(ma = 0.5), n = 100)
+#' outs <- AC_nl_035(x)
+#'
+AC_nl_035 <- function(x) {
+    .Call('_catchEmAll_AC_nl_035', PACKAGE = 'catchEmAll', x)
+}
+
+#' @param x a numerical time-series input vector
+#' @return scalar value that denotes the calculated time-series statistic
+#' @author Imran Alam
+#' @export
+#' @examples
+#' timeseries <- 1 + 0.5 * 1:100 + arima.sim(list(ma = 0.5), n = 100)
+#' outs <- AC_nl_112(x)
+#'
+AC_nl_112 <- function(x) {
+    .Call('_catchEmAll_AC_nl_112', PACKAGE = 'catchEmAll', x)
+}
+
+#' @param x a numerical time-series input vector
+#' @return scalar value that denotes the calculated time-series statistic
+#' @author Imran Alam
+#' @export
+#' @examples
+#' timeseries <- 1 + 0.5 * 1:100 + arima.sim(list(ma = 0.5), n = 100)
+#' outs <- IN_AutoMutualInfoStats_diff_20_gaussian_ami8(x)
+#'
+IN_AutoMutualInfoStats_diff_20_gaussian_ami8 <- function(x) {
+    .Call('_catchEmAll_IN_AutoMutualInfoStats_diff_20_gaussian_ami8', PACKAGE = 'catchEmAll', x)
+}
+
+#' @param x a numerical time-series input vector
+#' @return scalar value that denotes the calculated time-series statistic
+#' @author Imran Alam
+#' @export
+#' @examples
+#' timeseries <- 1 + 0.5 * 1:100 + arima.sim(list(ma = 0.5), n = 100)
+#' outs <- CO_HistogramAMI_even_10_3(x)
+#'
+CO_HistogramAMI_even_10_3 <- function(x) {
+    .Call('_catchEmAll_CO_HistogramAMI_even_10_3', PACKAGE = 'catchEmAll', x)
+}
+
+#' @param x a numerical time-series input vector
+#' @return scalar value that denotes the calculated time-series statistic
+#' @author Imran Alam
+#' @export
+#' @examples
+#' timeseries <- 1 + 0.5 * 1:100 + arima.sim(list(ma = 0.5), n = 100)
+#' outs <- CO_HistogramAMI_even_2_3(x)
+#'
+CO_HistogramAMI_even_2_3 <- function(x) {
+    .Call('_catchEmAll_CO_HistogramAMI_even_2_3', PACKAGE = 'catchEmAll', x)
+}
+
+#' @param x a numerical time-series input vector
+#' @return scalar value that denotes the calculated time-series statistic
+#' @author Imran Alam
+#' @export
+#' @examples
+#' timeseries <- 1 + 0.5 * 1:100 + arima.sim(list(ma = 0.5), n = 100)
+#' outs <- CO_TranslateShape_circle_35_pts_statav4_m(x)
+#'
+CO_TranslateShape_circle_35_pts_statav4_m <- function(x) {
+    .Call('_catchEmAll_CO_TranslateShape_circle_35_pts_statav4_m', PACKAGE = 'catchEmAll', x)
+}
+
+#' @param x a numerical time-series input vector
+#' @return scalar value that denotes the calculated time-series statistic
+#' @author Imran Alam
+#' @export
+#' @examples
+#' timeseries <- 1 + 0.5 * 1:100 + arima.sim(list(ma = 0.5), n = 100)
+#' outs <- CO_TranslateShape_circle_35_pts_std(x)
+#'
+CO_TranslateShape_circle_35_pts_std <- function(x) {
+    .Call('_catchEmAll_CO_TranslateShape_circle_35_pts_std', PACKAGE = 'catchEmAll', x)
+}
+
+#' @param x a numerical time-series input vector
+#' @return scalar value that denotes the calculated time-series statistic
+#' @author Imran Alam
+#' @export
+#' @examples
+#' timeseries <- 1 + 0.5 * 1:100 + arima.sim(list(ma = 0.5), n = 100)
+#' outs <- DN_RemovePoints_absclose_05_ac2rat(x)
+#'
+DN_RemovePoints_absclose_05_ac2rat <- function(x) {
+    .Call('_catchEmAll_DN_RemovePoints_absclose_05_ac2rat', PACKAGE = 'catchEmAll', x)
+}
+
+#' @param x a numerical time-series input vector
+#' @return scalar value that denotes the calculated time-series statistic
+#' @author Imran Alam
+#' @export
+#' @examples
+#' timeseries <- 1 + 0.5 * 1:100 + arima.sim(list(ma = 0.5), n = 100)
+#' outs <- FC_LoopLocalSimple_mean_stderr_chn(x)
+#'
+FC_LoopLocalSimple_mean_stderr_chn <- function(x) {
+    .Call('_catchEmAll_FC_LoopLocalSimple_mean_stderr_chn', PACKAGE = 'catchEmAll', x)
+}
+
+#' @param x a numerical time-series input vector
+#' @return scalar value that denotes the calculated time-series statistic
+#' @author Imran Alam
+#' @export
+#' @examples
+#' timeseries <- 1 + 0.5 * 1:100 + arima.sim(list(ma = 0.5), n = 100)
+#' outs <- PH_Walker_momentum_5_w_momentumzcross(x)
+#'
+PH_Walker_momentum_5_w_momentumzcross <- function(x) {
+    .Call('_catchEmAll_PH_Walker_momentum_5_w_momentumzcross', PACKAGE = 'catchEmAll', x)
+}
+
+#' @param x a numerical time-series input vector
+#' @return scalar value that denotes the calculated time-series statistic
+#' @author Imran Alam
+#' @export
+#' @examples
+#' timeseries <- 1 + 0.5 * 1:100 + arima.sim(list(ma = 0.5), n = 100)
+#' outs <- PH_Walker_biasprop_05_01_sw_meanabsdiff(x)
+#'
+PH_Walker_biasprop_05_01_sw_meanabsdiff <- function(x) {
+    .Call('_catchEmAll_PH_Walker_biasprop_05_01_sw_meanabsdiff', PACKAGE = 'catchEmAll', x)
+}
+
+#' @param x a numerical time-series input vector
+#' @return scalar value that denotes the calculated time-series statistic
+#' @author Imran Alam
+#' @export
+#' @examples
+#' timeseries <- 1 + 0.5 * 1:100 + arima.sim(list(ma = 0.5), n = 100)
+#' outs <- ST_LocalExtrema_n100_diffmaxabsmin(x)
+#'
+ST_LocalExtrema_n100_diffmaxabsmin <- function(x) {
+    .Call('_catchEmAll_ST_LocalExtrema_n100_diffmaxabsmin', PACKAGE = 'catchEmAll', x)
+}
+

@@ -248,6 +248,182 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// SY_SlidingWindow
+NumericVector SY_SlidingWindow(NumericVector x);
+RcppExport SEXP _catchEmAll_SY_SlidingWindow(SEXP xSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< NumericVector >::type x(xSEXP);
+    rcpp_result_gen = Rcpp::wrap(SY_SlidingWindow(x));
+    return rcpp_result_gen;
+END_RCPP
+}
+// SY_DriftingMean50_min
+NumericVector SY_DriftingMean50_min(NumericVector x);
+RcppExport SEXP _catchEmAll_SY_DriftingMean50_min(SEXP xSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< NumericVector >::type x(xSEXP);
+    rcpp_result_gen = Rcpp::wrap(SY_DriftingMean50_min(x));
+    return rcpp_result_gen;
+END_RCPP
+}
+// CO_AddNoise_1_even_10_ami_at_10
+NumericVector CO_AddNoise_1_even_10_ami_at_10(NumericVector x);
+RcppExport SEXP _catchEmAll_CO_AddNoise_1_even_10_ami_at_10(SEXP xSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< NumericVector >::type x(xSEXP);
+    rcpp_result_gen = Rcpp::wrap(CO_AddNoise_1_even_10_ami_at_10(x));
+    return rcpp_result_gen;
+END_RCPP
+}
+// AC_nl_036
+NumericVector AC_nl_036(NumericVector x);
+RcppExport SEXP _catchEmAll_AC_nl_036(SEXP xSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< NumericVector >::type x(xSEXP);
+    rcpp_result_gen = Rcpp::wrap(AC_nl_036(x));
+    return rcpp_result_gen;
+END_RCPP
+}
+// AC_nl_035
+NumericVector AC_nl_035(NumericVector x);
+RcppExport SEXP _catchEmAll_AC_nl_035(SEXP xSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< NumericVector >::type x(xSEXP);
+    rcpp_result_gen = Rcpp::wrap(AC_nl_035(x));
+    return rcpp_result_gen;
+END_RCPP
+}
+// AC_nl_112
+NumericVector AC_nl_112(NumericVector x);
+RcppExport SEXP _catchEmAll_AC_nl_112(SEXP xSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< NumericVector >::type x(xSEXP);
+    rcpp_result_gen = Rcpp::wrap(AC_nl_112(x));
+    return rcpp_result_gen;
+END_RCPP
+}
+// IN_AutoMutualInfoStats_diff_20_gaussian_ami8
+NumericVector IN_AutoMutualInfoStats_diff_20_gaussian_ami8(NumericVector x);
+RcppExport SEXP _catchEmAll_IN_AutoMutualInfoStats_diff_20_gaussian_ami8(SEXP xSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< NumericVector >::type x(xSEXP);
+    rcpp_result_gen = Rcpp::wrap(IN_AutoMutualInfoStats_diff_20_gaussian_ami8(x));
+    return rcpp_result_gen;
+END_RCPP
+}
+// CO_HistogramAMI_even_10_3
+NumericVector CO_HistogramAMI_even_10_3(NumericVector x);
+RcppExport SEXP _catchEmAll_CO_HistogramAMI_even_10_3(SEXP xSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< NumericVector >::type x(xSEXP);
+    rcpp_result_gen = Rcpp::wrap(CO_HistogramAMI_even_10_3(x));
+    return rcpp_result_gen;
+END_RCPP
+}
+// CO_HistogramAMI_even_2_3
+NumericVector CO_HistogramAMI_even_2_3(NumericVector x);
+RcppExport SEXP _catchEmAll_CO_HistogramAMI_even_2_3(SEXP xSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< NumericVector >::type x(xSEXP);
+    rcpp_result_gen = Rcpp::wrap(CO_HistogramAMI_even_2_3(x));
+    return rcpp_result_gen;
+END_RCPP
+}
+// CO_TranslateShape_circle_35_pts_statav4_m
+NumericVector CO_TranslateShape_circle_35_pts_statav4_m(NumericVector x);
+RcppExport SEXP _catchEmAll_CO_TranslateShape_circle_35_pts_statav4_m(SEXP xSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< NumericVector >::type x(xSEXP);
+    rcpp_result_gen = Rcpp::wrap(CO_TranslateShape_circle_35_pts_statav4_m(x));
+    return rcpp_result_gen;
+END_RCPP
+}
+// CO_TranslateShape_circle_35_pts_std
+NumericVector CO_TranslateShape_circle_35_pts_std(NumericVector x);
+RcppExport SEXP _catchEmAll_CO_TranslateShape_circle_35_pts_std(SEXP xSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< NumericVector >::type x(xSEXP);
+    rcpp_result_gen = Rcpp::wrap(CO_TranslateShape_circle_35_pts_std(x));
+    return rcpp_result_gen;
+END_RCPP
+}
+// DN_RemovePoints_absclose_05_ac2rat
+NumericVector DN_RemovePoints_absclose_05_ac2rat(NumericVector x);
+RcppExport SEXP _catchEmAll_DN_RemovePoints_absclose_05_ac2rat(SEXP xSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< NumericVector >::type x(xSEXP);
+    rcpp_result_gen = Rcpp::wrap(DN_RemovePoints_absclose_05_ac2rat(x));
+    return rcpp_result_gen;
+END_RCPP
+}
+// FC_LoopLocalSimple_mean_stderr_chn
+NumericVector FC_LoopLocalSimple_mean_stderr_chn(NumericVector x);
+RcppExport SEXP _catchEmAll_FC_LoopLocalSimple_mean_stderr_chn(SEXP xSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< NumericVector >::type x(xSEXP);
+    rcpp_result_gen = Rcpp::wrap(FC_LoopLocalSimple_mean_stderr_chn(x));
+    return rcpp_result_gen;
+END_RCPP
+}
+// PH_Walker_momentum_5_w_momentumzcross
+NumericVector PH_Walker_momentum_5_w_momentumzcross(NumericVector x);
+RcppExport SEXP _catchEmAll_PH_Walker_momentum_5_w_momentumzcross(SEXP xSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< NumericVector >::type x(xSEXP);
+    rcpp_result_gen = Rcpp::wrap(PH_Walker_momentum_5_w_momentumzcross(x));
+    return rcpp_result_gen;
+END_RCPP
+}
+// PH_Walker_biasprop_05_01_sw_meanabsdiff
+NumericVector PH_Walker_biasprop_05_01_sw_meanabsdiff(NumericVector x);
+RcppExport SEXP _catchEmAll_PH_Walker_biasprop_05_01_sw_meanabsdiff(SEXP xSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< NumericVector >::type x(xSEXP);
+    rcpp_result_gen = Rcpp::wrap(PH_Walker_biasprop_05_01_sw_meanabsdiff(x));
+    return rcpp_result_gen;
+END_RCPP
+}
+// ST_LocalExtrema_n100_diffmaxabsmin
+NumericVector ST_LocalExtrema_n100_diffmaxabsmin(NumericVector x);
+RcppExport SEXP _catchEmAll_ST_LocalExtrema_n100_diffmaxabsmin(SEXP xSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< NumericVector >::type x(xSEXP);
+    rcpp_result_gen = Rcpp::wrap(ST_LocalExtrema_n100_diffmaxabsmin(x));
+    return rcpp_result_gen;
+END_RCPP
+}
 
 static const R_CallMethodDef CallEntries[] = {
     {"_catchEmAll_DN_HistogramMode_5", (DL_FUNC) &_catchEmAll_DN_HistogramMode_5, 1},
@@ -272,6 +448,22 @@ static const R_CallMethodDef CallEntries[] = {
     {"_catchEmAll_SC_FluctAnal_2_dfa_50_1_2_logi_prop_r1", (DL_FUNC) &_catchEmAll_SC_FluctAnal_2_dfa_50_1_2_logi_prop_r1, 1},
     {"_catchEmAll_SP_Summaries_welch_rect_centroid", (DL_FUNC) &_catchEmAll_SP_Summaries_welch_rect_centroid, 1},
     {"_catchEmAll_FC_LocalSimple_mean3_stderr", (DL_FUNC) &_catchEmAll_FC_LocalSimple_mean3_stderr, 1},
+    {"_catchEmAll_SY_SlidingWindow", (DL_FUNC) &_catchEmAll_SY_SlidingWindow, 1},
+    {"_catchEmAll_SY_DriftingMean50_min", (DL_FUNC) &_catchEmAll_SY_DriftingMean50_min, 1},
+    {"_catchEmAll_CO_AddNoise_1_even_10_ami_at_10", (DL_FUNC) &_catchEmAll_CO_AddNoise_1_even_10_ami_at_10, 1},
+    {"_catchEmAll_AC_nl_036", (DL_FUNC) &_catchEmAll_AC_nl_036, 1},
+    {"_catchEmAll_AC_nl_035", (DL_FUNC) &_catchEmAll_AC_nl_035, 1},
+    {"_catchEmAll_AC_nl_112", (DL_FUNC) &_catchEmAll_AC_nl_112, 1},
+    {"_catchEmAll_IN_AutoMutualInfoStats_diff_20_gaussian_ami8", (DL_FUNC) &_catchEmAll_IN_AutoMutualInfoStats_diff_20_gaussian_ami8, 1},
+    {"_catchEmAll_CO_HistogramAMI_even_10_3", (DL_FUNC) &_catchEmAll_CO_HistogramAMI_even_10_3, 1},
+    {"_catchEmAll_CO_HistogramAMI_even_2_3", (DL_FUNC) &_catchEmAll_CO_HistogramAMI_even_2_3, 1},
+    {"_catchEmAll_CO_TranslateShape_circle_35_pts_statav4_m", (DL_FUNC) &_catchEmAll_CO_TranslateShape_circle_35_pts_statav4_m, 1},
+    {"_catchEmAll_CO_TranslateShape_circle_35_pts_std", (DL_FUNC) &_catchEmAll_CO_TranslateShape_circle_35_pts_std, 1},
+    {"_catchEmAll_DN_RemovePoints_absclose_05_ac2rat", (DL_FUNC) &_catchEmAll_DN_RemovePoints_absclose_05_ac2rat, 1},
+    {"_catchEmAll_FC_LoopLocalSimple_mean_stderr_chn", (DL_FUNC) &_catchEmAll_FC_LoopLocalSimple_mean_stderr_chn, 1},
+    {"_catchEmAll_PH_Walker_momentum_5_w_momentumzcross", (DL_FUNC) &_catchEmAll_PH_Walker_momentum_5_w_momentumzcross, 1},
+    {"_catchEmAll_PH_Walker_biasprop_05_01_sw_meanabsdiff", (DL_FUNC) &_catchEmAll_PH_Walker_biasprop_05_01_sw_meanabsdiff, 1},
+    {"_catchEmAll_ST_LocalExtrema_n100_diffmaxabsmin", (DL_FUNC) &_catchEmAll_ST_LocalExtrema_n100_diffmaxabsmin, 1},
     {NULL, NULL, 0}
 };
 

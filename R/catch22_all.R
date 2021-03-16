@@ -4,8 +4,8 @@
 #' @author Carl H. Lubba
 #' @export
 #' @examples
-#' timeseries <- 1 + 0.5 * 1:100 + arima.sim(list(ma = 0.5), n = 100)
-#' outs <- catch22_all(timeseries)
+#' data <- 1 + 0.5 * 1:100 + arima.sim(list(ma = 0.5), n = 100)
+#' outs <- catch22_all(data)
 #'
 
 catch22_all <- function(data){

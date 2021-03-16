@@ -4,8 +4,8 @@
 #' @author Trent Henderson
 #' @export
 #' @examples
-#' timeseries <- 1 + 0.5 * 1:100 + arima.sim(list(ma = 0.5), n = 100)
-#' outs <- catchaMouse16_all(timeseries)
+#' data <- 1 + 0.5 * 1:100 + arima.sim(list(ma = 0.5), n = 100)
+#' outs <- catchaMouse16_all(data)
 #'
 
 catchaMouse16_all <- function(data){

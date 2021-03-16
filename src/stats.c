@@ -103,6 +103,15 @@ double stddev(const double a[], const int size)
     return sd;
 }
 
+double var(const double a[], const int size) {
+    double m = mean(a, size);
+    double vr = 0.0;
+    for (int i = 0; i < size; i++)
+        vr += pow(a[i] - m, 2);
+    vr = vr / (size - 1);
+    return vr;
+}
+
 double cov(const double x[], const double y[], const int size){
 
     double covariance = 0;
@@ -255,21 +264,6 @@ int linreg(const int n, const double x[], const double y[], double* m, double* b
     return 0;
 }
 
-double norm_(const double a[], const int size)
-{
-
-    double out = 0.0;
-
-    for (int i = 0; i < size; i++)
-    {
-        out += a[i]*a[i];
-    }
-
-    out = sqrt(out);
-
-    return out;
-}
-
 bool polynomialfit(int obs, int degree, double *dx, double *dy, double *store) {
     gsl_multifit_linear_workspace *ws;
     gsl_matrix *cov, *X;
@@ -302,4 +296,19 @@ bool polynomialfit(int obs, int degree, double *dx, double *dy, double *store) {
     gsl_vector_free(y);
     gsl_vector_free(c);
     return true; // If correctly computes, return true
+}
+
+double norm_(const double a[], const int size)
+{
+
+    double out = 0.0;
+
+    for (int i = 0; i < size; i++)
+    {
+        out += a[i]*a[i];
+    }
+
+    out = sqrt(out);
+
+    return out;
 }

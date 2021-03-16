@@ -4,8 +4,8 @@
 #' @author Trent Henderson
 #' @export
 #' @examples
-#' timeseries <- 1 + 0.5 * 1:100 + arima.sim(list(ma = 0.5), n = 100)
-#' outs <- catch_all(timeseries)
+#' data <- 1 + 0.5 * 1:100 + arima.sim(list(ma = 0.5), n = 100)
+#' outs <- catch_all(data)
 #'
 
 catch_all <- function(data){

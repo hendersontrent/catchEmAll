@@ -18,8 +18,6 @@
 #include "SB_TransitionMatrix.h"
 #include "PD_PeriodicityWang.h"
 
-// catchaMouse16 additions
-
 #include "SY_DriftingMean.h"
 #include "SY_SlidingWindow.h"
 #include "CO_AddNoise.h"
@@ -29,8 +27,6 @@
 #include "DN_RemovePoints.h"
 #include "PH_Walker.h"
 #include "ST_LocalExtrema.h"
-
-// General helper files
 
 #include "stats.h"
 #include "helper_functions.h"

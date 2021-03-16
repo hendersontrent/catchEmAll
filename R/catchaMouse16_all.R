@@ -10,7 +10,7 @@
 
 catchaMouse16_all <- function(data){
 
-names <- c('SY_SlidingWindow',
+names <- c(#'SY_SlidingWindow',
            'SY_DriftingMean50_min',
            'CO_AddNoise_1_even_10_ami_at_10',
            'AC_nl_036',

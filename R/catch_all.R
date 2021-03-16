@@ -32,7 +32,7 @@ catch_all <- function(data){
              'SC_FluctAnal_2_dfa_50_1_2_logi_prop_r1',
              'SP_Summaries_welch_rect_centroid',
              'FC_LocalSimple_mean3_stderr',
-             'SY_SlidingWindow',
+             #'SY_SlidingWindow',
              'SY_DriftingMean50_min',
              'CO_AddNoise_1_even_10_ami_at_10',
              'AC_nl_036',

@@ -448,19 +448,6 @@ NumericVector FC_LocalSimple_mean3_stderr(NumericVector x)
 // -------------
 
 
-//' @param x a numerical time-series input vector
-//' @return scalar value that denotes the calculated time-series statistic
-//' @author Imran Alam
-//' @export
-//' @examples
-//' x <- 1 + 0.5 * 1:100 + arima.sim(list(ma = 0.5), n = 100)
-//' outs <- SY_SlidingWindow(x)
-//'
-// [[Rcpp::export]]
-NumericVector SY_SlidingWindow(NumericVector x)
-{
-  return R_wrapper_double(x, &SY_SlidingWindow, 1);
-}
 
 //' @param x a numerical time-series input vector
 //' @return scalar value that denotes the calculated time-series statistic

@@ -271,18 +271,6 @@ FC_LocalSimple_mean3_stderr <- function(x) {
 #' @export
 #' @examples
 #' x <- 1 + 0.5 * 1:100 + arima.sim(list(ma = 0.5), n = 100)
-#' outs <- SY_SlidingWindow(x)
-#'
-SY_SlidingWindow <- function(x) {
-    .Call('_catchEmAll_SY_SlidingWindow', PACKAGE = 'catchEmAll', x)
-}
-
-#' @param x a numerical time-series input vector
-#' @return scalar value that denotes the calculated time-series statistic
-#' @author Imran Alam
-#' @export
-#' @examples
-#' x <- 1 + 0.5 * 1:100 + arima.sim(list(ma = 0.5), n = 100)
 #' outs <- SY_DriftingMean50_min(x)
 #'
 SY_DriftingMean50_min <- function(x) {

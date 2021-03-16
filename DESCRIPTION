@@ -13,7 +13,7 @@ Description: Implementation of CAnonical Time-series CHaracteristics (catch22),
     characteristics sets in R. Calculates reduced-redundancy time-series features statistics
     on input vectors to enable pattern detection, classification, and regression 
     applications in the computationally-efficient feature space compared to the
-    measurement space. Feature calculations are coded in C for computational efficiency.
+    measurement space. Feature calculations are coded in C and C++ for computational efficiency.
 BugReports: https://github.com/hendersontrent/catchEmAll/issues
 License: GPL (>= 2)
 Encoding: UTF-8

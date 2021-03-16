@@ -210,10 +210,10 @@ void run_features(double y[], int size, FILE * outfile)
 
     // catchaMouse16
 
-    begin = clock();
-    result = SY_SlidingWindow(y_zscored, size);
-    timeTaken = (double)(clock()-begin)*1000/CLOCKS_PER_SEC;
-    fprintf(outfile, "%.14f, %s, %f\n", result, "SY_SlidingWindow", timeTaken);
+    //begin = clock();
+    //result = SY_SlidingWindow(y_zscored, size);
+    //timeTaken = (double)(clock()-begin)*1000/CLOCKS_PER_SEC;
+    //fprintf(outfile, "%.14f, %s, %f\n", result, "SY_SlidingWindow", timeTaken);
 
     begin = clock();
     result = SY_DriftingMean50_min(y_zscored, size);
@@ -446,8 +446,8 @@ int main2(int argc, char * argv[])
     printf("SB_TransitionMatrix_3ac_sumdiagcov: %1.5f\n", result);
     result = PD_PeriodicityWang_th0_01(y, size);
     printf("PD_PeriodicityWang_th0_01: %1.f\n", result);
-    result = SY_SlidingWindow(y, size);
-    printf("SY_SlidingWindow: %1.f\n", result);
+    //result = SY_SlidingWindow(y, size);
+    //printf("SY_SlidingWindow: %1.f\n", result);
     result = SY_DriftingMean50_min(y, size);
     printf("SY_DriftingMean50_min: %1.f\n", result);
     result = CO_AddNoise_1_even_10_ami_at_10(y, size);

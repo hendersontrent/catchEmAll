@@ -248,17 +248,6 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
-// SY_SlidingWindow
-NumericVector SY_SlidingWindow(NumericVector x);
-RcppExport SEXP _catchEmAll_SY_SlidingWindow(SEXP xSEXP) {
-BEGIN_RCPP
-    Rcpp::RObject rcpp_result_gen;
-    Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< NumericVector >::type x(xSEXP);
-    rcpp_result_gen = Rcpp::wrap(SY_SlidingWindow(x));
-    return rcpp_result_gen;
-END_RCPP
-}
 // SY_DriftingMean50_min
 NumericVector SY_DriftingMean50_min(NumericVector x);
 RcppExport SEXP _catchEmAll_SY_DriftingMean50_min(SEXP xSEXP) {
@@ -448,7 +437,6 @@ static const R_CallMethodDef CallEntries[] = {
     {"_catchEmAll_SC_FluctAnal_2_dfa_50_1_2_logi_prop_r1", (DL_FUNC) &_catchEmAll_SC_FluctAnal_2_dfa_50_1_2_logi_prop_r1, 1},
     {"_catchEmAll_SP_Summaries_welch_rect_centroid", (DL_FUNC) &_catchEmAll_SP_Summaries_welch_rect_centroid, 1},
     {"_catchEmAll_FC_LocalSimple_mean3_stderr", (DL_FUNC) &_catchEmAll_FC_LocalSimple_mean3_stderr, 1},
-    {"_catchEmAll_SY_SlidingWindow", (DL_FUNC) &_catchEmAll_SY_SlidingWindow, 1},
     {"_catchEmAll_SY_DriftingMean50_min", (DL_FUNC) &_catchEmAll_SY_DriftingMean50_min, 1},
     {"_catchEmAll_CO_AddNoise_1_even_10_ami_at_10", (DL_FUNC) &_catchEmAll_CO_AddNoise_1_even_10_ami_at_10, 1},
     {"_catchEmAll_AC_nl_036", (DL_FUNC) &_catchEmAll_AC_nl_036, 1},

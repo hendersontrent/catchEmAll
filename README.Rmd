@@ -41,13 +41,34 @@ There are three core functions in `catchEmAll` so far (where `x` is a numerical 
 
 The first two functions `catch22_all()` and `catchaMouse16_all()` automatically calculate individual summary statistics for each of the time-series features included in their respective sets. If you want to run all feature calculations in both sets at once, you can use the third function `catch_all()` to achieve this. When future reduced-redundancy feature sets are added, they will also get their own set-level call to calculate the particular selection of features at once, as well as being added to the general `catch_all()` function. Over time and with enough additional feature set additions, the `catch_all()` function will likely begin to approximate a respectable portion of the overall functionality of `hctsa` - though this is very much a long-term goal.
 
+An example for a single time series might look like the following:
+
+```{r message = FALSE, eval = FALSE, warning = FALSE}
+library(catchEmAll)
+x <- 1 + 0.5 * 1:100 + arima.sim(list(ma = 0.5), n = 100)
+outs <- catchaMouse16_all(x)
+```
+
 ### Individual feature calculations
 
 If you do not want to or need to run the entire sets of `catch22_all()` or `catchaMouse16_all()`, you can also access the individual feature calculations as their unique function names, for example `SC_FluctAnal_2_rsrangefit_50_1_logi_prop_r1(x)`.
 
+## Available data
+
+A tidy dataframe of all the included features and the set they each correspond to is provided as a `.rda` file which can be viewed easily using the following:
+
+```{r message = FALSE, eval = FALSE, warning = FALSE}
+library(catchEmAll)
+View(feature_list)
+```
+
+```{r message = FALSE, echo = FALSE, warning = FALSE}
+knitr::kable(feature_list, caption = "Current feature list")
+```
+
 ## Future directions
 
-Additional time series feature sets are intended to be added to `catchEmAll`. This may include coding features from existing `R` packages such as [`feasts`](https://feasts.tidyverts.org) and [`tsfeatures`](https://cran.r-project.org/web/packages/tsfeatures/vignettes/tsfeatures.html) in `C` or `C++` for computational efficiency and ease-of-comparison on feature-space tasks such as classification and regression.
+Additional time series feature sets will be be added to `catchEmAll`. This may include coding entirely new feature sets, or coding features from existing `R` packages such as [`feasts`](https://feasts.tidyverts.org) and [`tsfeatures`](https://cran.r-project.org/web/packages/tsfeatures/vignettes/tsfeatures.html) in `C` or `C++` for computational efficiency and ease-of-comparison on feature-space tasks such as classification and regression.
 
 ## Authorship notes
 
@@ -55,4 +76,4 @@ Original `catch22` features coded in `C` by Carl H. Lubba and original `catchaMo
 
 ## Hex sticker
 
-The current hex sticker is merely a placeholder - a design more aligned with highly comparative time-series analysis is coming soon.
+The current hex sticker is merely a placeholder - a more professional one is coming soon!

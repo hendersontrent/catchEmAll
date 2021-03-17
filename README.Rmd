@@ -63,7 +63,8 @@ View(feature_list)
 ```
 
 ```{r message = FALSE, echo = FALSE, warning = FALSE}
-knitr::kable(feature_list, caption = "Current feature list")
+library(catchEmAll)
+knitr::kable(feature_list)
 ```
 
 ## Future directions

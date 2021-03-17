@@ -75,6 +75,14 @@ additional feature set additions, the `catch_all()` function will likely
 begin to approximate a respectable portion of the overall functionality
 of `hctsa` - though this is very much a long-term goal.
 
+An example for a single time series might look like the following:
+
+``` r
+library(catchEmAll)
+x <- 1 + 0.5 * 1:100 + arima.sim(list(ma = 0.5), n = 100)
+outs <- catchaMouse16_all(x)
+```
+
 ### Individual feature calculations
 
 If you do not want to or need to run the entire sets of `catch22_all()`
@@ -82,11 +90,64 @@ or `catchaMouse16_all()`, you can also access the individual feature
 calculations as their unique function names, for example
 `SC_FluctAnal_2_rsrangefit_50_1_logi_prop_r1(x)`.
 
+## Available data
+
+A tidy dataframe of all the included features and the set they each
+correspond to is provided as a `.rda` file which can be viewed easily
+using the following:
+
+``` r
+library(catchEmAll)
+View(feature_list)
+```
+
+| feature\_set  | feature                                             |
+| :------------ | :-------------------------------------------------- |
+| catch22       | DN\_HistogramMode\_5                                |
+| catch22       | DN\_HistogramMode\_10                               |
+| catch22       | CO\_f1ecac                                          |
+| catch22       | CO\_FirstMin\_ac                                    |
+| catch22       | CO\_HistogramAMI\_even\_2\_5                        |
+| catch22       | CO\_trev\_1\_num                                    |
+| catch22       | MD\_hrv\_classic\_pnn40                             |
+| catch22       | SB\_BinaryStats\_mean\_longstretch1                 |
+| catch22       | SB\_TransitionMatrix\_3ac\_sumdiagcov               |
+| catch22       | PD\_PeriodicityWang\_th0\_01                        |
+| catch22       | CO\_Embed2\_Dist\_tau\_d\_expfit\_meandiff          |
+| catch22       | IN\_AutoMutualInfoStats\_40\_gaussian\_fmmi         |
+| catch22       | FC\_LocalSimple\_mean1\_tauresrat                   |
+| catch22       | DN\_OutlierInclude\_p\_001\_mdrmd                   |
+| catch22       | DN\_OutlierInclude\_n\_001\_mdrmd                   |
+| catch22       | SP\_Summaries\_welch\_rect\_area\_5\_1              |
+| catch22       | SB\_BinaryStats\_diff\_longstretch0                 |
+| catch22       | SB\_MotifThree\_quantile\_hh                        |
+| catch22       | SC\_FluctAnal\_2\_rsrangefit\_50\_1\_logi\_prop\_r1 |
+| catch22       | SC\_FluctAnal\_2\_dfa\_50\_1\_2\_logi\_prop\_r1     |
+| catch22       | SP\_Summaries\_welch\_rect\_centroid                |
+| catch22       | FC\_LocalSimple\_mean3\_stderr                      |
+| catchaMouse16 | SY\_SlidingWindow                                   |
+| catchaMouse16 | SY\_DriftingMean50\_min                             |
+| catchaMouse16 | CO\_AddNoise\_1\_even\_10\_ami\_at\_10              |
+| catchaMouse16 | AC\_nl\_036                                         |
+| catchaMouse16 | AC\_nl\_035                                         |
+| catchaMouse16 | AC\_nl\_112                                         |
+| catchaMouse16 | IN\_AutoMutualInfoStats\_diff\_20\_gaussian\_ami8   |
+| catchaMouse16 | CO\_HistogramAMI\_even\_10\_3                       |
+| catchaMouse16 | CO\_HistogramAMI\_even\_2\_3                        |
+| catchaMouse16 | CO\_TranslateShape\_circle\_35\_pts\_statav4\_m     |
+| catchaMouse16 | CO\_TranslateShape\_circle\_35\_pts\_std            |
+| catchaMouse16 | DN\_RemovePoints\_absclose\_05\_ac2rat              |
+| catchaMouse16 | FC\_LoopLocalSimple\_mean\_stderr\_chn              |
+| catchaMouse16 | PH\_Walker\_momentum\_5\_w\_momentumzcross          |
+| catchaMouse16 | PH\_Walker\_biasprop\_05\_01\_sw\_meanabsdiff       |
+| catchaMouse16 | ST\_LocalExtrema\_n100\_diffmaxabsmin               |
+
 ## Future directions
 
-Additional time series feature sets are intended to be added to
-`catchEmAll`. This may include coding features from existing `R`
-packages such as [`feasts`](https://feasts.tidyverts.org) and
+Additional time series feature sets will be be added to `catchEmAll`.
+This may include coding entirely new feature sets, or coding features
+from existing `R` packages such as
+[`feasts`](https://feasts.tidyverts.org) and
 [`tsfeatures`](https://cran.r-project.org/web/packages/tsfeatures/vignettes/tsfeatures.html)
 in `C` or `C++` for computational efficiency and ease-of-comparison on
 feature-space tasks such as classification and regression.
@@ -101,5 +162,5 @@ Henderson](https://github.com/hendersontrent).
 
 ## Hex sticker
 
-The current hex sticker is merely a placeholder - a design more aligned
-with highly comparative time-series analysis is coming soon.
+The current hex sticker is merely a placeholder - a more professional
+one is coming soon\!

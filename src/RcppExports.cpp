@@ -413,6 +413,17 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// SC_FluctAnal_2_dfa_50_2_logi_r2_se2
+NumericVector SC_FluctAnal_2_dfa_50_2_logi_r2_se2(NumericVector x);
+RcppExport SEXP _catchEmAll_SC_FluctAnal_2_dfa_50_2_logi_r2_se2(SEXP xSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< NumericVector >::type x(xSEXP);
+    rcpp_result_gen = Rcpp::wrap(SC_FluctAnal_2_dfa_50_2_logi_r2_se2(x));
+    return rcpp_result_gen;
+END_RCPP
+}
 
 static const R_CallMethodDef CallEntries[] = {
     {"_catchEmAll_DN_HistogramMode_5", (DL_FUNC) &_catchEmAll_DN_HistogramMode_5, 1},
@@ -452,6 +463,7 @@ static const R_CallMethodDef CallEntries[] = {
     {"_catchEmAll_PH_Walker_momentum_5_w_momentumzcross", (DL_FUNC) &_catchEmAll_PH_Walker_momentum_5_w_momentumzcross, 1},
     {"_catchEmAll_PH_Walker_biasprop_05_01_sw_meanabsdiff", (DL_FUNC) &_catchEmAll_PH_Walker_biasprop_05_01_sw_meanabsdiff, 1},
     {"_catchEmAll_ST_LocalExtrema_n100_diffmaxabsmin", (DL_FUNC) &_catchEmAll_ST_LocalExtrema_n100_diffmaxabsmin, 1},
+    {"_catchEmAll_SC_FluctAnal_2_dfa_50_2_logi_r2_se2", (DL_FUNC) &_catchEmAll_SC_FluctAnal_2_dfa_50_2_logi_r2_se2, 1},
     {NULL, NULL, 0}
 };
 

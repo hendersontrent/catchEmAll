@@ -32,7 +32,6 @@ catch_all <- function(data){
              'SC_FluctAnal_2_dfa_50_1_2_logi_prop_r1',
              'SP_Summaries_welch_rect_centroid',
              'FC_LocalSimple_mean3_stderr',
-             #'SY_SlidingWindow',
              'SY_DriftingMean50_min',
              'CO_AddNoise_1_even_10_ami_at_10',
              'AC_nl_036',
@@ -47,7 +46,8 @@ catch_all <- function(data){
              'FC_LoopLocalSimple_mean_stderr_chn',
              'PH_Walker_momentum_5_w_momentumzcross',
              'PH_Walker_biasprop_05_01_sw_meanabsdiff',
-             'ST_LocalExtrema_n100_diffmaxabsmin');
+             'ST_LocalExtrema_n100_diffmaxabsmin',
+             'SC_FluctAnal_2_dfa_50_2_logi_r2_se2');
 
   values = c();
 

@@ -448,7 +448,6 @@ NumericVector FC_LocalSimple_mean3_stderr(NumericVector x)
 // -------------
 
 
-
 //' @param x a numerical time-series input vector
 //' @return scalar value that denotes the calculated time-series statistic
 //' @author Imran Alam
@@ -657,6 +656,20 @@ NumericVector PH_Walker_biasprop_05_01_sw_meanabsdiff(NumericVector x)
 NumericVector ST_LocalExtrema_n100_diffmaxabsmin(NumericVector x)
 {
   return R_wrapper_double(x, &ST_LocalExtrema_n100_diffmaxabsmin, 1);
+}
+
+//' @param x a numerical time-series input vector
+//' @return scalar value that denotes the calculated time-series statistic
+//' @author Imran Alam
+//' @export
+//' @examples
+//' x <- 1 + 0.5 * 1:100 + arima.sim(list(ma = 0.5), n = 100)
+//' outs <- SC_FluctAnal_2_dfa_50_2_logi_r2_se2(x)
+//'
+// [[Rcpp::export]]
+NumericVector SC_FluctAnal_2_dfa_50_2_logi_r2_se2(NumericVector x)
+{
+  return R_wrapper_double(x, &SC_FluctAnal_2_dfa_50_2_logi_r2_se2, 1);
 }
 
 

@@ -4,7 +4,7 @@ output: rmarkdown::github_document
 
 # catchEmAll <img src="man/figures/logo.png" align="right" width="120" />
 
-CAnonical Time-series CHaracteristics for multiple domains - an implementation for `R` written as a package to calculate time series features from [catch22](https://github.com/chlubba/catch22), [catchaMouse16](https://github.com/DynamicsAndNeuralSystems/catchaMouse16), and other reduced-redundancy feature sets.
+CAnonical Time-series CHaracteristics for multiple domains - an efficient implementation for `R` written as a package to calculate time series features from [catch22](https://github.com/chlubba/catch22), [catchaMouse16](https://github.com/DynamicsAndNeuralSystems/catchaMouse16), and other reduced-redundancy feature sets.
 
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
@@ -73,7 +73,7 @@ Additional time series feature sets will be be added to `catchEmAll`. This may i
 
 ## Authorship notes
 
-Original `catch22` features coded in `C` by Carl H. Lubba and original `catchaMouse16` features coded in `C` by Imran Alam. `roxygen2` documentation and additional C++ and C changes for these original functions were written by [Trent Henderson](https://github.com/hendersontrent).
+Original `catch22` features coded in `C` by Carl H. Lubba and original `catchaMouse16` features coded in `C` by Imran Alam. `roxygen2` documentation and additional C++ and C code/changes for these original functions was written by [Trent Henderson](https://github.com/hendersontrent).
 
 ## Hex sticker
 

@@ -15,6 +15,11 @@ object of class DataFrame that contains the summary statistics for each feature
 \description{
 Automatically run every time-series feature calculation included in both catch22 and catchaMouse16 sets.
 }
+\examples{
+data <- 1 + 0.5 * 1:100 + arima.sim(list(ma = 0.5), n = 100)
+outs <- catch_all(data)
+
+}
 \author{
 Trent Henderson
 }

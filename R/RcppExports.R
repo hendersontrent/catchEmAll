@@ -445,3 +445,15 @@ ST_LocalExtrema_n100_diffmaxabsmin <- function(x) {
     .Call('_catchEmAll_ST_LocalExtrema_n100_diffmaxabsmin', PACKAGE = 'catchEmAll', x)
 }
 
+#' @param x a numerical time-series input vector
+#' @return scalar value that denotes the calculated time-series statistic
+#' @author Imran Alam
+#' @export
+#' @examples
+#' x <- 1 + 0.5 * 1:100 + arima.sim(list(ma = 0.5), n = 100)
+#' outs <- SC_FluctAnal_2_dfa_50_2_logi_r2_se2(x)
+#'
+SC_FluctAnal_2_dfa_50_2_logi_r2_se2 <- function(x) {
+    .Call('_catchEmAll_SC_FluctAnal_2_dfa_50_2_logi_r2_se2', PACKAGE = 'catchEmAll', x)
+}
+

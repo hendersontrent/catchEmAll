@@ -2,6 +2,7 @@
 #include "main.h"
 #include <math.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include <time.h>
 
 #include "DN_HistogramMode_5.h"
@@ -210,11 +211,6 @@ void run_features(double y[], int size, FILE * outfile)
 
     // catchaMouse16
 
-    //begin = clock();
-    //result = SY_SlidingWindow(y_zscored, size);
-    //timeTaken = (double)(clock()-begin)*1000/CLOCKS_PER_SEC;
-    //fprintf(outfile, "%.14f, %s, %f\n", result, "SY_SlidingWindow", timeTaken);
-
     begin = clock();
     result = SY_DriftingMean50_min(y_zscored, size);
     timeTaken = (double)(clock()-begin)*1000/CLOCKS_PER_SEC;
@@ -289,6 +285,11 @@ void run_features(double y[], int size, FILE * outfile)
     result = ST_LocalExtrema_n100_diffmaxabsmin(y_zscored, size);
     timeTaken = (double)(clock()-begin)*1000/CLOCKS_PER_SEC;
     fprintf(outfile, "%.14f, %s, %f\n", result, "ST_LocalExtrema_n100_diffmaxabsmin", timeTaken);
+
+    begin = clock();
+    result = SC_FluctAnal_2_dfa_50_2_logi_r2_se2(y_zscored, size);
+    timeTaken = (double)(clock()-begin)*1000/CLOCKS_PER_SEC;
+    fprintf(outfile, "%.14f, %s, %f\n", result, "SC_FluctAnal_2_dfa_50_2_logi_r2_se2", timeTaken);
 
     // Final prints
 
@@ -446,8 +447,6 @@ int main2(int argc, char * argv[])
     printf("SB_TransitionMatrix_3ac_sumdiagcov: %1.5f\n", result);
     result = PD_PeriodicityWang_th0_01(y, size);
     printf("PD_PeriodicityWang_th0_01: %1.f\n", result);
-    //result = SY_SlidingWindow(y, size);
-    //printf("SY_SlidingWindow: %1.f\n", result);
     result = SY_DriftingMean50_min(y, size);
     printf("SY_DriftingMean50_min: %1.f\n", result);
     result = CO_AddNoise_1_even_10_ami_at_10(y, size);
@@ -478,6 +477,8 @@ int main2(int argc, char * argv[])
     printf("PH_Walker_biasprop_05_01_sw_meanabsdiff: %1.f\n", result);
     result = ST_LocalExtrema_n100_diffmaxabsmin(y, size);
     printf("ST_LocalExtrema_n100_diffmaxabsmin: %1.f\n", result);
+    result = SC_FluctAnal_2_dfa_50_2_logi_r2_se2(y, size);
+    printf("SC_FluctAnal_2_dfa_50_2_logi_r2_se2: %1.f\n", result);
 
 
   return 0;

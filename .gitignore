@@ -38,6 +38,6 @@ vignettes/*.pdf
 # R Environment Variables
 .Renviron
 
-# Hex sticker production folder
+# Helper production folder (e.g. hex sticker, Rda etc.)
 
-hex-sticker/*
+helpers/*

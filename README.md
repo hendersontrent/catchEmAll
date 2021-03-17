@@ -2,8 +2,8 @@
 # catchEmAll <img src="man/figures/logo.png" align="right" width="120" />
 
 CAnonical Time-series CHaracteristics for multiple domains - an
-implementation for `R` written as a package to calculate time series
-features from [catch22](https://github.com/chlubba/catch22),
+efficient implementation for `R` written as a package to calculate time
+series features from [catch22](https://github.com/chlubba/catch22),
 [catchaMouse16](https://github.com/DynamicsAndNeuralSystems/catchaMouse16),
 and other reduced-redundancy feature sets.
 
@@ -125,7 +125,6 @@ View(feature_list)
 | catch22       | SC\_FluctAnal\_2\_dfa\_50\_1\_2\_logi\_prop\_r1     |
 | catch22       | SP\_Summaries\_welch\_rect\_centroid                |
 | catch22       | FC\_LocalSimple\_mean3\_stderr                      |
-| catchaMouse16 | SY\_SlidingWindow                                   |
 | catchaMouse16 | SY\_DriftingMean50\_min                             |
 | catchaMouse16 | CO\_AddNoise\_1\_even\_10\_ami\_at\_10              |
 | catchaMouse16 | AC\_nl\_036                                         |
@@ -141,6 +140,7 @@ View(feature_list)
 | catchaMouse16 | PH\_Walker\_momentum\_5\_w\_momentumzcross          |
 | catchaMouse16 | PH\_Walker\_biasprop\_05\_01\_sw\_meanabsdiff       |
 | catchaMouse16 | ST\_LocalExtrema\_n100\_diffmaxabsmin               |
+| catchaMouse16 | SC\_FluctAnal\_2\_dfa\_50\_2\_logi\_r2\_se2         |
 
 ## Future directions
 
@@ -156,8 +156,8 @@ feature-space tasks such as classification and regression.
 
 Original `catch22` features coded in `C` by Carl H. Lubba and original
 `catchaMouse16` features coded in `C` by Imran Alam. `roxygen2`
-documentation and additional C++ and C changes for these original
-functions were written by [Trent
+documentation and additional C++ and C code/changes for these original
+functions was written by [Trent
 Henderson](https://github.com/hendersontrent).
 
 ## Hex sticker

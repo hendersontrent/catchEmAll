@@ -673,6 +673,61 @@ NumericVector SC_FluctAnal_2_dfa_50_2_logi_r2_se2(NumericVector x)
 }
 
 
+// --------------------
+// Additional functions
+// --------------------
+
+// This function rescales a vector of numerical values
+// into the sigmoidal [-1,1] range. It is intended to
+// be used in the R wrapper function to normalise
+// catchEmAll feature calculation functions. While a scales::rescale
+// function exists in R, this function is much faster coded
+// in C++ and will scale better to the large data problems
+// catchEmAll will be applied to
+//'
+//' @param x a numeric vector, preferably of feature values computed by other package functions
+//' @return x a numeric vector, rescaled into the [-1,1] sigmoidal range
+//' @author Trent Henderson, 18 March 2021
+//' @export
+//' @examples
+//' x <- seq(from = 1, to = 1000, by = 1)
+//' outs <- norm_scaler(x)
+//'
+// [[Rcpp::export]]
+NumericVector norm_scaler(NumericVector x) {
+
+  int n = x.size();
+  double old_min = 0.0;
+  double old_max = 0.0;
+  double new_min = -1.0;
+  double new_max = 1.0;
+  NumericVector x_new(n);
+
+  // Calculate min
+
+  for (int i = 0;  i < n; ++i){
+    if (x[i] < old_min){
+      old_min = x[i];
+    }
+  }
+
+  // Calculate max
+
+  for (int i = 0; i < n; ++i){
+    if (x[i] > old_max){
+      old_max = x[i];
+    }
+  }
+
+  // Rescale into sigmoidal range
+
+  for (int i = 0;  i < n; ++i){
+    x_new[i] = ((new_max-new_min)/(old_max-old_min))*(x[i]-old_max)+new_max;
+  }
+  return x_new;
+}
+
+
 
 // You can include R code blocks in C++ files processed with sourceCpp
 // (useful for testing and development). The R code will be automatically

@@ -1,6 +1,6 @@
 #' Scale each value into sigmoidal range for visualisation and analysis.
 #' @param x a vector of scalar values
-#' @return a vector of scalar values normalised into sigmoidal range [-1,1]
+#' @return a vector of scalar values normalised into sigmoidal range [0,1]
 #' @author Trent Henderson
 #' @export
 #' @examples

@@ -459,7 +459,7 @@ SC_FluctAnal_2_dfa_50_2_logi_r2_se2 <- function(x) {
 
 #'
 #' @param x a numeric vector, preferably of feature values computed by other package functions
-#' @return x a numeric vector, rescaled into the [-1,1] sigmoidal range
+#' @return x a numeric vector, rescaled into the [0,1] sigmoidal range
 #' @author Trent Henderson, 18 March 2021
 #' @export
 #' @examples

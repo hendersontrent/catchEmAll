@@ -686,7 +686,7 @@ NumericVector SC_FluctAnal_2_dfa_50_2_logi_r2_se2(NumericVector x)
 // catchEmAll will be applied to
 //'
 //' @param x a numeric vector, preferably of feature values computed by other package functions
-//' @return x a numeric vector, rescaled into the [-1,1] sigmoidal range
+//' @return x a numeric vector, rescaled into the [0,1] sigmoidal range
 //' @author Trent Henderson, 18 March 2021
 //' @export
 //' @examples
@@ -699,7 +699,7 @@ NumericVector norm_scaler(NumericVector x) {
   int n = x.size();
   double old_min = 0.0;
   double old_max = 0.0;
-  double new_min = -1.0;
+  double new_min = 0.0;
   double new_max = 1.0;
   NumericVector x_new(n);
 

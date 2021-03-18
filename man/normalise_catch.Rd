@@ -10,7 +10,7 @@ normalise_catch(x)
 \item{x}{a vector of scalar values}
 }
 \value{
-a vector of scalar values normalised into sigmoidal range [-1,1]
+a vector of scalar values normalised into sigmoidal range [0,1]
 }
 \description{
 Scale each value into sigmoidal range for visualisation and analysis.

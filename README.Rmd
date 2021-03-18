@@ -55,7 +55,7 @@ If you do not want to or need to run the entire sets of `catch22_all()` or `catc
 
 ### Pipeline considerations
 
-As the calculated feature values are likely going to be used for some form of analysis, putting them all on an equal scale is crucial for any statistical or machine learning model. `catchEmAll` includes a convenience function `normalise_catch()` to rescale a vector of values (e.g. vector of values for all participants in a study on the `CO_AddNoise_1_even_10_ami_at_10()` feature) into the [sigmoidal range](https://en.wikipedia.org/wiki/Sigmoid_function) of `[0,1]` for ease-of-use. As an efficient and scalable workflow is front-of-mind, this function has been coded in C++ which makes it compute far faster than the available functions in R (see below for trivial benchmarking example).
+As the calculated feature values are likely going to be used for some form of analysis, putting them all on an equal scale is crucial for any statistical or machine learning model. `catchEmAll` includes a convenience function `normalise_catch()` to rescale a vector of values (e.g. vector of values for all participants in a study on the `CO_AddNoise_1_even_10_ami_at_10()` feature) into the [sigmoidal range](https://en.wikipedia.org/wiki/Sigmoid_function) of `[0,1]` for ease-of-use. As an efficient and scalable workflow is front-of-mind, this function has been coded in C++ which makes it compute far faster than the available functions in R (see below for trivial benchmarking example). This function will be expanded into a full automated feature set scaling operation on the output dataframes of the core time-series functions.
 
 ```{r message = FALSE, warning = FALSE}
 library(catchEmAll)

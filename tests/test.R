@@ -11,22 +11,22 @@ library(catchEmAll)
 
 # Simulate some data to test
 
-timeseries <- 1 + 0.5 * 1:100 + arima.sim(list(ma = 0.5), n = 100)
+data <- 1 + 0.5 * 1:1000 + arima.sim(list(ma = 0.5), n = 1000)
 
 #----------------
 # TEST 1: catch22
 #----------------
 
-outs_catch22 <- catch22_all(timeseries)
+outs_catch22 <- catch22_all(data)
 
 #----------------------
 # TEST 2: catchaMouse16
 #----------------------
 
-outs_catchaMouse16 <- catchaMouse16_all(timeseries)
+outs_catchaMouse16 <- catchaMouse16_all(data)
 
 #------------
 # TEST 3: all
 #------------
 
-outs_all <- catch_all(timeseries)
+outs_all <- catch_all(data)

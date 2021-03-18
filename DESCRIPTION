@@ -14,7 +14,7 @@ Description: Implementation of CAnonical Time-series CHaracteristics feature set
     computationally-efficient feature space. Feature calculations are coded in C and 
     C++ for computational efficiency.
 BugReports: https://github.com/hendersontrent/catchEmAll/issues
-License: GPL (>= 2)
+License: GPL-3
 Encoding: UTF-8
 LazyData: true
 Depends: 

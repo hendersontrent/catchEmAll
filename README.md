@@ -79,7 +79,7 @@ An example for a single time series might look like the following:
 
 ``` r
 library(catchEmAll)
-x <- 1 + 0.5 * 1:100 + arima.sim(list(ma = 0.5), n = 100)
+x <- 1 + 0.5 * 1:1000 + arima.sim(list(ma = 0.5), n = 1000)
 outs <- catchaMouse16_all(x)
 ```
 
@@ -157,10 +157,10 @@ feature-space tasks such as classification and regression.
 Original `catch22` features coded in `C` by Carl H. Lubba and original
 `catchaMouse16` features coded in `C` by Imran Alam. `roxygen2`
 documentation and additional C++ and C code/changes for these original
-functions was written by [Trent
+functions written by [Trent
 Henderson](https://github.com/hendersontrent).
 
 ## Hex sticker
 
-The current hex sticker is merely a placeholder - a more professional
-one is coming soon\!
+The current hex sticker is probably a placeholder - a more professional
+one might come soon\!

@@ -457,3 +457,16 @@ SC_FluctAnal_2_dfa_50_2_logi_r2_se2 <- function(x) {
     .Call('_catchEmAll_SC_FluctAnal_2_dfa_50_2_logi_r2_se2', PACKAGE = 'catchEmAll', x)
 }
 
+#'
+#' @param x a numeric vector, preferably of feature values computed by other package functions
+#' @return x a numeric vector, rescaled into the [-1,1] sigmoidal range
+#' @author Trent Henderson, 18 March 2021
+#' @export
+#' @examples
+#' x <- seq(from = 1, to = 1000, by = 1)
+#' outs <- norm_scaler(x)
+#'
+norm_scaler <- function(x) {
+    .Call('_catchEmAll_norm_scaler', PACKAGE = 'catchEmAll', x)
+}
+

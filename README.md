@@ -56,8 +56,8 @@ set that comprises `hctsa`.
 
 ## Available functions
 
-There are three core functions in `catchEmAll` so far (where `x` is a
-numerical time-series input vector):
+There are three core time-series functions in `catchEmAll` so far (where
+`x` is a numerical time-series input vector):
 
 1.  `catch22_all(x)`
 2.  `catchaMouse16_all(x)`
@@ -89,6 +89,33 @@ If you do not want to or need to run the entire sets of `catch22_all()`
 or `catchaMouse16_all()`, you can also access the individual feature
 calculations as their unique function names, for example
 `SC_FluctAnal_2_rsrangefit_50_1_logi_prop_r1(x)`.
+
+### Pipeline considerations
+
+As the calculated feature values are likely going to be used for some
+form of analysis, putting them all on an equal scale is crucial for any
+statistical or machine learning model. `catchEmAll` includes a
+convenience function `normalise_catch()` to rescale a vector of values
+(e.g. vector of values for all participants in a study on the
+`CO_AddNoise_1_even_10_ami_at_10()` feature) into the sigmoidal range of
+`[-1,1]` for ease-of-use. As an efficient and scalable workflow is
+front-of-mind, this function has been coded in C++ which makes it
+compute far faster than the available functions in R (see below for
+trivial benchmarking example).
+
+``` r
+library(catchEmAll)
+x <- seq(from = 1, to = 1000, by = 1)
+microbenchmark::microbenchmark(normalise_catch(x), scales::rescale(x, to = c(0,1)), times = 1000)
+```
+
+    Unit: microseconds
+                                 expr    min      lq      mean  median      uq
+                   normalise_catch(x)  5.741  9.2740  11.09936 10.4295 12.0735
+     scales::rescale(x, to = c(0, 1)) 42.229 58.8475 122.26479 62.0185 68.6445
+           max neval
+       127.448  1000
+     57285.399  1000
 
 ## Available data
 

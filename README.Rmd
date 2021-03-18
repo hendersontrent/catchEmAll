@@ -33,7 +33,7 @@ Since `MATLAB` is proprietary software, a major barrier to broader adoption of t
 
 ## Available functions
 
-There are three core functions in `catchEmAll` so far (where `x` is a numerical time-series input vector):
+There are three core time-series functions in `catchEmAll` so far (where `x` is a numerical time-series input vector):
 
 1. `catch22_all(x)`
 2. `catchaMouse16_all(x)`
@@ -55,12 +55,12 @@ If you do not want to or need to run the entire sets of `catch22_all()` or `catc
 
 ### Pipeline considerations
 
-As the calculated feature values are likely going to be used for some form of analysis, putting them all on an equal scale is crucial for any statistical or machine learning model. `catchEmAll` includes a convenience function `normalise_catch()` to rescale a vector of values (e.g. vector of values for all participants in a study on the `CO_AddNoise_1_even_10_ami_at_10()` feature) into the sigmoidal range of `[-1,1]` for ease-of-use. As an efficient and scalable workflow is front-of-mind, this function has been coded in C++ which makes it compute far faster than the available functions in R (see below for trivial benchmarking example).
+As the calculated feature values are likely going to be used for some form of analysis, putting them all on an equal scale is crucial for any statistical or machine learning model. `catchEmAll` includes a convenience function `normalise_catch()` to rescale a vector of values (e.g. vector of values for all participants in a study on the `CO_AddNoise_1_even_10_ami_at_10()` feature) into the [sigmoidal range](https://en.wikipedia.org/wiki/Sigmoid_function) of `[0,1]` for ease-of-use. As an efficient and scalable workflow is front-of-mind, this function has been coded in C++ which makes it compute far faster than the available functions in R (see below for trivial benchmarking example).
 
 ```{r message = FALSE, warning = FALSE}
 library(catchEmAll)
 x <- seq(from = 1, to = 1000, by = 1)
-microbenchmark::microbenchmark(catchEmAll::normalise_catch(x), scales::rescale(x, to = c(-1,1)))
+microbenchmark::microbenchmark(normalise_catch(x), scales::rescale(x, to = c(0,1)), times = 1000)
 ```
 
 ## Available data

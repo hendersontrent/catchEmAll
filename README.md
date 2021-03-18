@@ -97,11 +97,14 @@ form of analysis, putting them all on an equal scale is crucial for any
 statistical or machine learning model. `catchEmAll` includes a
 convenience function `normalise_catch()` to rescale a vector of values
 (e.g. vector of values for all participants in a study on the
-`CO_AddNoise_1_even_10_ami_at_10()` feature) into the sigmoidal range of
-`[-1,1]` for ease-of-use. As an efficient and scalable workflow is
-front-of-mind, this function has been coded in C++ which makes it
-compute far faster than the available functions in R (see below for
-trivial benchmarking example).
+`CO_AddNoise_1_even_10_ami_at_10()` feature) into the [sigmoidal
+range](https://en.wikipedia.org/wiki/Sigmoid_function) of `[0,1]` for
+ease-of-use. As an efficient and scalable workflow is front-of-mind,
+this function has been coded in C++ which makes it compute far faster
+than the available functions in R (see below for trivial benchmarking
+example). This function will be expanded into a full automated feature
+set scaling operation on the output dataframes of the core time-series
+functions.
 
 ``` r
 library(catchEmAll)
@@ -110,12 +113,12 @@ microbenchmark::microbenchmark(normalise_catch(x), scales::rescale(x, to = c(0,1
 ```
 
     Unit: microseconds
-                                 expr    min      lq      mean  median      uq
-                   normalise_catch(x)  5.741  9.2740  11.09936 10.4295 12.0735
-     scales::rescale(x, to = c(0, 1)) 42.229 58.8475 122.26479 62.0185 68.6445
-           max neval
-       127.448  1000
-     57285.399  1000
+                                 expr    min     lq      mean  median      uq
+                   normalise_catch(x)  5.414  9.262  11.10939 10.1370 11.7895
+     scales::rescale(x, to = c(0, 1)) 39.092 57.974 112.49284 60.8965 65.7890
+          max neval
+       125.86  1000
+     49088.34  1000
 
 ## Available data
 

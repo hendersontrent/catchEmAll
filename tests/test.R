@@ -30,3 +30,15 @@ outs_catchaMouse16 <- catchaMouse16_all(data)
 #------------
 
 outs_all <- catch_all(data)
+
+#----------------------
+# TEST 4: normalisation
+#----------------------
+
+outs_normed <- normalise_catch(data)
+
+#----------------
+# TEST 4: heatmap
+#----------------
+
+outs_all <- catch_all(data)

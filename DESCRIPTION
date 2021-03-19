@@ -2,6 +2,7 @@ Package: catchEmAll
 Type: Package
 Title: CAnonical Time-series CHaracteristics for multiple domains
 Version: 0.1.1
+Date: 2021-08-18
 Authors@R: c(
   person("Trent", "Henderson", email = "then6675@uni.sydney.edu.au", role = c("cre", "aut"))
   )
@@ -9,10 +10,10 @@ Maintainer: Trent Henderson <then6675@uni.sydney.edu.au>
 Description: Implementation of CAnonical Time-series CHaracteristics feature sets in R.
     Includes previously developed sets such as catch22 and CAnonical Time-series 
     Characteristics for Mouse fMRI (catchaMouse16). Calculates summary statistics for 
-    select reduced-redundancy time-series features on input vectors to enable pattern 
+    select reduced-redundancy time-series features sets on input vectors to enable pattern 
     detection, similarity, classification, and regression applications in the 
-    computationally-efficient feature space. Feature calculations are coded in C and 
-    C++ for computational efficiency.
+    feature space. All calculations are coded in C and C++ for computational efficiency 
+    and scalability to large datasets.
 BugReports: https://github.com/hendersontrent/catchEmAll/issues
 License: GPL-3
 Encoding: UTF-8
@@ -21,7 +22,13 @@ Depends:
     R (>= 3.5.0)
 Imports: 
     Rcpp (>= 0.12.15),
-    RcppGSL
+    RcppGSL,
+    dplyr,
+    ggplot2,
+    magrittr,
+    tidyr,
+    reshape2,
+    tibble
 LinkingTo: 
     Rcpp,
     RcppGSL

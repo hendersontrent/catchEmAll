@@ -55,7 +55,7 @@ If you do not want to or need to run the entire sets of `catch22_all()` or `catc
 
 ### Plotting
 
-`catchEmAll` also comes with a built-in plotting engine for visualising output matrices as heatmaps. The function `plot_feature_matrix()` takes the output of any of the above feature calculation functions, and produces a `ggplot` object heatmap showing the feature vectors across the `x` axis and each time series down the `y` axis. An indicative graphic is presented below.
+`catchEmAll` also comes with a built-in plotting engine for visualising output matrices as heatmaps. The function `plot_feature_matrix()` takes the output of any of the above feature calculation functions, and produces a `ggplot` object heatmap showing the feature vectors across the `x` axis and each time series down the `y` axis. Prior to plotting, the function hierarchically clusters the data across both rows and columns to visually highlight the empirical structure. An indicative graphic is presented below.
 
 ```{r message = FALSE, echo = FALSE, warning = FALSE}
 library(catchEmAll)
@@ -66,17 +66,24 @@ load("helpers/sample.Rda")
 
 # Render graphic
 
-plot_feature_matrix(trial, is_normalised = FALSE, id_var = "unique_id")
+plot_feature_matrix(trial, is_normalised = FALSE, id_var = "unique_id", method = "MinMax")
 ```
 
 ### Pipeline considerations
 
-As the calculated feature values are likely going to be used for some form of analysis, putting them all on an equal scale is crucial for any statistical or machine learning model. `catchEmAll` includes a convenience function `normalise_catch()` to rescale a vector of values (e.g. vector of values for all participants in a study on the `CO_AddNoise_1_even_10_ami_at_10()` feature) into the [sigmoidal range](https://en.wikipedia.org/wiki/Sigmoid_function) of `[0,1]` for ease-of-use. As an efficient and scalable workflow is front-of-mind, this function has been coded in C++ which makes it compute far faster than the available functions in R (see below for trivial benchmarking example). This function will be expanded into a full automated feature set scaling operation on the output dataframes of the core time-series functions.
+As the calculated feature values are likely going to be used for some form of analysis, putting them all on an equal scale is crucial for any statistical or machine learning model. `catchEmAll` includes a convenience function `normalise_catch()` to rescale a vector of values (e.g. vector of values for all participants in a study on the `CO_AddNoise_1_even_10_ami_at_10()` feature) into a variety of different ranges for ease-of-use. These currently include:
+
+* z-score
+* Sigmoid
+* Outlier-robust Sigmoid (credit to Ben Fulcher for creating the original [MATLAB version](https://github.com/benfulcher/hctsa))
+* Min-max
+
+As an efficient and scalable workflow is front-of-mind, this function has been coded in C++ which makes it compute far faster than the available functions in R (see below for trivial benchmarking example). This function will be expanded into a full automated feature set scaling operation on the output dataframes of the core time-series functions.
 
 ```{r message = FALSE, warning = FALSE}
 library(catchEmAll)
 x <- seq(from = 1, to = 1000, by = 1)
-microbenchmark::microbenchmark(normalise_catch(x), scales::rescale(x, to = c(0,1)), times = 1000)
+microbenchmark::microbenchmark(normalise_catch(x, method = "MinMax"), scales::rescale(x, to = c(0,1)), times = 1000)
 ```
 
 ## Available data

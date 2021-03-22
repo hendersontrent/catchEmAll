@@ -96,7 +96,9 @@ calculations as their unique function names, for example
 output matrices as heatmaps. The function `plot_feature_matrix()` takes
 the output of any of the above feature calculation functions, and
 produces a `ggplot` object heatmap showing the feature vectors across
-the `x` axis and each time series down the `y` axis. An indicative
+the `x` axis and each time series down the `y` axis. Prior to plotting,
+the function hierarchically clusters the data across both rows and
+columns to visually highlight the empirical structure. An indicative
 graphic is presented below.
 
 ![](README_files/figure-gfm/unnamed-chunk-4-1.png)<!-- -->
@@ -108,28 +110,34 @@ form of analysis, putting them all on an equal scale is crucial for any
 statistical or machine learning model. `catchEmAll` includes a
 convenience function `normalise_catch()` to rescale a vector of values
 (e.g. vector of values for all participants in a study on the
-`CO_AddNoise_1_even_10_ami_at_10()` feature) into the [sigmoidal
-range](https://en.wikipedia.org/wiki/Sigmoid_function) of `[0,1]` for
-ease-of-use. As an efficient and scalable workflow is front-of-mind,
-this function has been coded in C++ which makes it compute far faster
-than the available functions in R (see below for trivial benchmarking
-example). This function will be expanded into a full automated feature
-set scaling operation on the output dataframes of the core time-series
-functions.
+`CO_AddNoise_1_even_10_ami_at_10()` feature) into a variety of different
+ranges for ease-of-use. These currently include:
+
+  - z-score
+  - Sigmoid
+  - Outlier-robust Sigmoid (credit to Ben Fulcher for creating the
+    original [MATLAB version](https://github.com/benfulcher/hctsa))
+  - Min-max
+
+As an efficient and scalable workflow is front-of-mind, this function
+has been coded in C++ which makes it compute far faster than the
+available functions in R (see below for trivial benchmarking example).
+This function will be expanded into a full automated feature set scaling
+operation on the output dataframes of the core time-series functions.
 
 ``` r
 library(catchEmAll)
 x <- seq(from = 1, to = 1000, by = 1)
-microbenchmark::microbenchmark(normalise_catch(x), scales::rescale(x, to = c(0,1)), times = 1000)
+microbenchmark::microbenchmark(normalise_catch(x, method = "MinMax"), scales::rescale(x, to = c(0,1)), times = 1000)
 ```
 
     Unit: microseconds
-                                 expr    min     lq     mean  median      uq
-                   normalise_catch(x)  4.873  8.418 10.40870  9.7420 11.2950
-     scales::rescale(x, to = c(0, 1)) 33.827 48.014 56.26899 53.0145 60.4325
-         max neval
-     116.047  1000
-     138.044  1000
+                                      expr    min      lq     mean  median      uq
+     normalise_catch(x, method = "MinMax") 22.010 26.2960 37.54611 29.1175 32.1795
+          scales::rescale(x, to = c(0, 1)) 43.007 53.5645 62.76592 61.1790 69.0295
+          max neval
+     7084.104  1000
+      198.629  1000
 
 ## Available data
 

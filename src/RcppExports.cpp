@@ -424,14 +424,47 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
-// norm_scaler
-NumericVector norm_scaler(NumericVector x);
-RcppExport SEXP _catchEmAll_norm_scaler(SEXP xSEXP) {
+// minmax_scaler
+NumericVector minmax_scaler(NumericVector x);
+RcppExport SEXP _catchEmAll_minmax_scaler(SEXP xSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< NumericVector >::type x(xSEXP);
-    rcpp_result_gen = Rcpp::wrap(norm_scaler(x));
+    rcpp_result_gen = Rcpp::wrap(minmax_scaler(x));
+    return rcpp_result_gen;
+END_RCPP
+}
+// zscore_scaler
+NumericVector zscore_scaler(NumericVector x);
+RcppExport SEXP _catchEmAll_zscore_scaler(SEXP xSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< NumericVector >::type x(xSEXP);
+    rcpp_result_gen = Rcpp::wrap(zscore_scaler(x));
+    return rcpp_result_gen;
+END_RCPP
+}
+// sigmoid_scaler
+NumericVector sigmoid_scaler(NumericVector x);
+RcppExport SEXP _catchEmAll_sigmoid_scaler(SEXP xSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< NumericVector >::type x(xSEXP);
+    rcpp_result_gen = Rcpp::wrap(sigmoid_scaler(x));
+    return rcpp_result_gen;
+END_RCPP
+}
+// robustsigmoid_scaler
+NumericVector robustsigmoid_scaler(NumericVector x);
+RcppExport SEXP _catchEmAll_robustsigmoid_scaler(SEXP xSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< NumericVector >::type x(xSEXP);
+    rcpp_result_gen = Rcpp::wrap(robustsigmoid_scaler(x));
     return rcpp_result_gen;
 END_RCPP
 }
@@ -475,7 +508,10 @@ static const R_CallMethodDef CallEntries[] = {
     {"_catchEmAll_PH_Walker_biasprop_05_01_sw_meanabsdiff", (DL_FUNC) &_catchEmAll_PH_Walker_biasprop_05_01_sw_meanabsdiff, 1},
     {"_catchEmAll_ST_LocalExtrema_n100_diffmaxabsmin", (DL_FUNC) &_catchEmAll_ST_LocalExtrema_n100_diffmaxabsmin, 1},
     {"_catchEmAll_SC_FluctAnal_2_dfa_50_2_logi_r2_se2", (DL_FUNC) &_catchEmAll_SC_FluctAnal_2_dfa_50_2_logi_r2_se2, 1},
-    {"_catchEmAll_norm_scaler", (DL_FUNC) &_catchEmAll_norm_scaler, 1},
+    {"_catchEmAll_minmax_scaler", (DL_FUNC) &_catchEmAll_minmax_scaler, 1},
+    {"_catchEmAll_zscore_scaler", (DL_FUNC) &_catchEmAll_zscore_scaler, 1},
+    {"_catchEmAll_sigmoid_scaler", (DL_FUNC) &_catchEmAll_sigmoid_scaler, 1},
+    {"_catchEmAll_robustsigmoid_scaler", (DL_FUNC) &_catchEmAll_robustsigmoid_scaler, 1},
     {NULL, NULL, 0}
 };
 

@@ -93,11 +93,11 @@ calculations as their unique function names, for example
 ### Plotting
 
 `catchEmAll` also comes with a built-in plotting engine for visualising
-output matrices as heatmaps. The function `plot_features()` takes the
-output of any of the above feature calculation functions, and produces a
-`ggplot` object heatmap showing the feature vectors across the `x` axis
-and each time series down the `y` axis. This produces a graphic similar
-to below (looks better with more time series):
+output matrices as heatmaps. The function `plot_feature_matrix()` takes
+the output of any of the above feature calculation functions, and
+produces a `ggplot` object heatmap showing the feature vectors across
+the `x` axis and each time series down the `y` axis. An indicative
+graphic is presented below.
 
 ![](README_files/figure-gfm/unnamed-chunk-4-1.png)<!-- -->
 
@@ -125,11 +125,11 @@ microbenchmark::microbenchmark(normalise_catch(x), scales::rescale(x, to = c(0,1
 
     Unit: microseconds
                                  expr    min      lq     mean  median      uq
-                   normalise_catch(x)  4.813  8.5380 10.16182  9.6810 10.9605
-     scales::rescale(x, to = c(0, 1)) 32.501 49.1005 54.67969 52.8875 59.0345
+                   normalise_catch(x)  5.310  9.6570 11.44687 10.8525 12.0875
+     scales::rescale(x, to = c(0, 1)) 41.678 55.9255 62.67573 59.3090 63.2580
          max neval
-      47.061  1000
-     199.020  1000
+      62.077  1000
+     217.435  1000
 
 ## Available data
 

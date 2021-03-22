@@ -21,11 +21,11 @@
 #' outs2 <- catch22_all(data2)
 #' outs2['group'] <- 'Group 2'
 #' outs <- rbind(outs1, outs2)
-#' plot_features(outs, is_normalised = FALSE, id_var = "group")
+#' plot_feature_matrix(outs, is_normalised = FALSE, id_var = "group")
 #' }
 #'
 
-plot_features <- function(data, is_normalised = FALSE, id_var = NULL){
+plot_feature_matrix <- function(data, is_normalised = FALSE, id_var = NULL){
 
   expected_cols_1 <- "names"
   expected_cols_2 <- "values"
@@ -102,7 +102,7 @@ plot_features <- function(data, is_normalised = FALSE, id_var = NULL){
                   y = "Time series",
                   fill = "Scaled feature value") +
     ggplot2::theme_bw() +
-    ggplot2::scale_fill_gradient(low = "#4575b4", high = "#d73027") +
+    ggplot2::scale_fill_distiller(palette = "RdYlBu") +
     ggplot2::theme(legend.position = "bottom",
                    axis.text.y = ggplot2::element_blank(),
                    axis.text.x = ggplot2::element_text(angle = 90, hjust = 1))

@@ -124,12 +124,12 @@ microbenchmark::microbenchmark(normalise_catch(x), scales::rescale(x, to = c(0,1
 ```
 
     Unit: microseconds
-                                 expr    min      lq     mean median     uq     max
-                   normalise_catch(x)  4.982  8.9740 10.81715 10.439 11.789  63.667
-     scales::rescale(x, to = c(0, 1)) 34.076 52.7505 59.17456 57.605 62.311 222.394
-     neval
-      1000
-      1000
+                                 expr    min     lq     mean  median      uq
+                   normalise_catch(x)  4.873  8.418 10.40870  9.7420 11.2950
+     scales::rescale(x, to = c(0, 1)) 33.827 48.014 56.26899 53.0145 60.4325
+         max neval
+     116.047  1000
+     138.044  1000
 
 ## Available data
 

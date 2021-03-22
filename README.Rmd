@@ -55,7 +55,7 @@ If you do not want to or need to run the entire sets of `catch22_all()` or `catc
 
 ### Plotting
 
-`catchEmAll` also comes with a built-in plotting engine for visualising output matrices as heatmaps. The function `plot_features()` takes the output of any of the above feature calculation functions, and produces a `ggplot` object heatmap showing the feature vectors across the `x` axis and each time series down the `y` axis. This produces a graphic similar to below (looks better with more time series):
+`catchEmAll` also comes with a built-in plotting engine for visualising output matrices as heatmaps. The function `plot_feature_matrix()` takes the output of any of the above feature calculation functions, and produces a `ggplot` object heatmap showing the feature vectors across the `x` axis and each time series down the `y` axis. An indicative graphic is presented below.
 
 ```{r message = FALSE, echo = FALSE, warning = FALSE}
 library(catchEmAll)
@@ -66,7 +66,7 @@ load("helpers/sample.Rda")
 
 # Render graphic
 
-plot_features(trial, is_normalised = FALSE, id_var = "unique_id")
+plot_feature_matrix(trial, is_normalised = FALSE, id_var = "unique_id")
 ```
 
 ### Pipeline considerations

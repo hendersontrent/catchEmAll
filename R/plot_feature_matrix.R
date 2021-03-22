@@ -7,7 +7,7 @@
 #' @importFrom reshape2 melt
 #' @param data a dataframe with at least 2 columns called 'names' and 'values'
 #' @param is_normalised a Boolean as to whether the input feature values have already been scaled. Defaults to FALSE
-#' @param id_var a string specifyingthe ID variable to group data on (if one exists). Defaults to NULL
+#' @param id_var a string specifying the ID variable to group data on (if one exists). Defaults to NULL
 #' @return an object of class ggplot that contains the heatmap graphic
 #' @author Trent Henderson
 #' @seealso [catchEmAll::normalise_catch()]
@@ -21,11 +21,13 @@
 #' outs2 <- catch22_all(data2)
 #' outs2['group'] <- 'Group 2'
 #' outs <- rbind(outs1, outs2)
-#' plot_feature_matrix(outs, is_normalised = FALSE, id_var = "group")
+#' plot_feature_matrix(outs, is_normalised = FALSE, id_var = "group", method = c("z-score", "Sigmoid", "RobustSigmoid", "MinMax"))
 #' }
 #'
 
-plot_feature_matrix <- function(data, is_normalised = FALSE, id_var = NULL){
+plot_feature_matrix <- function(data, is_normalised = FALSE, id_var = NULL, method = c("z-score", "Sigmoid", "RobustSigmoid", "MinMax")){
+
+  method <- match.arg(method)
 
   expected_cols_1 <- "names"
   expected_cols_2 <- "values"
@@ -48,6 +50,18 @@ plot_feature_matrix <- function(data, is_normalised = FALSE, id_var = NULL){
     stop("id_var should be a string specifying a variable in the input data that uniquely identifies each observation.")
   }
 
+  # Method selection
+
+  the_methods <- c("z-score", "Sigmoid", "RobustSigmoid", "MinMax")
+
+  if(method %ni% the_methods){
+    stop("method should be a single selection of 'z-score', 'Sigmoid', 'RobustSigmoid' or 'MinMax'")
+  }
+
+  if(length(method) > 1){
+    stop("method should be a single selection of 'z-score', 'Sigmoid', 'RobustSigmoid' or 'MinMax'")
+  }
+
   #------------- Assign ID variable ---------------
 
   if(is.null(id_var)){
@@ -66,7 +80,7 @@ plot_feature_matrix <- function(data, is_normalised = FALSE, id_var = NULL){
     normed <- data %>%
       dplyr::select(c(id, names, values)) %>%
       dplyr::group_by(names) %>%
-      dplyr::mutate(values = normalise_catch(values)) %>%
+      dplyr::mutate(values = normalise_catch(values, method = method)) %>%
       dplyr::ungroup()
 
     normed1 <- normed %>%

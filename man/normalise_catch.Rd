@@ -4,20 +4,22 @@
 \alias{normalise_catch}
 \title{Scale each value into sigmoidal range for visualisation and analysis.}
 \usage{
-normalise_catch(x)
+normalise_catch(x, method = c("z-score", "Sigmoid", "RobustSigmoid", "MinMax"))
 }
 \arguments{
 \item{x}{a vector of scalar values}
+
+\item{method}{a rescaling/normalising method to apply}
 }
 \value{
-a vector of scalar values normalised into sigmoidal range [0,1]
+a vector of scalar values normalised into the selected range
 }
 \description{
 Scale each value into sigmoidal range for visualisation and analysis.
 }
 \examples{
-data <- seq(from = 1, to = 1000, by = 1)
-outs <- normalise_catch(data)
+data <- 1 + 0.5 * 1:1000 + arima.sim(list(ma = 0.5), n = 1000)
+outs <- normalise_catch(data, method = "MinMax")
 
 }
 \author{

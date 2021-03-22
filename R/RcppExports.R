@@ -458,15 +458,56 @@ SC_FluctAnal_2_dfa_50_2_logi_r2_se2 <- function(x) {
 }
 
 #'
-#' @param x a numeric vector, preferably of feature values computed by other package functions
-#' @return x a numeric vector, rescaled into the [0,1] sigmoidal range
-#' @author Trent Henderson, 18 March 2021
+#' @param x a numeric vector, preferably of feature values computed by other catchEmAll package functions
+#' @return x a numeric vector, rescaled into the [0,1] unit interval
+#' @author Trent Henderson
 #' @export
 #' @examples
-#' x <- seq(from = 1, to = 1000, by = 1)
-#' outs <- norm_scaler(x)
+#' x <- 1 + 0.5 * 1:1000 + arima.sim(list(ma = 0.5), n = 1000)
+#' outs <- minmax_scaler(x)
 #'
-norm_scaler <- function(x) {
-    .Call('_catchEmAll_norm_scaler', PACKAGE = 'catchEmAll', x)
+minmax_scaler <- function(x) {
+    .Call('_catchEmAll_minmax_scaler', PACKAGE = 'catchEmAll', x)
+}
+
+#'
+#' @param x a numeric vector, preferably of feature values computed by other catchEmAll package functions
+#' @return x a numeric vector, rescaled into z-score range
+#' @author Trent Henderson
+#' @export
+#' @examples
+#' x <- 1 + 0.5 * 1:1000 + arima.sim(list(ma = 0.5), n = 1000)
+#' outs <- zscore_scaler(x)
+#'
+zscore_scaler <- function(x) {
+    .Call('_catchEmAll_zscore_scaler', PACKAGE = 'catchEmAll', x)
+}
+
+#'
+#' @param x a numeric vector, preferably of feature values computed by other catchEmAll package functions
+#' @return x a numeric vector, rescaled into Sigmoidal range
+#' @author Trent Henderson
+#' @export
+#' @examples
+#' x <- 1 + 0.5 * 1:1000 + arima.sim(list(ma = 0.5), n = 1000)
+#' outs <- sigmoid_scaler(x)
+#'
+sigmoid_scaler <- function(x) {
+    .Call('_catchEmAll_sigmoid_scaler', PACKAGE = 'catchEmAll', x)
+}
+
+#'
+#' @param x a numeric vector, preferably of feature values computed by other catchEmAll package functions
+#' @return x a numeric vector, rescaled into Sigmoidal range
+#' @author Trent Henderson
+#' @references B.D. Fulcher and N.S. Jones. hctsa: A computational framework for automated time-series phenotyping using massive feature extraction. Cell Systems 5, 527 (2017).
+#' @references B.D. Fulcher, M.A. Little, N.S. Jones Highly comparative time-series analysis: the empirical structure of time series and their methods. J. Roy. Soc. Interface 10, 83 (2013).
+#' @export
+#' @examples
+#' x <- 1 + 0.5 * 1:1000 + arima.sim(list(ma = 0.5), n = 1000)
+#' outs <- robustsigmoid_scaler(x)
+#'
+robustsigmoid_scaler <- function(x) {
+    .Call('_catchEmAll_robustsigmoid_scaler', PACKAGE = 'catchEmAll', x)
 }
 

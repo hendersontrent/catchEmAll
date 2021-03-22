@@ -35,10 +35,7 @@ outs_all <- catch_all(data)
 # TEST 4: normalisation
 #----------------------
 
-outs_normed <- normalise_catch(data)
-
-#----------------
-# TEST 4: heatmap
-#----------------
-
-outs_all <- catch_all(data)
+outs_normed1 <- normalise_catch(data, method = "MinMax")
+outs_normed2 <- normalise_catch(data, method = "z-score")
+outs_normed3 <- normalise_catch(data, method = "Sigmoid")
+outs_normed4 <- normalise_catch(data, method = "RobustSigmoid")

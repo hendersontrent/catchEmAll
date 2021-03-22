@@ -4,14 +4,19 @@
 \alias{plot_feature_matrix}
 \title{Produce a heatmap matrix of the calculated feature value vectors and each unique time series. Performs automatic hierarchical clustering.}
 \usage{
-plot_feature_matrix(data, is_normalised = FALSE, id_var = NULL)
+plot_feature_matrix(
+  data,
+  is_normalised = FALSE,
+  id_var = NULL,
+  method = c("z-score", "Sigmoid", "RobustSigmoid", "MinMax")
+)
 }
 \arguments{
 \item{data}{a dataframe with at least 2 columns called 'names' and 'values'}
 
 \item{is_normalised}{a Boolean as to whether the input feature values have already been scaled. Defaults to FALSE}
 
-\item{id_var}{a string specifyingthe ID variable to group data on (if one exists). Defaults to NULL}
+\item{id_var}{a string specifying the ID variable to group data on (if one exists). Defaults to NULL}
 }
 \value{
 an object of class ggplot that contains the heatmap graphic
@@ -28,7 +33,7 @@ outs1['group'] <- 'Group 1'
 outs2 <- catch22_all(data2)
 outs2['group'] <- 'Group 2'
 outs <- rbind(outs1, outs2)
-plot_feature_matrix(outs, is_normalised = FALSE, id_var = "group")
+plot_feature_matrix(outs, is_normalised = FALSE, id_var = "group", method = c("z-score", "Sigmoid", "RobustSigmoid", "MinMax"))
 }
 
 }

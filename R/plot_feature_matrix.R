@@ -4,6 +4,8 @@
 #' @import tibble
 #' @importFrom magrittr %>%
 #' @importFrom tidyr pivot_wider
+#' @importFrom tidyr pivot_longer
+#' @importFrom tidyr drop_na
 #' @importFrom reshape2 melt
 #' @param data a dataframe with at least 2 columns called 'names' and 'values'
 #' @param is_normalised a Boolean as to whether the input feature values have already been scaled. Defaults to FALSE
@@ -65,44 +67,71 @@ plot_feature_matrix <- function(data, is_normalised = FALSE, id_var = NULL, meth
   #------------- Assign ID variable ---------------
 
   if(is.null(id_var)){
-    data <- data %>%
+    data_id <- data %>%
       dplyr::mutate(id = dplyr::row_number())
   } else{
-    data <- data %>%
+    data_id <- data %>%
       dplyr::rename(id = dplyr::all_of(id_var))
   }
 
   #------------- Normalise data -------------------
 
   if(is_normalised){
-    normed1 <- data
+    normed1 <- data_id
   } else{
-    normed <- data %>%
+    normed <- data_id %>%
+      dplyr::filter(!is.nan(values)) %>%
       dplyr::select(c(id, names, values)) %>%
       dplyr::group_by(names) %>%
       dplyr::mutate(values = normalise_catch(values, method = method)) %>%
-      dplyr::ungroup()
+      dplyr::ungroup() %>%
+      tidyr::drop_na()
 
-    normed1 <- normed %>%
-      dplyr::filter(!is.nan(values))
-
-    if(nrow(normed1) != nrow(normed)){
+    if(nrow(normed) != nrow(data_id)){
       message("Filtered out rows containing NaNs.")
     }
   }
 
   #------------- Hierarchical clustering ----------
 
-  dat <- normed1 %>%
+  dat <- normed %>%
     tidyr::pivot_wider(id_cols = id, names_from = names, values_from = values) %>%
     tibble::column_to_rownames(var = "id")
 
-  row.order <- hclust(dist(dat))$order # Hierarchical cluster on rows
-  col.order <- hclust(dist(t(dat)))$order # Hierarchical cluster on columns
-  dat_new <- dat[row.order, col.order] # Re-order matrix by cluster outputs
+  # Check amount of NA in each feature vector to tell which ones to drop prior to clustering
+
+  check_na_vector <- dat %>%
+    tidyr::pivot_longer(everything(), names_to = "names", values_to = "values") %>%
+    dplyr::mutate(category = ifelse(is.na(values), "N/A", "Not N/A")) %>%
+    dplyr::group_by(names, category) %>%
+    dplyr::summarise(counter = n()) %>%
+    dplyr::ungroup() %>%
+    dplyr::group_by(names) %>%
+    dplyr::mutate(props = counter / sum(counter)) %>%
+    dplyr::ungroup() %>%
+    dplyr::filter(category == "Not N/A") %>%
+    dplyr::filter(props >= 0.7)
+
+  filtered_colnames <- unique(check_na_vector$names)
+
+  dat_filtered <- dat %>%
+    dplyr::select(c(all_of(filtered_colnames))) %>%
+    tidyr::drop_na()
+
+  if(ncol(dat_filtered) != ncol(dat)){
+    message("Dropped feature vectors with >=30% NAs to enable clustering.")
+  }
+
+  if(nrow(dat_filtered) != nrow(dat)){
+    message("Dropped rows with NAs to enable clustering.")
+  }
+
+  row.order <- hclust(dist(dat_filtered))$order # Hierarchical cluster on rows
+  col.order <- hclust(dist(t(dat_filtered)))$order # Hierarchical cluster on columns
+  dat_new <- dat_filtered[row.order, col.order] # Re-order matrix by cluster outputs
   cluster_out <- reshape2::melt(as.matrix(dat_new)) %>% # Turn into dataframe
     dplyr::rename(id = Var1,
-           names = Var2)
+                  names = Var2)
 
   #------------- Draw graphic ---------------------
 
@@ -113,8 +142,8 @@ plot_feature_matrix <- function(data, is_normalised = FALSE, id_var = NULL, meth
     ggplot2::geom_tile() +
     ggplot2::labs(title = "Heatmap of hierarchically-clustered scaled features and individual time series",
                   x = "Feature",
-                  y = "Time series",
-                  fill = "Scaled feature value") +
+                  y = "Time Series",
+                  fill = paste0(method," scaled feature value")) +
     ggplot2::theme_bw() +
     ggplot2::scale_fill_distiller(palette = "RdYlBu") +
     ggplot2::theme(legend.position = "bottom",

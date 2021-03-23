@@ -1,4 +1,4 @@
-#' Produce a heatmap matrix of the calculated feature value vectors and each unique time series. Performs automatic hierarchical clustering.
+#' Produce a heatmap matrix of the calculated feature value vectors and each unique time series with automatic hierarchical clustering.
 #' @import dplyr
 #' @import ggplot2
 #' @import tibble
@@ -21,11 +21,11 @@
 #' outs2 <- catch22_all(data2)
 #' outs2['group'] <- 'Group 2'
 #' outs <- rbind(outs1, outs2)
-#' plot_feature_matrix(outs, is_normalised = FALSE, id_var = "group", method = c("z-score", "Sigmoid", "RobustSigmoid", "MinMax"))
+#' plot_feature_matrix(outs, is_normalised = FALSE, id_var = "group", method = "MinMax")
 #' }
 #'
 
-plot_feature_matrix <- function(data, is_normalised = FALSE, id_var = NULL, method = c("z-score", "Sigmoid", "RobustSigmoid", "MinMax")){
+plot_feature_matrix <- function(data, is_normalised = FALSE, id_var = NULL, method = c("z-score", "Sigmoid", "RobustSigmoid", "MinMax", "MeanSubtract")){
 
   method <- match.arg(method)
 
@@ -52,14 +52,14 @@ plot_feature_matrix <- function(data, is_normalised = FALSE, id_var = NULL, meth
 
   # Method selection
 
-  the_methods <- c("z-score", "Sigmoid", "RobustSigmoid", "MinMax")
+  the_methods <- c("z-score", "Sigmoid", "RobustSigmoid", "MinMax", "MeanSubtract")
 
   if(method %ni% the_methods){
-    stop("method should be a single selection of 'z-score', 'Sigmoid', 'RobustSigmoid' or 'MinMax'")
+    stop("method should be a single selection of 'z-score', 'Sigmoid', 'RobustSigmoid', 'MinMax' or 'MeanSubtract'")
   }
 
   if(length(method) > 1){
-    stop("method should be a single selection of 'z-score', 'Sigmoid', 'RobustSigmoid' or 'MinMax'")
+    stop("method should be a single selection of 'z-score', 'Sigmoid', 'RobustSigmoid', 'MinMax' or 'MeanSubtract'")
   }
 
   #------------- Assign ID variable ---------------

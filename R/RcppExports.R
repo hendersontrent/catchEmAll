@@ -511,3 +511,16 @@ robustsigmoid_scaler <- function(x) {
     .Call('_catchEmAll_robustsigmoid_scaler', PACKAGE = 'catchEmAll', x)
 }
 
+#'
+#' @param x a numeric vector, preferably of feature values computed by other catchEmAll package functions
+#' @return x a numeric vector, rescaled into x-mean range
+#' @author Trent Henderson
+#' @export
+#' @examples
+#' x <- 1 + 0.5 * 1:1000 + arima.sim(list(ma = 0.5), n = 1000)
+#' outs <- mean_scaler(x)
+#'
+mean_scaler <- function(x) {
+    .Call('_catchEmAll_mean_scaler', PACKAGE = 'catchEmAll', x)
+}
+

@@ -1,4 +1,4 @@
-#' Scale each value into sigmoidal range for visualisation and analysis.
+#' Scale each value into a user-specified range for visualisation and analysis
 #' @param x a vector of scalar values
 #' @param method a rescaling/normalising method to apply
 #' @return a vector of scalar values normalised into the selected range
@@ -9,7 +9,7 @@
 #' outs <- normalise_catch(data, method = "MinMax")
 #'
 
-normalise_catch <- function(x, method = c("z-score", "Sigmoid", "RobustSigmoid", "MinMax")){
+normalise_catch <- function(x, method = c("z-score", "Sigmoid", "RobustSigmoid", "MinMax", "MeanSubtract")){
 
   method <- match.arg(method)
 
@@ -27,15 +27,15 @@ normalise_catch <- function(x, method = c("z-score", "Sigmoid", "RobustSigmoid",
 
   # Method selection
 
-  the_methods <- c("z-score", "Sigmoid", "RobustSigmoid", "MinMax")
+  the_methods <- c("z-score", "Sigmoid", "RobustSigmoid", "MinMax", "MeanSubtract")
   '%ni%' <- Negate('%in%')
 
   if(method %ni% the_methods){
-    stop("method should be a single selection of 'z-score', 'Sigmoid', 'RobustSigmoid' or 'MinMax'")
+    stop("method should be a single selection of 'z-score', 'Sigmoid', 'RobustSigmoid', 'MinMax' or 'MeanSubtract'")
   }
 
   if(length(method) > 1){
-    stop("method should be a single selection of 'z-score', 'Sigmoid', 'RobustSigmoid' or 'MinMax'")
+    stop("method should be a single selection of 'z-score', 'Sigmoid', 'RobustSigmoid', 'MinMax' or 'MeanSubtract'")
   }
 
   #--------- Apply scaling ---------
@@ -54,6 +54,10 @@ normalise_catch <- function(x, method = c("z-score", "Sigmoid", "RobustSigmoid",
 
   if(method == "MinMax"){
     x_norm <- minmax_scaler(x)
+  }
+
+  if(method == "MeanSubtract"){
+    x_norm <- mean_scaler(x)
   }
 
   return(x_norm)

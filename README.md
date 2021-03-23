@@ -105,39 +105,43 @@ graphic is presented below.
 
 ### Pipeline considerations
 
-As the calculated feature values are likely going to be used for some
-form of analysis, putting them all on an equal scale is crucial for any
-statistical or machine learning model. `catchEmAll` includes a
-convenience function `normalise_catch()` to rescale a vector of values
-(e.g. vector of values for all participants in a study on the
-`CO_AddNoise_1_even_10_ami_at_10()` feature) into a variety of different
-ranges for ease-of-use. These currently include:
+Putting calculated feature vectors on an equal scale is crucial for any
+statistical or machine learning model as variables with high variance
+can adversely impact the model’s capacity to fit the data appropriately,
+learn appropriate weight values, or minimise a loss function.
+`catchEmAll` includes a convenience function `normalise_catch()` to
+rescale a vector of values (e.g. vector of values for all participants
+in a study on the `CO_AddNoise_1_even_10_ami_at_10()` feature) into a
+variety of different ranges for ease-of-use. Current transformations
+available in the package include:
 
   - z-score
   - Sigmoid
   - Outlier-robust Sigmoid (credit to Ben Fulcher for creating the
     original [MATLAB version](https://github.com/benfulcher/hctsa))
   - Min-max
+  - Mean subtraction
 
-As an efficient and scalable workflow is front-of-mind, this function
-has been coded in C++ which makes it compute far faster than the
+As an efficient and scalable workflow is front-of-mind (in addition to
+the requirement of relatively specialised normalising options), this
+function has been coded in C++ which makes it compute faster than the
 available functions in R (see below for trivial benchmarking example).
 This function will be expanded into a full automated feature set scaling
 operation on the output dataframes of the core time-series functions.
 
 ``` r
 library(catchEmAll)
-x <- seq(from = 1, to = 1000, by = 1)
+x <- as.vector(1 + 0.5 * 1:1000 + arima.sim(list(ma = 0.5), n = 1000))
 microbenchmark::microbenchmark(normalise_catch(x, method = "MinMax"), scales::rescale(x, to = c(0,1)), times = 1000)
 ```
 
     Unit: microseconds
-                                      expr    min      lq     mean  median      uq
-     normalise_catch(x, method = "MinMax") 22.010 26.2960 37.54611 29.1175 32.1795
-          scales::rescale(x, to = c(0, 1)) 43.007 53.5645 62.76592 61.1790 69.0295
+                                      expr    min      lq     mean  median    uq
+     normalise_catch(x, method = "MinMax") 17.104 24.1675 34.92895 26.7885 30.08
+          scales::rescale(x, to = c(0, 1)) 34.869 52.4505 60.74711 58.2100 63.63
           max neval
-     7084.104  1000
-      198.629  1000
+     6156.670  1000
+      204.801  1000
 
 ## Available data
 

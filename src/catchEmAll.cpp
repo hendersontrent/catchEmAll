@@ -881,3 +881,41 @@ NumericVector robustsigmoid_scaler(NumericVector x) {
 
   return x_new;
 }
+
+// This function rescales a vector of numerical values by subtracting the mean using a C++
+// implementation for efficiency.
+//'
+//' @param x a numeric vector, preferably of feature values computed by other catchEmAll package functions
+//' @return x a numeric vector, rescaled into x-mean range
+//' @author Trent Henderson
+//' @export
+//' @examples
+//' x <- 1 + 0.5 * 1:1000 + arima.sim(list(ma = 0.5), n = 1000)
+//' outs <- mean_scaler(x)
+//'
+// [[Rcpp::export]]
+NumericVector mean_scaler(NumericVector x) {
+
+  int n = x.size();
+  double sum = 0.0;
+  double mean = 0.0;
+  NumericVector x_new(n);
+
+  // Calculate sum
+
+  for(int i = 0; i < n; ++i){
+    sum += x[i];
+  }
+
+  // Calculate mean
+
+  mean = sum/n;
+
+  // Final scaling
+
+  for(int i = 0; i < n; ++i){
+    x_new[i] = x[i]-mean;
+  }
+
+  return x_new;
+}

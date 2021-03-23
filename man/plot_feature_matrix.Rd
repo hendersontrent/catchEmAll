@@ -2,13 +2,13 @@
 % Please edit documentation in R/plot_feature_matrix.R
 \name{plot_feature_matrix}
 \alias{plot_feature_matrix}
-\title{Produce a heatmap matrix of the calculated feature value vectors and each unique time series. Performs automatic hierarchical clustering.}
+\title{Produce a heatmap matrix of the calculated feature value vectors and each unique time series with automatic hierarchical clustering.}
 \usage{
 plot_feature_matrix(
   data,
   is_normalised = FALSE,
   id_var = NULL,
-  method = c("z-score", "Sigmoid", "RobustSigmoid", "MinMax")
+  method = c("z-score", "Sigmoid", "RobustSigmoid", "MinMax", "MeanSubtract")
 )
 }
 \arguments{
@@ -22,7 +22,7 @@ plot_feature_matrix(
 an object of class ggplot that contains the heatmap graphic
 }
 \description{
-Produce a heatmap matrix of the calculated feature value vectors and each unique time series. Performs automatic hierarchical clustering.
+Produce a heatmap matrix of the calculated feature value vectors and each unique time series with automatic hierarchical clustering.
 }
 \examples{
 \dontrun{
@@ -33,7 +33,7 @@ outs1['group'] <- 'Group 1'
 outs2 <- catch22_all(data2)
 outs2['group'] <- 'Group 2'
 outs <- rbind(outs1, outs2)
-plot_feature_matrix(outs, is_normalised = FALSE, id_var = "group", method = c("z-score", "Sigmoid", "RobustSigmoid", "MinMax"))
+plot_feature_matrix(outs, is_normalised = FALSE, id_var = "group", method = "MinMax")
 }
 
 }

@@ -468,6 +468,17 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// mean_scaler
+NumericVector mean_scaler(NumericVector x);
+RcppExport SEXP _catchEmAll_mean_scaler(SEXP xSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< NumericVector >::type x(xSEXP);
+    rcpp_result_gen = Rcpp::wrap(mean_scaler(x));
+    return rcpp_result_gen;
+END_RCPP
+}
 
 static const R_CallMethodDef CallEntries[] = {
     {"_catchEmAll_DN_HistogramMode_5", (DL_FUNC) &_catchEmAll_DN_HistogramMode_5, 1},
@@ -512,6 +523,7 @@ static const R_CallMethodDef CallEntries[] = {
     {"_catchEmAll_zscore_scaler", (DL_FUNC) &_catchEmAll_zscore_scaler, 1},
     {"_catchEmAll_sigmoid_scaler", (DL_FUNC) &_catchEmAll_sigmoid_scaler, 1},
     {"_catchEmAll_robustsigmoid_scaler", (DL_FUNC) &_catchEmAll_robustsigmoid_scaler, 1},
+    {"_catchEmAll_mean_scaler", (DL_FUNC) &_catchEmAll_mean_scaler, 1},
     {NULL, NULL, 0}
 };
 

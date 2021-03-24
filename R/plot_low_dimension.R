@@ -111,6 +111,23 @@ plot_low_dimension(outs, is_normalised = FALSE, id_var = "group", method = "Robu
   pca_fit <- dat %>%
     prcomp(scale = FALSE)
 
+  # Retrieve eigenvalues and tidy up variance explained for plotting
+
+  eigens <- pca_fit %>%
+    broom:::tidy(matrix = "eigenvalues") %>%
+    dplyr::filter(PC %in% c(1,2)) %>% # Filter to just the 2 going on the plot
+    dplyr::select(c(PC, percent)) %>%
+    dplyr::mutate(percent = round(percent*100), digits = 1)
+
+  eigen_pc1 <- eigens %>%
+    dplyr::filter(PC == 1)
+
+  eigen_pc2 <- eigens %>%
+    dplyr::filter(PC == 2)
+
+  eigen_pc1 <- apste0(eigen_pc1$percent,"%")
+  eigen_pc2 <- apste0(eigen_pc2$percent,"%")
+
   #------------- Output & graphic -----------------
 
   if(plot){
@@ -119,14 +136,16 @@ plot_low_dimension(outs, is_normalised = FALSE, id_var = "group", method = "Robu
       broom::augment(dat) %>%
       ggplot2::ggplot(ggplot2::aes(x = .fittedPC1, y = .fittedPC2)) +
       ggplot2::geom_point(size = 1.5, colour = "black") +
-      ggplot2::labs(title = "Low-dimension representation of each time-series' feature vectors",
-                    x = "PC 1",
-                    y = "PC2") +
+      ggplot2::labs(title = "Low-dimension representation of each time-series",
+                    subtitle = "Each point is a time series whose normalised feature vectors were entered into a PCA.",
+                    x = paste0("PC 1","(",eigen_pc1,")"),
+                    y = paste0("PC 2","(",eigen_pc2,")")) +
       ggplot2::theme_bw() +
       ggplot2::theme(panel.grid.minor = ggplot2::element_blank())
 
-    return(p)
   } else{
-    return(pca_fit)
+    p <- pca_fit %>%
+      broom::augment(dat)
   }
+  return(p)
 }

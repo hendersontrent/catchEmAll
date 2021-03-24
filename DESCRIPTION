@@ -1,8 +1,8 @@
 Package: catchEmAll
 Type: Package
-Title: CAnonical Time-series CHaracteristics for multiple domains
-Version: 0.1.2
-Date: 2021-08-23
+Title: Calculation and visualisation of CAnonical Time-series CHaracteristics for multiple domains
+Version: 0.1.3
+Date: 2021-08-24
 Authors@R: c(
   person("Trent", "Henderson", email = "then6675@uni.sydney.edu.au", role = c("cre", "aut"))
   )
@@ -28,7 +28,8 @@ Imports:
     magrittr,
     tidyr,
     reshape2,
-    tibble
+    tibble,
+    broom
 LinkingTo: 
     Rcpp,
     RcppGSL

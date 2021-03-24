@@ -1,17 +1,17 @@
-#' Produce a heatmap matrix of the calculated feature value vectors and each unique time series with automatic hierarchical clustering.
+#' Produce a principal components analysis (PCA) on normalised feature values and render a scatterplot
 #' @import dplyr
 #' @import ggplot2
 #' @import tibble
 #' @importFrom magrittr %>%
-#' @importFrom tidyr pivot_wider
-#' @importFrom tidyr pivot_longer
 #' @importFrom tidyr drop_na
-#' @importFrom reshape2 melt
+#' @importFrom broom augment
+#' @importFrom broom tidy
 #' @param data a dataframe with at least 2 columns called 'names' and 'values'
 #' @param is_normalised a Boolean as to whether the input feature values have already been scaled. Defaults to FALSE
 #' @param id_var a string specifying the ID variable to group data on (if one exists). Defaults to NULL
 #' @param method a rescaling/normalising method to apply. Defaults to 'RobustSigmoid'
-#' @return an object of class ggplot that contains the heatmap graphic
+#' @param plot a Boolean as to whether a bivariate plot should be returned or the calculation dataframe. Defaults to TRUE
+#' @return if plot = TRUE, returns an object of class ggplot, if plot = FALSE returns an object of class dataframe with PCA results
 #' @author Trent Henderson
 #' @seealso [catchEmAll::normalise_catch()]
 #' @export
@@ -24,11 +24,11 @@
 #' outs2 <- catch22_all(data2)
 #' outs2['group'] <- 'Group 2'
 #' outs <- rbind(outs1, outs2)
-#' plot_feature_matrix(outs, is_normalised = FALSE, id_var = "group", method = "RobustSigmoid")
+#' plot_low_dimension(outs, is_normalised = FALSE, id_var = "group", method = "RobustSigmoid", plot = TRUE)
 #' }
 #'
 
-plot_feature_matrix <- function(data, is_normalised = FALSE, id_var = NULL, method = c("z-score", "Sigmoid", "RobustSigmoid", "MinMax", "MeanSubtract")){
+plot_low_dimension <- function(data, is_normalised = FALSE, id_var = NULL, method = "RobustSigmoid", plot = TRUE){
 
   # Make RobustSigmoid the default
 
@@ -99,13 +99,15 @@ plot_feature_matrix <- function(data, is_normalised = FALSE, id_var = NULL, meth
     }
   }
 
-  #------------- Hierarchical clustering ----------
+  #------------- Perform PCA ----------------------
+
+  # Produce matrix
 
   dat <- normed %>%
     tidyr::pivot_wider(id_cols = id, names_from = names, values_from = values) %>%
     tibble::column_to_rownames(var = "id")
 
-  # Check amount of NA in each feature vector to tell which ones to drop prior to clustering
+  # Check amount of NA in each feature vector to tell which ones to drop prior to PCA
 
   check_na_vector <- dat %>%
     tidyr::pivot_longer(everything(), names_to = "names", values_to = "values") %>%
@@ -126,36 +128,53 @@ plot_feature_matrix <- function(data, is_normalised = FALSE, id_var = NULL, meth
     tidyr::drop_na()
 
   if(ncol(dat_filtered) != ncol(dat)){
-    message("Dropped feature vectors with >=30% NAs to enable clustering.")
+    message("Dropped feature vectors with >=30% NAs to enable PCA")
   }
 
   if(nrow(dat_filtered) != nrow(dat)){
-    message("Dropped rows with NAs to enable clustering.")
+    message("Dropped rows with NAs to enable PCA.")
   }
 
-  row.order <- hclust(dist(dat_filtered))$order # Hierarchical cluster on rows
-  col.order <- hclust(dist(t(dat_filtered)))$order # Hierarchical cluster on columns
-  dat_new <- dat_filtered[row.order, col.order] # Re-order matrix by cluster outputs
-  cluster_out <- reshape2::melt(as.matrix(dat_new)) %>% # Turn into dataframe
-    dplyr::rename(id = Var1,
-                  names = Var2)
+  # PCA calculation
 
-  #------------- Draw graphic ---------------------
+  pca_fit <- dat_filtered %>%
+    prcomp(scale = FALSE)
 
-  message("Rendering graphic...")
+  # Retrieve eigenvalues and tidy up variance explained for plotting
 
-  p <- cluster_out %>%
-    ggplot2::ggplot(ggplot2::aes(x = names, y = id, fill = value)) +
-    ggplot2::geom_tile() +
-    ggplot2::labs(title = "Heatmap of hierarchically-clustered scaled features and individual time series",
-                  x = "Feature",
-                  y = "Time Series",
-                  fill = paste0(method," scaled feature value")) +
-    ggplot2::theme_bw() +
-    ggplot2::scale_fill_distiller(palette = "RdYlBu") +
-    ggplot2::theme(legend.position = "bottom",
-                   axis.text.y = ggplot2::element_blank(),
-                   axis.text.x = ggplot2::element_text(angle = 90, hjust = 1))
+  eigens <- pca_fit %>%
+    broom::tidy(matrix = "eigenvalues") %>%
+    dplyr::filter(PC %in% c(1,2)) %>% # Filter to just the 2 going on the plot
+    dplyr::select(c(PC, percent)) %>%
+    dplyr::mutate(percent = round(percent*100), digits = 1)
 
+  eigen_pc1 <- eigens %>%
+    dplyr::filter(PC == 1)
+
+  eigen_pc2 <- eigens %>%
+    dplyr::filter(PC == 2)
+
+  eigen_pc1 <- paste0(eigen_pc1$percent,"%")
+  eigen_pc2 <- paste0(eigen_pc2$percent,"%")
+
+  #------------- Output & graphic -----------------
+
+  if(isTRUE(plot)){
+
+    p <- pca_fit %>%
+      broom::augment(dat_filtered) %>%
+      ggplot2::ggplot(ggplot2::aes(x = .fittedPC1, y = .fittedPC2)) +
+      ggplot2::geom_point(size = 1.5, colour = "black") +
+      ggplot2::labs(title = "Low-dimension representation of time-series",
+                    subtitle = "Each point is a time-series whose normalised feature vectors were entered into a PCA.",
+                    x = paste0("PC 1"," (",eigen_pc1,")"),
+                    y = paste0("PC 2"," (",eigen_pc2,")")) +
+      ggplot2::theme_bw() +
+      ggplot2::theme(panel.grid.minor = ggplot2::element_blank())
+
+  } else{
+    p <- pca_fit %>%
+      broom::augment(dat_filtered)
+  }
   return(p)
 }

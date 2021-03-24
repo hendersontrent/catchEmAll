@@ -1,17 +1,23 @@
 #' Scale each value into a user-specified range for visualisation and analysis
 #' @param x a vector of scalar values
-#' @param method a rescaling/normalising method to apply
+#' @param method a rescaling/normalising method to apply. Defaults to 'RobustSigmoid'
 #' @return a vector of scalar values normalised into the selected range
 #' @author Trent Henderson
 #' @export
 #' @examples
 #' data <- 1 + 0.5 * 1:1000 + arima.sim(list(ma = 0.5), n = 1000)
-#' outs <- normalise_catch(data, method = "MinMax")
+#' outs <- normalise_catch(data, method = "RobustSigmoid")
 #'
 
 normalise_catch <- function(x, method = c("z-score", "Sigmoid", "RobustSigmoid", "MinMax", "MeanSubtract")){
 
-  method <- match.arg(method)
+  # Make RobustSigmoid the default
+
+  if(missing(method)){
+    method <- "RobustSigmoid"
+  } else{
+    method <- match.arg(method)
+  }
 
   #--------- Error catches ---------
 

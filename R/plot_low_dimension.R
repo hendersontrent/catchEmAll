@@ -125,8 +125,8 @@ plot_low_dimension(outs, is_normalised = FALSE, id_var = "group", method = "Robu
   eigen_pc2 <- eigens %>%
     dplyr::filter(PC == 2)
 
-  eigen_pc1 <- apste0(eigen_pc1$percent,"%")
-  eigen_pc2 <- apste0(eigen_pc2$percent,"%")
+  eigen_pc1 <- paste0(eigen_pc1$percent,"%")
+  eigen_pc2 <- paste0(eigen_pc2$percent,"%")
 
   #------------- Output & graphic -----------------
 

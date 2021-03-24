@@ -2,13 +2,14 @@
 % Please edit documentation in R/plot_low_dimension.R
 \name{plot_low_dimension}
 \alias{plot_low_dimension}
-\title{Produce a principal components analysis (PCA) on normalised feature values and render a scatterplot}
+\title{Produce a principal components analysis (PCA) on normalised feature values and render a bivariate plot to visualise it}
 \usage{
 plot_low_dimension(
   data,
   is_normalised = FALSE,
   id_var = NULL,
-  method = "RobustSigmoid",
+  group_var = NULL,
+  method = c("z-score", "Sigmoid", "RobustSigmoid", "MinMax", "MeanSubtract"),
   plot = TRUE
 )
 }
@@ -19,6 +20,8 @@ plot_low_dimension(
 
 \item{id_var}{a string specifying the ID variable to group data on (if one exists). Defaults to NULL}
 
+\item{group_var}{a string specifying the grouping variable that the data aggregates to. Defaults to NULL}
+
 \item{method}{a rescaling/normalising method to apply. Defaults to 'RobustSigmoid'}
 
 \item{plot}{a Boolean as to whether a bivariate plot should be returned or the calculation dataframe. Defaults to TRUE}
@@ -27,7 +30,7 @@ plot_low_dimension(
 if plot = TRUE, returns an object of class ggplot, if plot = FALSE returns an object of class dataframe with PCA results
 }
 \description{
-Produce a principal components analysis (PCA) on normalised feature values and render a scatterplot
+Produce a principal components analysis (PCA) on normalised feature values and render a bivariate plot to visualise it
 }
 \examples{
 \dontrun{
@@ -38,7 +41,7 @@ outs1['group'] <- 'Group 1'
 outs2 <- catch22_all(data2)
 outs2['group'] <- 'Group 2'
 outs <- rbind(outs1, outs2)
-plot_low_dimension(outs, is_normalised = FALSE, id_var = "group", method = "RobustSigmoid", plot = TRUE)
+plot_low_dimension(outs, is_normalised = FALSE, id_var = "group", group = NULL, method = "RobustSigmoid", plot = TRUE)
 }
 
 }

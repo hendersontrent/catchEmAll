@@ -10,6 +10,7 @@
 #' @param data a dataframe with at least 2 columns called 'names' and 'values'
 #' @param is_normalised a Boolean as to whether the input feature values have already been scaled. Defaults to FALSE
 #' @param id_var a string specifying the ID variable to group data on (if one exists). Defaults to NULL
+#' @param method a rescaling/normalising method to apply. Defaults to 'RobustSigmoid'
 #' @return an object of class ggplot that contains the heatmap graphic
 #' @author Trent Henderson
 #' @seealso [catchEmAll::normalise_catch()]
@@ -23,13 +24,19 @@
 #' outs2 <- catch22_all(data2)
 #' outs2['group'] <- 'Group 2'
 #' outs <- rbind(outs1, outs2)
-#' plot_feature_matrix(outs, is_normalised = FALSE, id_var = "group", method = "MinMax")
+#' plot_feature_matrix(outs, is_normalised = FALSE, id_var = "group", method = "RobustSigmoid")
 #' }
 #'
 
 plot_feature_matrix <- function(data, is_normalised = FALSE, id_var = NULL, method = c("z-score", "Sigmoid", "RobustSigmoid", "MinMax", "MeanSubtract")){
 
-  method <- match.arg(method)
+  # Make RobustSigmoid the default
+
+  if(missing(method)){
+    method <- "RobustSigmoid"
+  } else{
+    method <- match.arg(method)
+  }
 
   expected_cols_1 <- "names"
   expected_cols_2 <- "values"

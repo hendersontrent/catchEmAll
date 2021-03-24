@@ -5,6 +5,7 @@
 #' @importFrom magrittr %>%
 #' @importFrom tidyr drop_na
 #' @importFrom broom augment
+#' @importFrom broom tidy
 #' @param data a dataframe with at least 2 columns called 'names' and 'values'
 #' @param is_normalised a Boolean as to whether the input feature values have already been scaled. Defaults to FALSE
 #' @param id_var a string specifying the ID variable to group data on (if one exists). Defaults to NULL
@@ -83,7 +84,7 @@ plot_low_dimension <- function(data, is_normalised = FALSE, id_var = NULL, metho
   #------------- Normalise data -------------------
 
   if(is_normalised){
-    normed1 <- data_id
+    normed <- data_id
   } else{
     normed <- data_id %>%
       dplyr::filter(!is.nan(values)) %>%
@@ -173,7 +174,7 @@ plot_low_dimension <- function(data, is_normalised = FALSE, id_var = NULL, metho
 
   } else{
     p <- pca_fit %>%
-      broom::augment(dat)
+      broom::augment(dat_filtered)
   }
   return(p)
 }

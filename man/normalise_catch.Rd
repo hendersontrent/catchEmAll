@@ -12,7 +12,7 @@ normalise_catch(
 \arguments{
 \item{x}{a vector of scalar values}
 
-\item{method}{a rescaling/normalising method to apply}
+\item{method}{a rescaling/normalising method to apply. Defaults to 'RobustSigmoid'}
 }
 \value{
 a vector of scalar values normalised into the selected range
@@ -22,7 +22,7 @@ Scale each value into a user-specified range for visualisation and analysis
 }
 \examples{
 data <- 1 + 0.5 * 1:1000 + arima.sim(list(ma = 0.5), n = 1000)
-outs <- normalise_catch(data, method = "MinMax")
+outs <- normalise_catch(data, method = "RobustSigmoid")
 
 }
 \author{

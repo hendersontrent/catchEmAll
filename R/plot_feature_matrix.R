@@ -84,7 +84,7 @@ plot_feature_matrix <- function(data, is_normalised = FALSE, id_var = NULL, meth
   #------------- Normalise data -------------------
 
   if(is_normalised){
-    normed1 <- data_id
+    normed <- data_id
   } else{
     normed <- data_id %>%
       dplyr::filter(!is.nan(values)) %>%

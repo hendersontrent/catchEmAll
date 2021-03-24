@@ -45,3 +45,8 @@ scale_test_sigmoid <- test_scaler(method = "Sigmoid")
 scale_test_rsigmoid <- test_scaler(method = "RobustSigmoid")
 scale_test_minmax <- test_scaler(method = "MinMax")
 scale_test_meansub <- test_scaler(method = "MeanSubtract")
+
+# Test 4: PCA
+
+plot_low_dimension(trial, is_normalised = TRUE, id_var = "unique_id", plot = TRUE)
+plot_low_dimension(trial, is_normalised = TRUE, id_var = "unique_id", plot = FALSE)

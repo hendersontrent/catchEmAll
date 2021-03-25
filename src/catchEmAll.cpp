@@ -135,6 +135,8 @@ NumericVector CO_Embed2_Basic_tau_incircle_1(NumericVector x) {
 };
 */
 
+//' Function to calculate a statistical feature
+//'
 //' @param x a numerical time-series input vector
 //' @return scalar value that denotes the calculated time-series statistic
 //' @author Carl H. Lubba
@@ -149,6 +151,8 @@ NumericVector DN_HistogramMode_5(NumericVector x)
   return R_wrapper_double(x, &DN_HistogramMode_5, 1);
 }
 
+//' Function to calculate a statistical feature
+//'
 //' @param x a numerical time-series input vector
 //' @return scalar value that denotes the calculated time-series statistic
 //' @author Carl H. Lubba
@@ -163,6 +167,8 @@ NumericVector DN_HistogramMode_10(NumericVector x)
   return R_wrapper_double(x, &DN_HistogramMode_10, 1);
 }
 
+//' Function to calculate a statistical feature
+//'
 //' @param x a numerical time-series input vector
 //' @return scalar value that denotes the calculated time-series statistic
 //' @author Carl H. Lubba
@@ -177,6 +183,8 @@ NumericVector CO_f1ecac(NumericVector x)
   return R_wrapper_int(x, &CO_f1ecac, 1);
 }
 
+//' Function to calculate a statistical feature
+//'
 //' @param x a numerical time-series input vector
 //' @return scalar value that denotes the calculated time-series statistic
 //' @author Carl H. Lubba
@@ -191,6 +199,8 @@ NumericVector CO_FirstMin_ac(NumericVector x)
   return R_wrapper_int(x, &CO_FirstMin_ac, 1);
 }
 
+//' Function to calculate a statistical feature
+//'
 //' @param x a numerical time-series input vector
 //' @return scalar value that denotes the calculated time-series statistic
 //' @author Carl H. Lubba
@@ -205,6 +215,8 @@ NumericVector CO_HistogramAMI_even_2_5(NumericVector x)
   return R_wrapper_double(x, &CO_HistogramAMI_even_2_5, 1);
 }
 
+//' Function to calculate a statistical feature
+//'
 //' @param x a numerical time-series input vector
 //' @return scalar value that denotes the calculated time-series statistic
 //' @author Carl H. Lubba
@@ -219,6 +231,8 @@ NumericVector CO_trev_1_num(NumericVector x)
   return R_wrapper_double(x, &CO_trev_1_num, 1);
 }
 
+//' Function to calculate a statistical feature
+//'
 //' @param x a numerical time-series input vector
 //' @return scalar value that denotes the calculated time-series statistic
 //' @author Carl H. Lubba
@@ -233,6 +247,8 @@ NumericVector MD_hrv_classic_pnn40(NumericVector x)
   return R_wrapper_double(x, &MD_hrv_classic_pnn40, 1);
 }
 
+//' Function to calculate a statistical feature
+//'
 //' @param x a numerical time-series input vector
 //' @return scalar value that denotes the calculated time-series statistic
 //' @author Carl H. Lubba
@@ -247,6 +263,8 @@ NumericVector SB_BinaryStats_mean_longstretch1(NumericVector x)
   return R_wrapper_double(x, &SB_BinaryStats_mean_longstretch1, 1);
 }
 
+//' Function to calculate a statistical feature
+//'
 //' @param x a numerical time-series input vector
 //' @return scalar value that denotes the calculated time-series statistic
 //' @author Carl H. Lubba
@@ -261,6 +279,8 @@ NumericVector SB_TransitionMatrix_3ac_sumdiagcov(NumericVector x)
   return R_wrapper_double(x, &SB_TransitionMatrix_3ac_sumdiagcov, 1);
 }
 
+//' Function to calculate a statistical feature
+//'
 //' @param x a numerical time-series input vector
 //' @return scalar value that denotes the calculated time-series statistic
 //' @author Carl H. Lubba
@@ -275,6 +295,8 @@ NumericVector PD_PeriodicityWang_th0_01(NumericVector x)
   return R_wrapper_int(x, &PD_PeriodicityWang_th0_01, 1);
 }
 
+//' Function to calculate a statistical feature
+//'
 //' @param x a numerical time-series input vector
 //' @return scalar value that denotes the calculated time-series statistic
 //' @author Carl H. Lubba
@@ -289,6 +311,8 @@ NumericVector CO_Embed2_Dist_tau_d_expfit_meandiff(NumericVector x)
   return R_wrapper_double(x, &CO_Embed2_Dist_tau_d_expfit_meandiff, 1);
 }
 
+//' Function to calculate a statistical feature
+//'
 //' @param x a numerical time-series input vector
 //' @return scalar value that denotes the calculated time-series statistic
 //' @author Carl H. Lubba
@@ -303,6 +327,8 @@ NumericVector IN_AutoMutualInfoStats_40_gaussian_fmmi(NumericVector x)
   return R_wrapper_double(x, &IN_AutoMutualInfoStats_40_gaussian_fmmi, 1);
 }
 
+//' Function to calculate a statistical feature
+//'
 //' @param x a numerical time-series input vector
 //' @return scalar value that denotes the calculated time-series statistic
 //' @author Carl H. Lubba
@@ -317,6 +343,8 @@ NumericVector FC_LocalSimple_mean1_tauresrat(NumericVector x)
   return R_wrapper_double(x, &FC_LocalSimple_mean1_tauresrat, 1);
 }
 
+//' Function to calculate a statistical feature
+//'
 //' @param x a numerical time-series input vector
 //' @return scalar value that denotes the calculated time-series statistic
 //' @author Carl H. Lubba
@@ -331,6 +359,8 @@ NumericVector DN_OutlierInclude_p_001_mdrmd(NumericVector x)
   return R_wrapper_double(x, &DN_OutlierInclude_p_001_mdrmd, 1);
 }
 
+//' Function to calculate a statistical feature
+//'
 //' @param x a numerical time-series input vector
 //' @return scalar value that denotes the calculated time-series statistic
 //' @author Carl H. Lubba
@@ -345,6 +375,8 @@ NumericVector DN_OutlierInclude_n_001_mdrmd(NumericVector x)
   return R_wrapper_double(x, &DN_OutlierInclude_n_001_mdrmd, 1);
 }
 
+//' Function to calculate a statistical feature
+//'
 //' @param x a numerical time-series input vector
 //' @return scalar value that denotes the calculated time-series statistic
 //' @author Carl H. Lubba
@@ -359,6 +391,8 @@ NumericVector SP_Summaries_welch_rect_area_5_1(NumericVector x)
   return R_wrapper_double(x, &SP_Summaries_welch_rect_area_5_1, 1);
 }
 
+//' Function to calculate a statistical feature
+//'
 //' @param x a numerical time-series input vector
 //' @return scalar value that denotes the calculated time-series statistic
 //' @author Carl H. Lubba
@@ -373,6 +407,8 @@ NumericVector SB_BinaryStats_diff_longstretch0(NumericVector x)
   return R_wrapper_double(x, &SB_BinaryStats_diff_longstretch0, 1);
 }
 
+//' Function to calculate a statistical feature
+//'
 //' @param x a numerical time-series input vector
 //' @return scalar value that denotes the calculated time-series statistic
 //' @author Carl H. Lubba
@@ -387,6 +423,8 @@ NumericVector SB_MotifThree_quantile_hh(NumericVector x)
   return R_wrapper_double(x, &SB_MotifThree_quantile_hh, 1);
 }
 
+//' Function to calculate a statistical feature
+//'
 //' @param x a numerical time-series input vector
 //' @return scalar value that denotes the calculated time-series statistic
 //' @author Carl H. Lubba
@@ -401,6 +439,8 @@ NumericVector SC_FluctAnal_2_rsrangefit_50_1_logi_prop_r1(NumericVector x)
   return R_wrapper_double(x, &SC_FluctAnal_2_rsrangefit_50_1_logi_prop_r1, 1);
 }
 
+//' Function to calculate a statistical feature
+//'
 //' @param x a numerical time-series input vector
 //' @return scalar value that denotes the calculated time-series statistic
 //' @author Carl H. Lubba
@@ -415,6 +455,8 @@ NumericVector SC_FluctAnal_2_dfa_50_1_2_logi_prop_r1(NumericVector x)
   return R_wrapper_double(x, &SC_FluctAnal_2_dfa_50_1_2_logi_prop_r1, 1);
 }
 
+//' Function to calculate a statistical feature
+//'
 //' @param x a numerical time-series input vector
 //' @return scalar value that denotes the calculated time-series statistic
 //' @author Carl H. Lubba
@@ -429,6 +471,8 @@ NumericVector SP_Summaries_welch_rect_centroid(NumericVector x)
   return R_wrapper_double(x, &SP_Summaries_welch_rect_centroid, 1);
 }
 
+//' Function to calculate a statistical feature
+//'
 //' @param x a numerical time-series input vector
 //' @return scalar value that denotes the calculated time-series statistic
 //' @author Carl H. Lubba
@@ -449,6 +493,8 @@ NumericVector FC_LocalSimple_mean3_stderr(NumericVector x)
 // -------------
 
 
+//' Function to calculate a statistical feature
+//'
 //' @param x a numerical time-series input vector
 //' @return scalar value that denotes the calculated time-series statistic
 //' @author Trent Henderson
@@ -463,6 +509,8 @@ NumericVector SY_DriftingMean50_min(NumericVector x)
   return R_wrapper_double(x, &SY_DriftingMean50_min, 1);
 }
 
+//' Function to calculate a statistical feature
+//'
 //' @param x a numerical time-series input vector
 //' @return scalar value that denotes the calculated time-series statistic
 //' @author Trent Henderson
@@ -477,6 +525,8 @@ NumericVector CO_AddNoise_1_even_10_ami_at_10(NumericVector x)
   return R_wrapper_double(x, &CO_AddNoise_1_even_10_ami_at_10, 1);
 }
 
+//' Function to calculate a statistical feature
+//'
 //' @param x a numerical time-series input vector
 //' @return scalar value that denotes the calculated time-series statistic
 //' @author Trent Henderson
@@ -491,6 +541,8 @@ NumericVector AC_nl_036(NumericVector x)
   return R_wrapper_double(x, &AC_nl_036, 1);
 }
 
+//' Function to calculate a statistical feature
+//'
 //' @param x a numerical time-series input vector
 //' @return scalar value that denotes the calculated time-series statistic
 //' @author Trent Henderson
@@ -505,6 +557,8 @@ NumericVector AC_nl_035(NumericVector x)
   return R_wrapper_double(x, &AC_nl_035, 1);
 }
 
+//' Function to calculate a statistical feature
+//'
 //' @param x a numerical time-series input vector
 //' @return scalar value that denotes the calculated time-series statistic
 //' @author Trent Henderson
@@ -519,6 +573,8 @@ NumericVector AC_nl_112(NumericVector x)
   return R_wrapper_double(x, &AC_nl_112, 1);
 }
 
+//' Function to calculate a statistical feature
+//'
 //' @param x a numerical time-series input vector
 //' @return scalar value that denotes the calculated time-series statistic
 //' @author Trent Henderson
@@ -533,6 +589,8 @@ NumericVector IN_AutoMutualInfoStats_diff_20_gaussian_ami8(NumericVector x)
   return R_wrapper_double(x, &IN_AutoMutualInfoStats_diff_20_gaussian_ami8, 1);
 }
 
+//' Function to calculate a statistical feature
+//'
 //' @param x a numerical time-series input vector
 //' @return scalar value that denotes the calculated time-series statistic
 //' @author Trent Henderson
@@ -547,6 +605,8 @@ NumericVector CO_HistogramAMI_even_10_3(NumericVector x)
   return R_wrapper_double(x, &CO_HistogramAMI_even_10_3, 1);
 }
 
+//' Function to calculate a statistical feature
+//'
 //' @param x a numerical time-series input vector
 //' @return scalar value that denotes the calculated time-series statistic
 //' @author Trent Henderson
@@ -561,6 +621,8 @@ NumericVector CO_HistogramAMI_even_2_3(NumericVector x)
   return R_wrapper_double(x, &CO_HistogramAMI_even_2_3, 1);
 }
 
+//' Function to calculate a statistical feature
+//'
 //' @param x a numerical time-series input vector
 //' @return scalar value that denotes the calculated time-series statistic
 //' @author Trent Henderson
@@ -575,6 +637,8 @@ NumericVector CO_TranslateShape_circle_35_pts_statav4_m(NumericVector x)
   return R_wrapper_double(x, &CO_TranslateShape_circle_35_pts_statav4_m, 1);
 }
 
+//' Function to calculate a statistical feature
+//'
 //' @param x a numerical time-series input vector
 //' @return scalar value that denotes the calculated time-series statistic
 //' @author Trent Henderson
@@ -589,6 +653,8 @@ NumericVector CO_TranslateShape_circle_35_pts_std(NumericVector x)
   return R_wrapper_double(x, &CO_TranslateShape_circle_35_pts_std, 1);
 }
 
+//' Function to calculate a statistical feature
+//'
 //' @param x a numerical time-series input vector
 //' @return scalar value that denotes the calculated time-series statistic
 //' @author Trent Henderson
@@ -603,6 +669,8 @@ NumericVector DN_RemovePoints_absclose_05_ac2rat(NumericVector x)
   return R_wrapper_double(x, &DN_RemovePoints_absclose_05_ac2rat, 1);
 }
 
+//' Function to calculate a statistical feature
+//'
 //' @param x a numerical time-series input vector
 //' @return scalar value that denotes the calculated time-series statistic
 //' @author Trent Henderson
@@ -617,6 +685,8 @@ NumericVector FC_LoopLocalSimple_mean_stderr_chn(NumericVector x)
   return R_wrapper_double(x, &FC_LoopLocalSimple_mean_stderr_chn, 1);
 }
 
+//' Function to calculate a statistical feature
+//'
 //' @param x a numerical time-series input vector
 //' @return scalar value that denotes the calculated time-series statistic
 //' @author Trent Henderson
@@ -631,6 +701,8 @@ NumericVector PH_Walker_momentum_5_w_momentumzcross(NumericVector x)
   return R_wrapper_double(x, &PH_Walker_momentum_5_w_momentumzcross, 1);
 }
 
+//' Function to calculate a statistical feature
+//'
 //' @param x a numerical time-series input vector
 //' @return scalar value that denotes the calculated time-series statistic
 //' @author Trent Henderson
@@ -645,6 +717,8 @@ NumericVector PH_Walker_biasprop_05_01_sw_meanabsdiff(NumericVector x)
   return R_wrapper_double(x, &PH_Walker_biasprop_05_01_sw_meanabsdiff, 1);
 }
 
+//' Function to calculate a statistical feature
+//'
 //' @param x a numerical time-series input vector
 //' @return scalar value that denotes the calculated time-series statistic
 //' @author Trent Henderson
@@ -659,6 +733,8 @@ NumericVector ST_LocalExtrema_n100_diffmaxabsmin(NumericVector x)
   return R_wrapper_double(x, &ST_LocalExtrema_n100_diffmaxabsmin, 1);
 }
 
+//' Function to calculate a statistical feature
+//'
 //' @param x a numerical time-series input vector
 //' @return scalar value that denotes the calculated time-series statistic
 //' @author Trent Henderson
@@ -678,8 +754,8 @@ NumericVector SC_FluctAnal_2_dfa_50_2_logi_r2_se2(NumericVector x)
 // Additional functions
 // --------------------
 
-// This function rescales a vector of numerical values into the unit interval
-// [0,1] using a C++ implementation for efficiency.
+//' This function rescales a vector of numerical values into the unit interval
+//' [0,1] using a C++ implementation for efficiency.
 //'
 //' @param x a numeric vector, preferably of feature values computed by other catchEmAll package functions
 //' @return x a numeric vector, rescaled into the [0,1] unit interval
@@ -723,8 +799,8 @@ NumericVector minmax_scaler(NumericVector x) {
   return x_new;
 }
 
-// This function rescales a vector of numerical values into z-scores using a C++
-// implementation for efficiency.
+//' This function rescales a vector of numerical values into z-scores using a C++
+//' implementation for efficiency.
 //'
 //' @param x a numeric vector, preferably of feature values computed by other catchEmAll package functions
 //' @return x a numeric vector, rescaled into z-score range
@@ -775,8 +851,8 @@ NumericVector zscore_scaler(NumericVector x) {
   return x_new;
 }
 
-// This function rescales a vector of numerical values with a Sigmoidal transformation
-// using a C++ implementation for efficiency.
+//' This function rescales a vector of numerical values with a Sigmoidal transformation
+//' using a C++ implementation for efficiency.
 //'
 //' @param x a numeric vector, preferably of feature values computed by other catchEmAll package functions
 //' @return x a numeric vector, rescaled into Sigmoidal range
@@ -827,8 +903,8 @@ NumericVector sigmoid_scaler(NumericVector x) {
   return x_new;
 }
 
-// This function rescales a vector of numerical values with an outlier-robust
-// Sigmoidal transformation using a C++ implementation for efficiency.
+//' This function rescales a vector of numerical values with an outlier-robust
+//' Sigmoidal transformation using a C++ implementation for efficiency.
 //'
 //' @param x a numeric vector, preferably of feature values computed by other catchEmAll package functions
 //' @return x a numeric vector, rescaled into Sigmoidal range
@@ -882,8 +958,8 @@ NumericVector robustsigmoid_scaler(NumericVector x) {
   return x_new;
 }
 
-// This function rescales a vector of numerical values by subtracting the mean using a C++
-// implementation for efficiency.
+//' This function rescales a vector of numerical values by subtracting the mean using a C++
+//' implementation for efficiency.
 //'
 //' @param x a numeric vector, preferably of feature values computed by other catchEmAll package functions
 //' @return x a numeric vector, rescaled into x-mean range

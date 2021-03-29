@@ -27,10 +27,6 @@ normalise_catch <- function(x, method = c("z-score", "Sigmoid", "RobustSigmoid",
     stop("x should be a vector of numeric values.")
   }
 
-  if(length(x) < 5){
-    stop("length of x is too short to make reliable calculations.")
-  }
-
   # Method selection
 
   the_methods <- c("z-score", "Sigmoid", "RobustSigmoid", "MinMax", "MeanSubtract")

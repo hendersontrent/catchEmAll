@@ -105,29 +105,8 @@ plot_feature_matrix <- function(data, is_normalised = FALSE, id_var = NULL, meth
     tidyr::pivot_wider(id_cols = id, names_from = names, values_from = values) %>%
     tibble::column_to_rownames(var = "id")
 
-  # Check amount of NA in each feature vector to tell which ones to drop prior to clustering
-
-  check_na_vector <- dat %>%
-    tidyr::pivot_longer(everything(), names_to = "names", values_to = "values") %>%
-    dplyr::mutate(category = ifelse(is.na(values), "N/A", "Not N/A")) %>%
-    dplyr::group_by(names, category) %>%
-    dplyr::summarise(counter = n()) %>%
-    dplyr::ungroup() %>%
-    dplyr::group_by(names) %>%
-    dplyr::mutate(props = counter / sum(counter)) %>%
-    dplyr::ungroup() %>%
-    dplyr::filter(category == "Not N/A") %>%
-    dplyr::filter(props >= 0.7)
-
-  filtered_colnames <- unique(check_na_vector$names)
-
   dat_filtered <- dat %>%
-    dplyr::select(c(all_of(filtered_colnames))) %>%
     tidyr::drop_na()
-
-  if(ncol(dat_filtered) != ncol(dat)){
-    message("Dropped feature vectors with >=30% NAs to enable clustering.")
-  }
 
   if(nrow(dat_filtered) != nrow(dat)){
     message("Dropped rows with NAs to enable clustering.")

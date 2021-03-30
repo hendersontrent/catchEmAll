@@ -38,14 +38,6 @@ extern "C" {
 
 using namespace Rcpp;
 
-// Learn more about Rcpp at:
-//
-//   http://www.rcpp.org/
-//   http://adv-r.had.co.nz/Rcpp.html
-//   http://gallery.rcpp.org/
-//
-
-
 // universal wrapper for a function that takes a double array and its length
 // and outputs a scalar double
 NumericVector R_wrapper_double(NumericVector x, double (*f) (const double*, const int), int normalize) {
@@ -775,21 +767,13 @@ NumericVector minmax_scaler(NumericVector x) {
   double new_max = 1.0;
   NumericVector x_new(n);
 
-  // Calculate min
+  // Calculate min and max
 
-  for (int i = 0;  i < n; ++i){
-    if (x[i] < old_min){
-      old_min = x[i];
-    }
-  }
+  NumericVector::iterator it_min = std::min_element(x.begin(), x.end());
+  old_min = *it_min;
 
-  // Calculate max
-
-  for (int i = 0; i < n; ++i){
-    if (x[i] > old_max){
-      old_max = x[i];
-    }
-  }
+  NumericVector::iterator it_max = std::max_element(x.begin(), x.end());
+  old_max = *it_max;
 
   // Rescale into [0,1] range
 
@@ -900,6 +884,10 @@ NumericVector sigmoid_scaler(NumericVector x) {
     x_new[i] = 1/(1+exp(-((x[i]-mean/sd))));
   }
 
+  // Rescale into unit interval
+
+  x_new = minmax_scaler(x_new);
+
   return x_new;
 }
 
@@ -920,6 +908,7 @@ NumericVector sigmoid_scaler(NumericVector x) {
 NumericVector robustsigmoid_scaler(NumericVector x) {
 
   int n = x.size();
+  NumericVector x1 = x;
   double median = 0.0;
   int perc_25 = 0;
   int perc_75 = 0;
@@ -930,11 +919,12 @@ NumericVector robustsigmoid_scaler(NumericVector x) {
 
   // Calculate median
 
-  if(n % 2 != 0){
-    median = x[n/2];
-  }
-  else{
-    median = (x[n/2] + x[(n/2)-1])/2;
+  std::sort(x1.begin(), x1.end());
+
+  if(n % 2 != 0.0){
+    median = x1[n/2];
+  } else{
+    median = (x1[n/2] + x1[n/2-1])/2;
   }
 
   // Q1 and Q3
@@ -954,6 +944,10 @@ NumericVector robustsigmoid_scaler(NumericVector x) {
   for(int i = 0; i < n; ++i){
     x_new[i] = 1/(1+exp(-((x[i]-median)/(iqr/1.35))));
   }
+
+  // Rescale into unit interval
+
+  x_new = minmax_scaler(x_new);
 
   return x_new;
 }
